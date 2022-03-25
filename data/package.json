@@ -1,0 +1,19 @@
+{
+  "name": "data",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "parse:crops": "node ./crops/parser.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "convert-units": "^2.3.4",
+    "csv-parser": "^3.0.0"
+  },
+  "dependencies": {
+    "underscore": "^1.13.2"
+  }
+}
