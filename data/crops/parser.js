@@ -38,6 +38,19 @@ fs.createReadStream(filePath)
             const cropData = {};
             cropData.index = index;
             cropData.name = result.Name;
+            if (has(cropData.name, 'also')) {
+                let nameBefore = cropData.name;
+                nameBefore = replaceall('(', '', nameBefore);
+                nameBefore = replaceall(')', '', nameBefore);
+                cropData.name = nameBefore.substr(0, nameBefore.indexOf('also'));
+                cropData.name = replaceall(',', '', cropData.name);
+                const search = nameBefore.substr( nameBefore.indexOf('also') + 4).trim();
+                const searchParts = search.split(',');
+                cropData.otherNames = [];
+                searchParts.forEach((searchPart) => {
+                    cropData.otherNames.push(searchPart.trim().toLowerCase());
+                });
+            }
 
             cropData.sewInGarden = result.sowInstructions.indexOf('Sow in garden.') !== -1;
             cropData.growDifficulty = (result.sowInstructions.indexOf('Easy to grow.') !== -1) ? 'easy' : 'medium';
