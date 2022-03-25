@@ -3,6 +3,7 @@ const convert = require('convert-units');
 const _ = require('underscore');
 const fs = require('fs');
 const path = require('path');
+const replaceall = require("replaceall");
 const results = [];
 const filePath = path.join(__dirname, '/crops.csv');
 console.log("filePath", filePath);
@@ -11,6 +12,21 @@ const F = '°F';
 const C = '°C';
 function has(haystack, needle) {
     return haystack.indexOf(needle) !== -1;
+}
+function removePlural(str) {
+    str = str.toLowerCase();
+    switch(str){
+        case('potatoes'):
+            return 'potato';
+        case('sweet potatoes'):
+            return 'sweet potato';
+        case('tomatoes'):
+            return 'tomato';
+    }
+    if (str.substr(str.length - 1, 1) === 's'){
+        return str.substr(0, str.length - 1);
+    }
+    return str;
 }
 const cropMap = {};
 fs.createReadStream(filePath)
@@ -148,7 +164,10 @@ fs.createReadStream(filePath)
             if(parts.length !== 2) {
                 // throw new Error("Error Parsing `compatiblePlants`: " + result.compatiblePlants + JSON.stringify(result, null, 3));
             } else {
-                const compatable = parts[1].trim().split(',');
+                let compatableStr = parts[1].trim();
+                compatableStr = replaceall('(', '', compatableStr);
+                compatableStr = replaceall(')', '', compatableStr);
+                const compatable = compatableStr.split(',');
                 cropData.compatableRaw = [];
                 compatable.forEach((entry) => {
                     if (has(entry.toLowerCase(), ' and ')) {
@@ -163,30 +182,70 @@ fs.createReadStream(filePath)
             }
 
 
+            parts = result.avoidInstructions.split(':');
+            if(parts.length !== 2) {
+                // throw new Error("Error Parsing `avoidInstructions`: " + result.compatiblePlants + JSON.stringify(result, null, 3));
+            } else {
+                let avoidStr = parts[1].trim();
+                avoidStr = replaceall('(', '', avoidStr);
+                avoidStr = replaceall(')', '', avoidStr);
+                const avoid = avoidStr.split(',');
+                cropData.avoidRaw = [];
+                avoid.forEach((entry) => {
+                    if (has(entry.toLowerCase(), ' and ')) {
+                        const parts2 = entry.split(' and ');
+                        parts2.forEach((part) => {
+                            cropData.avoidRaw.push(part.toLowerCase().trim());
+                        })
+                    } else {
+                        cropData.avoidRaw.push(entry.toLowerCase().trim());
+                    }
+                })
+            }
+
+
 
             // avoidInstructions
             crops.push(cropData);
             cropMap[cropData.name.toLowerCase()] = cropData;
         });
         crops.forEach((cropData) => {
-            if (!cropData.compatableRaw) {
-                return;
-            }
+            if (cropData.compatableRaw) {
 
-            cropData.compatable = [];
-            cropData._missedCompatables = [];
-            cropData.compatableRaw.forEach((name) => {
-                let foundCompatable = false;
-                crops.forEach((testCropData) => {
-                    if (testCropData.name.toLowerCase().indexOf(name.toLowerCase()) !== -1) {
-                        cropData.compatable.push(testCropData.index);
-                        foundCompatable = true;
+                cropData.compatable = [];
+                cropData._missedCompatables = [];
+                cropData.compatableRaw.forEach((name) => {
+                    let foundCompatable = false;
+                    crops.forEach((testCropData) => {
+                        if (testCropData.name.toLowerCase().indexOf(removePlural(name.toLowerCase())) !== -1) {
+                            cropData.compatable.push(testCropData.index);
+                            foundCompatable = true;
+                        }
+                    });
+                    if (!foundCompatable) {
+                        cropData._missedCompatables.push(name);
                     }
                 });
-                if (!foundCompatable) {
-                    cropData._missedCompatables.push(name);
-                }
-            });
+            }
+
+
+            if (cropData.avoidRaw) {
+
+                cropData.avoid = [];
+                cropData._missedAvoids = [];
+                cropData.avoidRaw.forEach((name) => {
+                    let found = false;
+                    crops.forEach((testCropData) => {
+                        if (testCropData.name.toLowerCase().indexOf(removePlural(name.toLowerCase())) !== -1) {
+                            cropData.avoid.push(testCropData.index);
+                            found = true;
+                        }
+                    });
+                    if (!found) {
+                        cropData._missedAvoids.push(name);
+                    }
+                });
+            }
         })
         console.log(crops);
     });

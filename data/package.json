@@ -11,7 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "convert-units": "^2.3.4",
-    "csv-parser": "^3.0.0"
+    "csv-parser": "^3.0.0",
+    "replaceall": "^0.1.6"
   },
   "dependencies": {
     "underscore": "^1.13.2"
