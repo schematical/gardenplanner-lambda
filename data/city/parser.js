@@ -17,7 +17,9 @@ const locMap = {};
 const report = {
     missingCountries: [],
     missingCity: [],
-    matches: []
+    matches: [],
+    closeMatchCount50: 0,
+    closeMatchCount500: 0
 
 }
 return new Promise((resolve, reject) => {
@@ -95,7 +97,11 @@ return new Promise((resolve, reject) => {
                 });
                 result.nearestMatchDist = minDist / 1000;
                 result.nearestMatch = bestMatch;
-
+                if (result.nearestMatchDist < 50) {
+                    report.closeMatchCount50 += 1;
+                } else if (result.nearestMatchDist < 500) {
+                    report.closeMatchCount500 += 1;
+                }
                 console.log(
                     result.city + ', ' + result.country + ' -> ' +
                     result.nearestMatch.City + ', ' + result.nearestMatch.Country +
@@ -104,7 +110,7 @@ return new Promise((resolve, reject) => {
 
             });
 
-
-
+            console.log("result.closeMatchCount50: ", report.closeMatchCount50);
+            console.log("result.closeMatchCount500: ", report.closeMatchCount500);
         });
 });
