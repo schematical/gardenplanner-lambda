@@ -32,7 +32,33 @@ return new Promise((resolve, reject) => {
             results.forEach((result, index) => {
                 locMap[result.Country.toLowerCase()] = locMap[result.Country.toLowerCase()] || {};
                 locMap[result.Country.toLowerCase()][result.City.toLowerCase()] = result;
+                result.monthMap = {};
+                let month = 1;
+                Object.keys(result).forEach((key, index) => {
 
+                    switch(key) {
+                        case('Jan'):
+                        case('Feb'):
+                        case('Mar'):
+                        case('Apr'):
+                        case('May'):
+                        case('Jun'):
+                        case('Jul'):
+                        case('Aug'):
+                        case('Sep'):
+                        case('Oct'):
+                        case('Nov'):
+                        case('Dec'):
+                            let parts = result[key].split("\n");
+                            result[key] = parts[0];
+                            result[key] = replaceall('(', '', result[key]);
+                            result[key] = replaceall(')', '', result[key]);
+                            result[key] = parseFloat(result[key]);
+                            result.monthMap[month] = result[key];
+                            month += 1;
+                            break;
+                    }
+                })
             });
             return resolve();
         });
@@ -60,18 +86,13 @@ return new Promise((resolve, reject) => {
                 }
 
                 const locData = locMap[result.country.toLowerCase()][result.city.toLowerCase()];
-                locData.geoMatch = result;
-                result._found = true;
-                report.matches.push(locData);
-               /* locMap[result.Country] = locMap[result.Country] || {};
-                locMap[result.Country][result.City] = result;
-                const cityData = {};
-                crops.push(cityData);*/
-                /*const cityData = {};
-                crops.push(cityData);*/
+                // locData.geoMatch = result;
+                result.exactMatch = locData;
+                report.matches.push(result);
+
             });
             results.forEach((result) => {
-                if (result._found) {
+                if (result.exactMatch) {
                     return;
                 }
                 let minDist = -1;
@@ -79,8 +100,8 @@ return new Promise((resolve, reject) => {
                 report.matches.forEach((locData) => {
                     let dist = geolib.getDistance(
                         {
-                            latitude: locData.geoMatch.lat,
-                            longitude: locData.geoMatch.lng
+                            latitude: locData.lat,
+                            longitude: locData.lng
                         },
                         {
                             latitude: result.lat,
@@ -110,7 +131,15 @@ return new Promise((resolve, reject) => {
 
             });
 
+
+            const filePath = path.join(__dirname, '/export.json');
+            fs.writeFileSync(
+                filePath,
+                JSON.stringify(results, null, 3)
+            );
             console.log("result.closeMatchCount50: ", report.closeMatchCount50);
             console.log("result.closeMatchCount500: ", report.closeMatchCount500);
+
+            console.log("DONE");
         });
 });

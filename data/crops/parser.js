@@ -261,4 +261,9 @@ fs.createReadStream(filePath)
             }
         })
         console.log(crops);
+        const filePath = path.join(__dirname, '/crops.json');
+        fs.writeFileSync(
+            filePath,
+            JSON.stringify(crops, null, 3)
+        );
     });
