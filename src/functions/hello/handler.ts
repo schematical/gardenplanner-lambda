@@ -1,34 +1,20 @@
-/*import type { ValidatedEventAPIGatewayProxyEvent } from '@libs/api-gateway';
-import { formatJSONResponse } from '@libs/api-gateway';
-import { middyfy } from '@libs/lambda';
-
-import schema from './schema';
-
-const hello: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event) => {
-  return formatJSONResponse({
-    message: `Hello Joe, welcome to the exciting Serverless world!`,
-    event,
-  });
-};
-
-export const main = middyfy(hello);*/
+import { Container } from 'typedi';
 import { ApolloServer, gql } from 'apollo-server-lambda';
 import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core';
+import {buildSchema} from "type-graphql";
+import { UserResolver } from './user/User.resolver';
+import { connect } from 'mongoose';
 
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
-const resolvers = {
-  Query : {
-    hello: () => 'Hello world!',
-  }
+
+export const main = async () => {
+  await connect('mongodb://localhost:27017/test');
+  const server = new ApolloServer({
+    schema: await buildSchema({
+      resolvers: [ UserResolver ],
+      container: Container
+    }),
+    introspection: true,
+    plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
+  });
+  return server.createHandler();
 };
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  introspection: true,
-  plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
-});
-export const main =  server.createHandler();
