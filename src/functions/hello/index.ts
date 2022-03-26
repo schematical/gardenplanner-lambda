@@ -6,7 +6,7 @@ export default {
   events: [
     {
       http: {
-        method: 'get',
+        method: 'ANY',
         path: 'hello',
         request: {
           schemas: {

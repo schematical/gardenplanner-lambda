@@ -4,7 +4,8 @@
   "description": "Serverless aws-nodejs-typescript template",
   "main": "serverless.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "offline:start" : "sls offline start"
   },
   "engines": {
     "node": ">=14.15.0"
@@ -12,6 +13,8 @@
   "dependencies": {
     "@middy/core": "^2.5.3",
     "@middy/http-json-body-parser": "^2.5.3",
+    "apollo-server-lambda": "^3.0.0-rc.1",
+    "graphql": "^15.8.0",
     "serverless-webpack": "^5.6.1"
   },
   "devDependencies": {
