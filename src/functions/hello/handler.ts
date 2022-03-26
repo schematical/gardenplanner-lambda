@@ -1,5 +1,4 @@
-/*
-import type { ValidatedEventAPIGatewayProxyEvent } from '@libs/api-gateway';
+/*import type { ValidatedEventAPIGatewayProxyEvent } from '@libs/api-gateway';
 import { formatJSONResponse } from '@libs/api-gateway';
 import { middyfy } from '@libs/lambda';
 
@@ -12,8 +11,7 @@ const hello: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (event) =
   });
 };
 
-export const main = middyfy(hello);
-*/
+export const main = middyfy(hello);*/
 import { ApolloServer, gql } from 'apollo-server-lambda';
 import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core';
 
@@ -33,4 +31,4 @@ const server = new ApolloServer({
   introspection: true,
   plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
 });
-export const main = server.createHandler();
+export const main =  server.createHandler();

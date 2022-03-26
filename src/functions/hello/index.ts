@@ -6,8 +6,8 @@ export default {
   events: [
     {
       http: {
-        method: 'ANY',
-        path: 'hello',
+        method: 'any',
+        path: '/graphql',
         request: {
           schemas: {
             'application/json': schema,
