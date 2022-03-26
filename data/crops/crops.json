@@ -1,0 +1,3672 @@
+[
+   {
+      "index": 0,
+      "name": "Amaranth ",
+      "otherNames": [
+         "love-lies-bleeding"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "medium",
+      "lowTemp": 17.77777777777778,
+      "highTemp": 30,
+      "minSpacing": 50.79999837440005,
+      "maxSpacing": 50.79999837440005,
+      "harvestDayMin": 49,
+      "harvestDayMax": 56,
+      "compatableRaw": [
+         "onions",
+         "corn",
+         "peppers",
+         "egg plant",
+         "tomatoes"
+      ],
+      "compatable": [
+         40,
+         78,
+         2,
+         4,
+         11,
+         68
+      ],
+      "_missedCompatables": [
+         "egg plant"
+      ]
+   },
+   {
+      "index": 1,
+      "name": "Beans - dwarf ",
+      "otherNames": [
+         "french beans",
+         "bush beans"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 16.11111111111111,
+      "highTemp": 30,
+      "minSpacing": 5.079999837440005,
+      "maxSpacing": 15.239999512320015,
+      "harvestDayMin": 49,
+      "harvestDayMax": 70,
+      "compatableRaw": [
+         "sweetcorn",
+         "spinach",
+         "lettuce",
+         "summer savory",
+         "dill",
+         "carrots",
+         "brassicas",
+         "beets",
+         "radish",
+         "strawberry",
+         "cucumbers",
+         "tagates minuta wild marigold"
+      ],
+      "avoidRaw": [
+         "alliums chives",
+         "leek",
+         "garlic",
+         "onions sunflower"
+      ],
+      "compatable": [
+         42,
+         79,
+         48,
+         84,
+         55,
+         19,
+         29,
+         81,
+         62,
+         85,
+         75,
+         23
+      ],
+      "_missedCompatables": [
+         "sweetcorn",
+         "brassicas",
+         "tagates minuta wild marigold"
+      ],
+      "avoid": [
+         52,
+         60
+      ],
+      "_missedAvoids": [
+         "alliums chives",
+         "onions sunflower"
+      ]
+   },
+   {
+      "index": 2,
+      "name": "Sweet corn ",
+      "otherNames": [
+         "maize"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "medium",
+      "lowTemp": 16.11111111111111,
+      "highTemp": 35,
+      "minSpacing": 20.31999934976002,
+      "maxSpacing": 30.47999902464003,
+      "harvestDayMin": 77,
+      "harvestDayMax": 98,
+      "compatableRaw": [
+         "all beans",
+         "cucumber",
+         "melons",
+         "peas",
+         "pumpkin",
+         "squash",
+         "amaranth"
+      ],
+      "avoidRaw": [
+         "celery."
+      ],
+      "compatable": [
+         23,
+         66,
+         88,
+         3,
+         25,
+         35,
+         80,
+         33,
+         77,
+         0
+      ],
+      "_missedCompatables": [
+         "all beans"
+      ],
+      "avoid": [],
+      "_missedAvoids": [
+         "celery."
+      ]
+   },
+   {
+      "index": 3,
+      "name": "Cowpeas ",
+      "otherNames": [
+         "black eye peas",
+         "southern peas"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 15,
+      "highTemp": 35,
+      "minSpacing": 100,
+      "maxSpacing": 100,
+      "harvestDayMin": 77,
+      "harvestDayMax": 98
+   },
+   {
+      "index": 4,
+      "name": "Corn Salad ",
+      "otherNames": [
+         "lamb's lettuce or mache"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 20,
+      "minSpacing": 10.15999967488001,
+      "maxSpacing": 15.239999512320015,
+      "harvestDayMin": 35,
+      "harvestDayMax": 56,
+      "compatableRaw": [
+         "onions"
+      ],
+      "compatable": [
+         40,
+         78
+      ],
+      "_missedCompatables": []
+   },
+   {
+      "index": 5,
+      "name": "Chives ",
+      "otherNames": [
+         "garden chives"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 30,
+      "minSpacing": 5.079999837440005,
+      "maxSpacing": 5.079999837440005,
+      "harvestDayMin": 49,
+      "harvestDayMax": 77,
+      "compatableRaw": [
+         "carrots",
+         "tomatoes",
+         "parsley",
+         "apples"
+      ],
+      "compatable": [
+         19,
+         68,
+         37
+      ],
+      "_missedCompatables": [
+         "apples"
+      ]
+   },
+   {
+      "index": 6,
+      "name": "Coriander ",
+      "otherNames": [
+         "cilantro",
+         "chinese parsley"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 25,
+      "minSpacing": null,
+      "maxSpacing": 45.71999853696005,
+      "harvestDayMin": 30,
+      "harvestDayMax": 45,
+      "compatableRaw": [
+         "dill",
+         "chervil",
+         "anise",
+         "cabbages",
+         "carrots"
+      ],
+      "avoidRaw": [
+         "fennel"
+      ],
+      "compatable": [
+         55,
+         10,
+         12,
+         19
+      ],
+      "_missedCompatables": [
+         "chervil",
+         "anise"
+      ],
+      "avoid": [
+         58
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 7,
+      "name": "Collards ",
+      "otherNames": [
+         "collard greens",
+         "borekale"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 7.777777777777779,
+      "highTemp": 30,
+      "minSpacing": 40.63999869952004,
+      "maxSpacing": 50.79999837440005,
+      "harvestDayMin": 56,
+      "harvestDayMax": 77,
+      "compatableRaw": [
+         "dwarf bush beans",
+         "beets",
+         "celery",
+         "cucumber",
+         "onions",
+         "marigold",
+         "nasturtium",
+         "rhubarb",
+         "aromatic herbs sage",
+         "dill",
+         "chamomile"
+      ],
+      "avoidRaw": [
+         "climbing pole beans",
+         "tomato",
+         "peppers chili",
+         "capsicum",
+         "eggplant aubergine",
+         "strawberry",
+         "mustard"
+      ],
+      "compatable": [
+         29,
+         81,
+         13,
+         23,
+         40,
+         78,
+         86,
+         55
+      ],
+      "_missedCompatables": [
+         "dwarf bush beans",
+         "marigold",
+         "nasturtium",
+         "aromatic herbs sage",
+         "chamomile"
+      ],
+      "avoid": [
+         68,
+         20,
+         75,
+         43
+      ],
+      "_missedAvoids": [
+         "climbing pole beans",
+         "peppers chili",
+         "eggplant aubergine"
+      ]
+   },
+   {
+      "index": 8,
+      "name": "Choko/Chayote ",
+      "otherNames": [
+         "chayote squash",
+         "christophene",
+         "chouchou",
+         "mirliton"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 15,
+      "highTemp": 30,
+      "minSpacing": 99.0599968300801,
+      "maxSpacing": 99.0599968300801,
+      "harvestDayMin": 119,
+      "harvestDayMax": 119,
+      "compatableRaw": [
+         "cucumbers"
+      ],
+      "compatable": [
+         23
+      ],
+      "_missedCompatables": []
+   },
+   {
+      "index": 9,
+      "name": "Burdock ",
+      "otherNames": [
+         "gobo japanese burdock"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 20,
+      "minSpacing": 60.95999804928006,
+      "maxSpacing": 60.95999804928006,
+      "harvestDayMin": 119,
+      "harvestDayMax": 126,
+      "compatableRaw": [
+         "best grown in separate bed."
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "best grown in separate bed."
+      ]
+   },
+   {
+      "index": 10,
+      "name": "Chinese cabbage ",
+      "otherNames": [
+         "wong bok",
+         "wong nga pak"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 20,
+      "minSpacing": 30.47999902464003,
+      "maxSpacing": 30.47999902464003,
+      "harvestDayMin": 56,
+      "harvestDayMax": 70,
+      "compatableRaw": [
+         "dwarf bush beans",
+         "beets",
+         "celery",
+         "cucumber",
+         "onions",
+         "marigold",
+         "nasturtium",
+         "rhubarb",
+         "aromatic herbs sage",
+         "dill",
+         "chamomile",
+         "coriander",
+         "lettuce",
+         "potatoes"
+      ],
+      "avoidRaw": [
+         "climbing pole beans",
+         "tomato",
+         "peppers chilli",
+         "capsicum",
+         "eggplant aubergine",
+         "strawberry",
+         "mustard"
+      ],
+      "compatable": [
+         29,
+         81,
+         13,
+         23,
+         40,
+         78,
+         86,
+         55,
+         6,
+         48,
+         34,
+         72
+      ],
+      "_missedCompatables": [
+         "dwarf bush beans",
+         "marigold",
+         "nasturtium",
+         "aromatic herbs sage",
+         "chamomile"
+      ],
+      "avoid": [
+         68,
+         20,
+         75,
+         43
+      ],
+      "_missedAvoids": [
+         "climbing pole beans",
+         "peppers chilli",
+         "eggplant aubergine"
+      ]
+   },
+   {
+      "index": 11,
+      "name": "Chilli peppers ",
+      "otherNames": [
+         "hot peppers"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 17.77777777777778,
+      "highTemp": 35,
+      "minSpacing": 40.63999869952004,
+      "maxSpacing": 50.79999837440005,
+      "harvestDayMin": 63,
+      "harvestDayMax": 77,
+      "compatableRaw": [
+         "best grown in a separate bed as chillis need plenty of light",
+         "air circulation."
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "best grown in a separate bed as chillis need plenty of light",
+         "air circulation."
+      ]
+   },
+   {
+      "index": 12,
+      "name": "Cabbage",
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 5,
+      "highTemp": 17.77777777777778,
+      "minSpacing": 50.79999837440005,
+      "maxSpacing": 76.19999756160007,
+      "harvestDayMin": 77,
+      "harvestDayMax": 105,
+      "compatableRaw": [
+         "dwarf bush beans",
+         "beets",
+         "celery",
+         "cucumber",
+         "onions",
+         "marigold",
+         "nasturtium",
+         "rhubarb",
+         "aromatic herbs sage",
+         "dill",
+         "chamomile",
+         "thyme"
+      ],
+      "avoidRaw": [
+         "climbing pole beans",
+         "tomato",
+         "peppers chili",
+         "capsicum",
+         "eggplant aubergine",
+         "strawberry",
+         "mustard",
+         "parsnip"
+      ],
+      "compatable": [
+         29,
+         81,
+         13,
+         23,
+         40,
+         78,
+         86,
+         55,
+         70
+      ],
+      "_missedCompatables": [
+         "dwarf bush beans",
+         "marigold",
+         "nasturtium",
+         "aromatic herbs sage",
+         "chamomile"
+      ],
+      "avoid": [
+         68,
+         20,
+         75,
+         43,
+         36
+      ],
+      "_missedAvoids": [
+         "climbing pole beans",
+         "peppers chili",
+         "eggplant aubergine"
+      ]
+   },
+   {
+      "index": 13,
+      "name": "Celery",
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 12.222222222222223,
+      "highTemp": 21.11111111111111,
+      "minSpacing": 15.239999512320015,
+      "maxSpacing": 30.47999902464003,
+      "harvestDayMin": 119,
+      "harvestDayMax": 126,
+      "compatableRaw": [
+         "not applicable as celery needs to be close together to encourage blanching."
+      ],
+      "avoidRaw": [
+         "sweetcorn"
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "not applicable as celery needs to be close together to encourage blanching."
+      ],
+      "avoid": [],
+      "_missedAvoids": [
+         "sweetcorn"
+      ]
+   },
+   {
+      "index": 14,
+      "name": "Chicory ",
+      "otherNames": [
+         "witloof",
+         "belgian endive"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "medium",
+      "lowTemp": 10,
+      "highTemp": 20,
+      "minSpacing": 25.399999187200024,
+      "maxSpacing": 30.47999902464003,
+      "harvestDayMin": 112,
+      "harvestDayMax": 168,
+      "compatableRaw": [
+         "carrots",
+         "onions",
+         "florence fennel",
+         "tomatoes."
+      ],
+      "compatable": [
+         19,
+         40,
+         78
+      ],
+      "_missedCompatables": [
+         "florence fennel",
+         "tomatoes."
+      ]
+   },
+   {
+      "index": 15,
+      "name": "Cauliflower",
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 10,
+      "highTemp": 30,
+      "minSpacing": 60.95999804928006,
+      "maxSpacing": 99.0599968300801,
+      "harvestDayMin": 105,
+      "harvestDayMax": 154,
+      "compatableRaw": [
+         "dwarf bush beans",
+         "beets",
+         "celery",
+         "cucumber",
+         "onions",
+         "marigold",
+         "nasturtium",
+         "rhubarb",
+         "aromatic herbs sage",
+         "dill",
+         "chamomile"
+      ],
+      "avoidRaw": [
+         "climbing pole beans",
+         "tomato",
+         "peppers chili",
+         "capsicum",
+         "eggplant aubergine",
+         "strawberry",
+         "mustard"
+      ],
+      "compatable": [
+         29,
+         81,
+         13,
+         23,
+         40,
+         78,
+         86,
+         55
+      ],
+      "_missedCompatables": [
+         "dwarf bush beans",
+         "marigold",
+         "nasturtium",
+         "aromatic herbs sage",
+         "chamomile"
+      ],
+      "avoid": [
+         68,
+         20,
+         75,
+         43
+      ],
+      "_missedAvoids": [
+         "climbing pole beans",
+         "peppers chili",
+         "eggplant aubergine"
+      ]
+   },
+   {
+      "index": 16,
+      "name": "Celeriac",
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 7.777777777777779,
+      "highTemp": 21.11111111111111,
+      "minSpacing": 45.71999853696005,
+      "maxSpacing": 78.73999748032007,
+      "harvestDayMin": 98,
+      "harvestDayMax": 196,
+      "compatableRaw": [
+         "beans",
+         "brassicas",
+         "carrots",
+         "leeks",
+         "lettuce",
+         "peas",
+         "sage",
+         "tomatoes",
+         "onions"
+      ],
+      "compatable": [
+         1,
+         27,
+         28,
+         19,
+         52,
+         48,
+         3,
+         25,
+         35,
+         80,
+         93,
+         68,
+         40,
+         78
+      ],
+      "_missedCompatables": [
+         "brassicas"
+      ]
+   },
+   {
+      "index": 17,
+      "name": "Cape Gooseberry ",
+      "otherNames": [
+         "golden berry",
+         "inca berry"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 25,
+      "minSpacing": 50.79999837440005,
+      "maxSpacing": 50.79999837440005,
+      "harvestDayMin": 98,
+      "harvestDayMax": 112,
+      "compatableRaw": [
+         "will happily grow in a flower border"
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "will happily grow in a flower border"
+      ]
+   },
+   {
+      "index": 18,
+      "name": "Cardoon",
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 12.777777777777779,
+      "highTemp": 25,
+      "minSpacing": 50.79999837440005,
+      "maxSpacing": 149.85999520448013,
+      "harvestDayMin": 238,
+      "harvestDayMax": 245,
+      "compatableRaw": [
+         "best grown in separate bed."
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "best grown in separate bed."
+      ]
+   },
+   {
+      "index": 19,
+      "name": "Carrot",
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 7.777777777777779,
+      "highTemp": 30,
+      "minSpacing": 5.079999837440005,
+      "maxSpacing": 30.47999902464003,
+      "harvestDayMin": 84,
+      "harvestDayMax": 126,
+      "compatableRaw": [
+         "onions",
+         "leeks",
+         "lettuce",
+         "sage",
+         "peas",
+         "radishes",
+         "tomatoes",
+         "beans",
+         "celery",
+         "rosemary"
+      ],
+      "avoidRaw": [
+         "parsnips",
+         "beetroot",
+         "dill",
+         "brassicas",
+         "fennel"
+      ],
+      "compatable": [
+         40,
+         78,
+         52,
+         48,
+         93,
+         3,
+         25,
+         35,
+         80,
+         68,
+         1,
+         27,
+         28,
+         13,
+         90
+      ],
+      "_missedCompatables": [
+         "radishes"
+      ],
+      "avoid": [
+         36,
+         29,
+         55,
+         58
+      ],
+      "_missedAvoids": [
+         "brassicas"
+      ]
+   },
+   {
+      "index": 20,
+      "name": "Capsicum ",
+      "otherNames": [
+         "bell peppers",
+         "sweet peppers"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 17.77777777777778,
+      "highTemp": 35,
+      "minSpacing": 20.31999934976002,
+      "maxSpacing": 50.79999837440005,
+      "harvestDayMin": 70,
+      "harvestDayMax": 84,
+      "compatableRaw": [
+         "egg plant aubergine",
+         "nasturtiums",
+         "basil",
+         "parsley",
+         "amaranth"
+      ],
+      "compatable": [
+         26,
+         37,
+         0
+      ],
+      "_missedCompatables": [
+         "egg plant aubergine",
+         "nasturtiums"
+      ]
+   },
+   {
+      "index": 21,
+      "name": "Angelica",
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 25,
+      "minSpacing": 45.71999853696005,
+      "maxSpacing": 45.71999853696005,
+      "harvestDayMin": 540,
+      "harvestDayMax": 540,
+      "compatableRaw": [
+         "any herbs that like damp",
+         "shady areas - mint",
+         "lemon balm"
+      ],
+      "compatable": [
+         49
+      ],
+      "_missedCompatables": [
+         "any herbs that like damp",
+         "shady areas - mint"
+      ]
+   },
+   {
+      "index": 22,
+      "name": "Artichokes (Globe)",
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 15,
+      "highTemp": 17.77777777777778,
+      "minSpacing": 160.01999487936015,
+      "maxSpacing": 200.6599935788802,
+      "harvestDayMin": 294,
+      "harvestDayMax": 399,
+      "compatableRaw": [
+         "needs a lot of space. best in separate bed"
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "needs a lot of space. best in separate bed"
+      ]
+   },
+   {
+      "index": 23,
+      "name": "Cucumber",
+      "sewInGarden": true,
+      "growDifficulty": "medium",
+      "lowTemp": 16.11111111111111,
+      "highTemp": 35,
+      "minSpacing": 40.63999869952004,
+      "maxSpacing": 60.95999804928006,
+      "harvestDayMin": 56,
+      "harvestDayMax": 70,
+      "compatableRaw": [
+         "nasturtiums",
+         "beans",
+         "celery",
+         "lettuce",
+         "sweet corn",
+         "cabbages",
+         "sunflowers",
+         "coriander",
+         "fennel",
+         "dill",
+         "sunflowers"
+      ],
+      "avoidRaw": [
+         "potato",
+         "tomatoes"
+      ],
+      "compatable": [
+         1,
+         27,
+         28,
+         13,
+         48,
+         2,
+         10,
+         12,
+         74,
+         6,
+         58,
+         55,
+         74
+      ],
+      "_missedCompatables": [
+         "nasturtiums"
+      ],
+      "avoid": [
+         34,
+         72,
+         68
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 24,
+      "name": "Asparagus",
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 16.11111111111111,
+      "highTemp": 30,
+      "minSpacing": 20.31999934976002,
+      "maxSpacing": 40.63999869952004,
+      "harvestDayMin": 730,
+      "harvestDayMax": 1095,
+      "compatableRaw": [
+         "parsley",
+         "basil",
+         "nasturtiums",
+         "lettuce"
+      ],
+      "avoidRaw": [
+         "garlic",
+         "onions",
+         "",
+         "root vegetables"
+      ],
+      "compatable": [
+         37,
+         26,
+         48
+      ],
+      "_missedCompatables": [
+         "nasturtiums"
+      ],
+      "avoid": [
+         60,
+         40,
+         78,
+         0,
+         1,
+         2,
+         3,
+         4,
+         5,
+         6,
+         7,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13,
+         14,
+         15,
+         16,
+         17,
+         18,
+         19,
+         20,
+         21,
+         22,
+         23,
+         24,
+         25,
+         26,
+         27,
+         28,
+         29,
+         30,
+         31,
+         32,
+         33,
+         34,
+         35,
+         36,
+         37,
+         38,
+         39,
+         40,
+         41,
+         42,
+         43,
+         44,
+         45,
+         46,
+         47,
+         48,
+         49,
+         50,
+         51,
+         52,
+         53,
+         54,
+         55,
+         56,
+         57,
+         58,
+         59,
+         60,
+         61,
+         62,
+         63,
+         64,
+         65,
+         66,
+         67,
+         68,
+         69,
+         70,
+         71,
+         72,
+         73,
+         74,
+         75,
+         76,
+         77,
+         78,
+         79,
+         80,
+         81,
+         82,
+         83,
+         84,
+         85,
+         86,
+         87,
+         88,
+         89,
+         90,
+         91,
+         92,
+         93
+      ],
+      "_missedAvoids": [
+         "root vegetables"
+      ]
+   },
+   {
+      "index": 25,
+      "name": "Asparagus Pea ",
+      "otherNames": [
+         "winged bean"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 15,
+      "highTemp": 20,
+      "minSpacing": 20.31999934976002,
+      "maxSpacing": 25.399999187200024,
+      "harvestDayMin": 56,
+      "harvestDayMax": 77,
+      "compatableRaw": [
+         "best grown in separate bed"
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "best grown in separate bed"
+      ]
+   },
+   {
+      "index": 26,
+      "name": "Basil",
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 17.77777777777778,
+      "highTemp": 35,
+      "minSpacing": 20.31999934976002,
+      "maxSpacing": 25.399999187200024,
+      "harvestDayMin": 70,
+      "harvestDayMax": 84,
+      "compatableRaw": [
+         "tomato"
+      ],
+      "compatable": [
+         68
+      ],
+      "_missedCompatables": []
+   },
+   {
+      "index": 27,
+      "name": "Beans - broad beans fava beans ",
+      "otherNames": [
+         "fava bean"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 6.111111111111112,
+      "highTemp": 23.88888888888889,
+      "minSpacing": 15.239999512320015,
+      "maxSpacing": 25.399999187200024,
+      "harvestDayMin": 84,
+      "harvestDayMax": 154,
+      "compatableRaw": [
+         "dill",
+         "potatoes"
+      ],
+      "compatable": [
+         55,
+         34,
+         72
+      ],
+      "_missedCompatables": []
+   },
+   {
+      "index": 28,
+      "name": "Beans - climbing ",
+      "otherNames": [
+         "pole beans",
+         "runner beans",
+         "scarlet runners"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 16.11111111111111,
+      "highTemp": 30,
+      "minSpacing": 10.15999967488001,
+      "maxSpacing": 20.31999934976002,
+      "harvestDayMin": 63,
+      "harvestDayMax": 77,
+      "compatableRaw": [
+         "sweetcorn",
+         "spinach",
+         "lettuce",
+         "summer savory",
+         "dill",
+         "carrots",
+         "brassicas",
+         "beets",
+         "radish",
+         "strawberry",
+         "cucumbers",
+         "zucchini",
+         "tagates minuta wild marigold"
+      ],
+      "avoidRaw": [
+         "alliums chives",
+         "leek",
+         "garlic",
+         "onions",
+         "florence fennel"
+      ],
+      "compatable": [
+         42,
+         79,
+         48,
+         84,
+         55,
+         19,
+         29,
+         81,
+         62,
+         85,
+         75,
+         23,
+         63
+      ],
+      "_missedCompatables": [
+         "sweetcorn",
+         "brassicas",
+         "tagates minuta wild marigold"
+      ],
+      "avoid": [
+         52,
+         60,
+         40,
+         78
+      ],
+      "_missedAvoids": [
+         "alliums chives",
+         "florence fennel"
+      ]
+   },
+   {
+      "index": 29,
+      "name": "Beetroot ",
+      "otherNames": [
+         "beets"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 7.222222222222222,
+      "highTemp": 25,
+      "minSpacing": 20.31999934976002,
+      "maxSpacing": 30.47999902464003,
+      "harvestDayMin": 49,
+      "harvestDayMax": 70,
+      "compatableRaw": [
+         "onions",
+         "silverbeet swiss chard",
+         "lettuce",
+         "cabbage",
+         "dwarf beans",
+         "dill",
+         "peas. strawberries"
+      ],
+      "avoidRaw": [
+         "asparagus",
+         "carrots",
+         "sweetcorn",
+         "spinach"
+      ],
+      "compatable": [
+         40,
+         78,
+         48,
+         10,
+         12,
+         55
+      ],
+      "_missedCompatables": [
+         "silverbeet swiss chard",
+         "dwarf beans",
+         "peas. strawberries"
+      ],
+      "avoid": [
+         24,
+         25,
+         19,
+         42,
+         79
+      ],
+      "_missedAvoids": [
+         "sweetcorn"
+      ]
+   },
+   {
+      "index": 30,
+      "name": "Borage ",
+      "otherNames": [
+         "burrage",
+         "bugloss"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 25,
+      "minSpacing": 20.31999934976002,
+      "maxSpacing": 20.31999934976002,
+      "harvestDayMin": 56,
+      "harvestDayMax": 70,
+      "compatableRaw": [
+         "strawberry",
+         "tomatoes",
+         "zucchini/squash. deters pests from many plants."
+      ],
+      "compatable": [
+         75,
+         68
+      ],
+      "_missedCompatables": [
+         "zucchini/squash. deters pests from many plants."
+      ]
+   },
+   {
+      "index": 31,
+      "name": "Broccoli",
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 7.222222222222222,
+      "highTemp": 30,
+      "minSpacing": 35.559998862080036,
+      "maxSpacing": 50.79999837440005,
+      "harvestDayMin": 70,
+      "harvestDayMax": 112,
+      "compatableRaw": [
+         "dwarf bush beans",
+         "beets",
+         "celery",
+         "cucumber",
+         "onions",
+         "marigold",
+         "nasturtium",
+         "rhubarb",
+         "aromatic herbs sage",
+         "dill",
+         "chamomile",
+         "oregano"
+      ],
+      "avoidRaw": [
+         "climbing pole beans",
+         "tomato",
+         "peppers chilli",
+         "capsicum",
+         "eggplant aubergine",
+         "strawberry",
+         "mustard"
+      ],
+      "compatable": [
+         29,
+         81,
+         13,
+         23,
+         40,
+         78,
+         86,
+         55,
+         39
+      ],
+      "_missedCompatables": [
+         "dwarf bush beans",
+         "marigold",
+         "nasturtium",
+         "aromatic herbs sage",
+         "chamomile"
+      ],
+      "avoid": [
+         68,
+         20,
+         75,
+         43
+      ],
+      "_missedAvoids": [
+         "climbing pole beans",
+         "peppers chilli",
+         "eggplant aubergine"
+      ]
+   },
+   {
+      "index": 32,
+      "name": "Brussels sprouts",
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 7.222222222222222,
+      "highTemp": 30,
+      "minSpacing": 45.71999853696005,
+      "maxSpacing": 60.95999804928006,
+      "harvestDayMin": 98,
+      "harvestDayMax": 196,
+      "compatableRaw": [
+         "dwarf bush beans",
+         "beets",
+         "celery",
+         "cucumber",
+         "onions",
+         "marigold",
+         "nasturtium",
+         "rhubarb",
+         "aromatic herbs sage",
+         "dill",
+         "chamomile"
+      ],
+      "avoidRaw": [
+         "climbing pole beans",
+         "tomato",
+         "peppers chili",
+         "capsicum",
+         "eggplant aubergine",
+         "strawberry",
+         "mustard"
+      ],
+      "compatable": [
+         29,
+         81,
+         13,
+         23,
+         40,
+         78,
+         86,
+         55
+      ],
+      "_missedCompatables": [
+         "dwarf bush beans",
+         "marigold",
+         "nasturtium",
+         "aromatic herbs sage",
+         "chamomile"
+      ],
+      "avoid": [
+         68,
+         20,
+         75,
+         43
+      ],
+      "_missedAvoids": [
+         "climbing pole beans",
+         "peppers chili",
+         "eggplant aubergine"
+      ]
+   },
+   {
+      "index": 33,
+      "name": "Pumpkin",
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 20,
+      "highTemp": 32.22222222222222,
+      "minSpacing": 88.89999715520008,
+      "maxSpacing": 119.37999617984012,
+      "harvestDayMin": 105,
+      "harvestDayMax": 140,
+      "compatableRaw": [
+         "sweet corn"
+      ],
+      "avoidRaw": [
+         "potatoes"
+      ],
+      "compatable": [
+         2
+      ],
+      "_missedCompatables": [],
+      "avoid": [
+         34,
+         72
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 34,
+      "name": "Potato",
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 10,
+      "highTemp": 30,
+      "minSpacing": 30.47999902464003,
+      "maxSpacing": 40.63999869952004,
+      "harvestDayMin": 105,
+      "harvestDayMax": 140,
+      "compatableRaw": [
+         "peas",
+         "beans",
+         "brassicas",
+         "sweetcorn",
+         "broad beans",
+         "nasturtiums",
+         "marigolds"
+      ],
+      "avoidRaw": [
+         "cucumber",
+         "pumpkin",
+         "sunflowers",
+         "tomatoes",
+         "rosemary"
+      ],
+      "compatable": [
+         3,
+         25,
+         35,
+         80,
+         1,
+         27,
+         28,
+         27
+      ],
+      "_missedCompatables": [
+         "brassicas",
+         "sweetcorn",
+         "nasturtiums",
+         "marigolds"
+      ],
+      "avoid": [
+         23,
+         33,
+         74,
+         68,
+         90
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 35,
+      "name": "Peas",
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 8,
+      "highTemp": 24,
+      "minSpacing": 5,
+      "maxSpacing": 8,
+      "harvestDayMin": 63,
+      "harvestDayMax": 77,
+      "compatableRaw": [
+         "potatoes"
+      ],
+      "compatable": [
+         34,
+         72
+      ],
+      "_missedCompatables": []
+   },
+   {
+      "index": 36,
+      "name": "Parsnip",
+      "sewInGarden": true,
+      "growDifficulty": "medium",
+      "lowTemp": 6.111111111111112,
+      "highTemp": 21.11111111111111,
+      "minSpacing": 7.6199997561600075,
+      "maxSpacing": 10.15999967488001,
+      "harvestDayMin": 119,
+      "harvestDayMax": 140,
+      "compatableRaw": [
+         "swiss chard silverbeet",
+         "capsicum",
+         "peas",
+         "potatoes",
+         "beans",
+         "radishes",
+         "garlic"
+      ],
+      "avoidRaw": [
+         "carrot",
+         "celery",
+         "brassicas"
+      ],
+      "compatable": [
+         20,
+         3,
+         25,
+         35,
+         80,
+         34,
+         72,
+         1,
+         27,
+         28,
+         60
+      ],
+      "_missedCompatables": [
+         "swiss chard silverbeet",
+         "radishes"
+      ],
+      "avoid": [
+         19,
+         13
+      ],
+      "_missedAvoids": [
+         "brassicas"
+      ]
+   },
+   {
+      "index": 37,
+      "name": "Parsley ",
+      "otherNames": [
+         "curly leaf parsley or flat leaf italian parsley"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 30,
+      "minSpacing": 20.31999934976002,
+      "maxSpacing": 30.47999902464003,
+      "harvestDayMin": 63,
+      "harvestDayMax": 133,
+      "compatableRaw": [
+         "carrots",
+         "chives",
+         "tomatoes",
+         "asparagus"
+      ],
+      "avoidRaw": [
+         "potatoes"
+      ],
+      "compatable": [
+         19,
+         5,
+         68,
+         24,
+         25
+      ],
+      "_missedCompatables": [],
+      "avoid": [
+         34,
+         72
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 38,
+      "name": "Pak Choy ",
+      "otherNames": [
+         "pak choi"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 21.11111111111111,
+      "highTemp": 30,
+      "minSpacing": 30.47999902464003,
+      "maxSpacing": 40.63999869952004,
+      "harvestDayMin": 42,
+      "harvestDayMax": 77,
+      "compatableRaw": [
+         "dwarf bush beans",
+         "beets",
+         "celery",
+         "cucumber",
+         "onions",
+         "marigold",
+         "nasturtium",
+         "rhubarb",
+         "aromatic herbs sage",
+         "dill",
+         "chamomile",
+         "coriander",
+         "lettuce",
+         "potatoes"
+      ],
+      "avoidRaw": [
+         "climbing pole beans",
+         "tomato",
+         "peppers chili",
+         "capsicum",
+         "eggplant aubergine",
+         "strawberry",
+         "mustard"
+      ],
+      "compatable": [
+         29,
+         81,
+         13,
+         23,
+         40,
+         78,
+         86,
+         55,
+         6,
+         48,
+         34,
+         72
+      ],
+      "_missedCompatables": [
+         "dwarf bush beans",
+         "marigold",
+         "nasturtium",
+         "aromatic herbs sage",
+         "chamomile"
+      ],
+      "avoid": [
+         68,
+         20,
+         75,
+         43
+      ],
+      "_missedAvoids": [
+         "climbing pole beans",
+         "peppers chili",
+         "eggplant aubergine"
+      ]
+   },
+   {
+      "index": 39,
+      "name": "Oregano ",
+      "otherNames": [
+         "pot marjoram"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 17.77777777777778,
+      "highTemp": 25,
+      "minSpacing": 15.239999512320015,
+      "maxSpacing": 15.239999512320015,
+      "harvestDayMin": 42,
+      "harvestDayMax": 56,
+      "compatableRaw": [
+         "broccoli"
+      ],
+      "compatable": [
+         31
+      ],
+      "_missedCompatables": []
+   },
+   {
+      "index": 40,
+      "name": "Onion",
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 7.777777777777779,
+      "highTemp": 30,
+      "minSpacing": 5.079999837440005,
+      "maxSpacing": 10.15999967488001,
+      "harvestDayMin": 175,
+      "harvestDayMax": 238,
+      "compatableRaw": [
+         "lemon balm",
+         "borage",
+         "carrots",
+         "beets",
+         "silverbeet",
+         "lettuce",
+         "amaranth"
+      ],
+      "avoidRaw": [
+         "peas",
+         "beans"
+      ],
+      "compatable": [
+         49,
+         30,
+         19,
+         29,
+         81,
+         81,
+         48,
+         0
+      ],
+      "_missedCompatables": [],
+      "avoid": [
+         3,
+         25,
+         35,
+         80,
+         1,
+         27,
+         28
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 41,
+      "name": "Okra ",
+      "otherNames": [
+         "ladyfinger",
+         "gumbo"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 20,
+      "highTemp": 35,
+      "minSpacing": 35.559998862080036,
+      "maxSpacing": 60.95999804928006,
+      "harvestDayMin": 77,
+      "harvestDayMax": 98,
+      "compatableRaw": [
+         "peppers capsicum",
+         "chili",
+         "eggplant aubergine"
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "peppers capsicum",
+         "chili",
+         "eggplant aubergine"
+      ]
+   },
+   {
+      "index": 42,
+      "name": "NZ Spinach ",
+      "otherNames": [
+         "warrigal greens"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 17.77777777777778,
+      "highTemp": 35,
+      "minSpacing": 45.71999853696005,
+      "maxSpacing": 60.95999804928006,
+      "harvestDayMin": 56,
+      "harvestDayMax": 70,
+      "compatableRaw": [
+         "does better if alone."
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "does better if alone."
+      ]
+   },
+   {
+      "index": 43,
+      "name": "Mustard greens ",
+      "otherNames": [
+         "gai choy"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 35,
+      "minSpacing": 35.559998862080036,
+      "maxSpacing": 60.95999804928006,
+      "harvestDayMin": 35,
+      "harvestDayMax": 56,
+      "compatableRaw": [
+         "dwarf bush beans",
+         "beets",
+         "celery",
+         "cucumber",
+         "onions",
+         "marigold",
+         "nasturtium",
+         "rhubarb",
+         "aromatic herbs sage",
+         "dill",
+         "camomile"
+      ],
+      "avoidRaw": [
+         "climbing pole beans",
+         "tomato",
+         "peppers chilli",
+         "capsicum",
+         "eggplant aubergine",
+         "strawberry"
+      ],
+      "compatable": [
+         29,
+         81,
+         13,
+         23,
+         40,
+         78,
+         86,
+         55
+      ],
+      "_missedCompatables": [
+         "dwarf bush beans",
+         "marigold",
+         "nasturtium",
+         "aromatic herbs sage",
+         "camomile"
+      ],
+      "avoid": [
+         68,
+         20,
+         75
+      ],
+      "_missedAvoids": [
+         "climbing pole beans",
+         "peppers chilli",
+         "eggplant aubergine"
+      ]
+   },
+   {
+      "index": 44,
+      "name": "Mizuna ",
+      "otherNames": [
+         "japanese greens",
+         "mitzuna",
+         "mibuna"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 30,
+      "minSpacing": 15.239999512320015,
+      "maxSpacing": 20.31999934976002,
+      "harvestDayMin": 35,
+      "harvestDayMax": 50,
+      "compatableRaw": [
+         "radish",
+         "lettuce"
+      ],
+      "compatable": [
+         62,
+         85,
+         48
+      ],
+      "_missedCompatables": []
+   },
+   {
+      "index": 45,
+      "name": "Mint ",
+      "otherNames": [
+         "garden mint"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 21.11111111111111,
+      "highTemp": 23.88888888888889,
+      "minSpacing": 30.47999902464003,
+      "maxSpacing": 30.47999902464003,
+      "harvestDayMin": 56,
+      "harvestDayMax": 84,
+      "compatableRaw": [
+         "cabbages",
+         "tomatoes"
+      ],
+      "compatable": [
+         10,
+         12,
+         68
+      ],
+      "_missedCompatables": []
+   },
+   {
+      "index": 46,
+      "name": "Marrow",
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 20,
+      "highTemp": 35,
+      "minSpacing": 88.89999715520008,
+      "maxSpacing": 119.37999617984012,
+      "harvestDayMin": 84,
+      "harvestDayMax": 119,
+      "compatableRaw": [
+         "peas",
+         "beans",
+         "onions",
+         "sweetcorn"
+      ],
+      "avoidRaw": [
+         "potatoes"
+      ],
+      "compatable": [
+         3,
+         25,
+         35,
+         80,
+         1,
+         27,
+         28,
+         40,
+         78
+      ],
+      "_missedCompatables": [
+         "sweetcorn"
+      ],
+      "avoid": [
+         34,
+         72
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 47,
+      "name": "Luffa ",
+      "otherNames": [
+         "loofah",
+         "plant sponge"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 20,
+      "highTemp": 30,
+      "minSpacing": 45.71999853696005,
+      "maxSpacing": 76.19999756160007,
+      "harvestDayMin": 77,
+      "harvestDayMax": 84,
+      "compatableRaw": [
+         "peas",
+         "beans",
+         "onions",
+         "sweetcorn"
+      ],
+      "avoidRaw": [
+         "potatoes"
+      ],
+      "compatable": [
+         3,
+         25,
+         35,
+         80,
+         1,
+         27,
+         28,
+         40,
+         78
+      ],
+      "_missedCompatables": [
+         "sweetcorn"
+      ],
+      "avoid": [
+         34,
+         72
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 48,
+      "name": "Lettuce",
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 8,
+      "highTemp": 27,
+      "minSpacing": 20,
+      "maxSpacing": 30,
+      "harvestDayMin": 56,
+      "harvestDayMax": 84,
+      "compatableRaw": [
+         "carrots",
+         "onions",
+         "strawberries",
+         "beets",
+         "brassicas",
+         "radish",
+         "marigold",
+         "borage",
+         "chervil",
+         "florence fennel",
+         "leeks."
+      ],
+      "avoidRaw": [
+         "parsley",
+         "celery"
+      ],
+      "compatable": [
+         19,
+         40,
+         78,
+         76,
+         29,
+         81,
+         62,
+         85,
+         30
+      ],
+      "_missedCompatables": [
+         "brassicas",
+         "marigold",
+         "chervil",
+         "florence fennel",
+         "leeks."
+      ],
+      "avoid": [
+         37,
+         13
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 49,
+      "name": "Lemon Balm ",
+      "otherNames": [
+         "sweet balm",
+         ""
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 25,
+      "minSpacing": 25.399999187200024,
+      "maxSpacing": 25.399999187200024,
+      "harvestDayMin": 56,
+      "harvestDayMax": 70,
+      "compatableRaw": [
+         "good to attract bees"
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "good to attract bees"
+      ]
+   },
+   {
+      "index": 50,
+      "name": "Kale ",
+      "otherNames": [
+         "borecole"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 7.777777777777779,
+      "highTemp": 30,
+      "minSpacing": 50.79999837440005,
+      "maxSpacing": 99.0599968300801,
+      "harvestDayMin": 49,
+      "harvestDayMax": 63,
+      "compatableRaw": [
+         "dwarf bush beans",
+         "beets",
+         "celery",
+         "cucumber",
+         "onions",
+         "marigold",
+         "nasturtium",
+         "rhubarb",
+         "aromatic herbs sage",
+         "dill",
+         "camomile"
+      ],
+      "avoidRaw": [
+         "climbing pole beans",
+         "tomato",
+         "peppers chilli",
+         "capsicum",
+         "eggplant aubergine",
+         "strawberry",
+         "mustard"
+      ],
+      "compatable": [
+         29,
+         81,
+         13,
+         23,
+         40,
+         78,
+         86,
+         55
+      ],
+      "_missedCompatables": [
+         "dwarf bush beans",
+         "marigold",
+         "nasturtium",
+         "aromatic herbs sage",
+         "camomile"
+      ],
+      "avoid": [
+         68,
+         20,
+         75,
+         43
+      ],
+      "_missedAvoids": [
+         "climbing pole beans",
+         "peppers chilli",
+         "eggplant aubergine"
+      ]
+   },
+   {
+      "index": 51,
+      "name": "Kohlrabi",
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 7.777777777777779,
+      "highTemp": 30,
+      "minSpacing": 10.15999967488001,
+      "maxSpacing": 25.399999187200024,
+      "harvestDayMin": 49,
+      "harvestDayMax": 70,
+      "compatableRaw": [
+         "beets",
+         "celery",
+         "cucumber",
+         "onions",
+         "marigold",
+         "nasturtium",
+         "rhubarb",
+         "aromatic herbs sage",
+         "dill",
+         "chamomile"
+      ],
+      "avoidRaw": [
+         "climbing pole beans",
+         "tomato",
+         "peppers chilli",
+         "capsicum",
+         "eggplant aubergine",
+         "strawberry",
+         "mustard"
+      ],
+      "compatable": [
+         29,
+         81,
+         13,
+         23,
+         40,
+         78,
+         86,
+         55
+      ],
+      "_missedCompatables": [
+         "marigold",
+         "nasturtium",
+         "aromatic herbs sage",
+         "chamomile"
+      ],
+      "avoid": [
+         68,
+         20,
+         75,
+         43
+      ],
+      "_missedAvoids": [
+         "climbing pole beans",
+         "peppers chilli",
+         "eggplant aubergine"
+      ]
+   },
+   {
+      "index": 52,
+      "name": "Leeks",
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 7.777777777777779,
+      "highTemp": 30,
+      "minSpacing": 10.15999967488001,
+      "maxSpacing": 20.31999934976002,
+      "harvestDayMin": 105,
+      "harvestDayMax": 126,
+      "compatableRaw": [
+         "carrots"
+      ],
+      "compatable": [
+         19
+      ],
+      "_missedCompatables": []
+   },
+   {
+      "index": 53,
+      "name": "Jerusalem Artichokes ",
+      "otherNames": [
+         "sunchoke"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 7.777777777777779,
+      "highTemp": 15,
+      "minSpacing": 30.47999902464003,
+      "maxSpacing": 45.71999853696005,
+      "harvestDayMin": 105,
+      "harvestDayMax": 140,
+      "compatableRaw": [
+         "tomatoes",
+         "cucumbers"
+      ],
+      "compatable": [
+         68,
+         23
+      ],
+      "_missedCompatables": []
+   },
+   {
+      "index": 54,
+      "name": "Daikon ",
+      "otherNames": [
+         "japanese radish",
+         "lo bok"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 20,
+      "minSpacing": 15.239999512320015,
+      "maxSpacing": 15.239999512320015,
+      "harvestDayMin": 56,
+      "harvestDayMax": 70,
+      "compatableRaw": [
+         "chervil",
+         "cress",
+         "lettuce",
+         "leeks",
+         "spinach",
+         "strawberries",
+         "tomatoes"
+      ],
+      "avoidRaw": [
+         "gherkins",
+         "hyssop"
+      ],
+      "compatable": [
+         48,
+         52,
+         42,
+         79,
+         76,
+         68
+      ],
+      "_missedCompatables": [
+         "chervil",
+         "cress"
+      ],
+      "avoid": [],
+      "_missedAvoids": [
+         "gherkins",
+         "hyssop"
+      ]
+   },
+   {
+      "index": 55,
+      "name": "Dill",
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 20,
+      "minSpacing": 15.239999512320015,
+      "maxSpacing": 15.239999512320015,
+      "harvestDayMin": 56,
+      "harvestDayMax": 84,
+      "compatableRaw": [
+         "cabbage",
+         "coriander",
+         "fennel",
+         "tomatoes",
+         "broccoli"
+      ],
+      "compatable": [
+         10,
+         12,
+         6,
+         58,
+         68,
+         31
+      ],
+      "_missedCompatables": []
+   },
+   {
+      "index": 56,
+      "name": "Eggplant ",
+      "otherNames": [
+         "aubergine"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 23.88888888888889,
+      "highTemp": 32.22222222222222,
+      "minSpacing": 60.95999804928006,
+      "maxSpacing": 76.19999756160007,
+      "harvestDayMin": 84,
+      "harvestDayMax": 105,
+      "compatableRaw": [
+         "beans",
+         "capsicum",
+         "lettuce",
+         "amaranth",
+         "thyme"
+      ],
+      "avoidRaw": [
+         "potatoes"
+      ],
+      "compatable": [
+         1,
+         27,
+         28,
+         20,
+         48,
+         0,
+         70
+      ],
+      "_missedCompatables": [],
+      "avoid": [
+         34,
+         72
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 57,
+      "name": "Endive",
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 15,
+      "highTemp": 25,
+      "minSpacing": 20.31999934976002,
+      "maxSpacing": 30.47999902464003,
+      "harvestDayMin": 70,
+      "harvestDayMax": 77,
+      "compatableRaw": [
+         "beans",
+         "brassicas",
+         "carrots",
+         "cucumbers",
+         "chervil",
+         "sage."
+      ],
+      "avoidRaw": [
+         "alliums garlic",
+         "onions"
+      ],
+      "compatable": [
+         1,
+         27,
+         28,
+         19,
+         23
+      ],
+      "_missedCompatables": [
+         "brassicas",
+         "chervil",
+         "sage."
+      ],
+      "avoid": [
+         40,
+         78
+      ],
+      "_missedAvoids": [
+         "alliums garlic"
+      ]
+   },
+   {
+      "index": 58,
+      "name": "Fennel ",
+      "otherNames": [
+         "bronze fennel"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 25,
+      "minSpacing": null,
+      "maxSpacing": 30.47999902464003,
+      "harvestDayMin": 98,
+      "harvestDayMax": 105,
+      "compatableRaw": [
+         "best grown away from vegetables"
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "best grown away from vegetables"
+      ]
+   },
+   {
+      "index": 59,
+      "name": "French tarragon",
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 10,
+      "highTemp": 25,
+      "minSpacing": 40.63999869952004,
+      "maxSpacing": 60.95999804928006,
+      "harvestDayMin": 30,
+      "harvestDayMax": 40,
+      "compatableRaw": [
+         "aubergine eggplant",
+         "capsicum peppers"
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "aubergine eggplant",
+         "capsicum peppers"
+      ]
+   },
+   {
+      "index": 60,
+      "name": "Garlic",
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 35,
+      "minSpacing": 10.15999967488001,
+      "maxSpacing": 12.699999593600012,
+      "harvestDayMin": 119,
+      "harvestDayMax": 175,
+      "compatableRaw": [
+         "beets",
+         "carrots",
+         "cucumbers",
+         "dill",
+         "tomatoes",
+         "parsnips"
+      ],
+      "avoidRaw": [
+         "asparagus",
+         "beans",
+         "brassicas",
+         "peas",
+         "potatoes"
+      ],
+      "compatable": [
+         29,
+         81,
+         19,
+         23,
+         55,
+         68,
+         36
+      ],
+      "_missedCompatables": [],
+      "avoid": [
+         24,
+         25,
+         1,
+         27,
+         28,
+         3,
+         25,
+         35,
+         80,
+         34,
+         72
+      ],
+      "_missedAvoids": [
+         "brassicas"
+      ]
+   },
+   {
+      "index": 61,
+      "name": "Ginger",
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 20,
+      "highTemp": 30,
+      "minSpacing": 15,
+      "maxSpacing": 15,
+      "harvestDayMin": 175,
+      "harvestDayMax": 175,
+      "compatableRaw": [
+         "grow in separate bed"
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "grow in separate bed"
+      ]
+   },
+   {
+      "index": 62,
+      "name": "Horseradish",
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 25,
+      "minSpacing": 50.79999837440005,
+      "maxSpacing": 50.79999837440005,
+      "harvestDayMin": 112,
+      "harvestDayMax": 168,
+      "compatableRaw": [
+         "best kept separate"
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "best kept separate"
+      ]
+   },
+   {
+      "index": 63,
+      "name": "Zucchini ",
+      "otherNames": [
+         "courgette/marrow",
+         "summer squash"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 21.11111111111111,
+      "highTemp": 35,
+      "minSpacing": 50.79999837440005,
+      "maxSpacing": 88.89999715520008,
+      "harvestDayMin": 42,
+      "harvestDayMax": 63,
+      "compatableRaw": [
+         "corn",
+         "beans",
+         "nasturtiums",
+         "parsley",
+         "silverbeet",
+         "tomatoes"
+      ],
+      "avoidRaw": [
+         "potatoes"
+      ],
+      "compatable": [
+         2,
+         4,
+         1,
+         27,
+         28,
+         37,
+         81,
+         68
+      ],
+      "_missedCompatables": [
+         "nasturtiums"
+      ],
+      "avoid": [
+         34,
+         72
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 64,
+      "name": "Yam/Oka ",
+      "otherNames": [
+         "oca"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 17.22222222222222,
+      "highTemp": 35,
+      "minSpacing": 30.47999902464003,
+      "maxSpacing": 45.71999853696005,
+      "harvestDayMin": 105,
+      "harvestDayMax": 140,
+      "compatableRaw": [
+         "best in separate bed"
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "best in separate bed"
+      ]
+   },
+   {
+      "index": 65,
+      "name": "Yacon ",
+      "otherNames": [
+         "sunroot"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 25,
+      "minSpacing": 99.0599968300801,
+      "maxSpacing": 99.0599968300801,
+      "harvestDayMin": 175,
+      "harvestDayMax": 175,
+      "compatableRaw": [
+         "best in separate bed"
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "best in separate bed"
+      ]
+   },
+   {
+      "index": 66,
+      "name": "Watermelon",
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 21.11111111111111,
+      "highTemp": 35,
+      "minSpacing": 60.95999804928006,
+      "maxSpacing": 76.19999756160007,
+      "harvestDayMin": 84,
+      "harvestDayMax": 119,
+      "compatableRaw": [
+         "sweetcorn",
+         "sunflowers"
+      ],
+      "avoidRaw": [
+         "potatoes"
+      ],
+      "compatable": [
+         74
+      ],
+      "_missedCompatables": [
+         "sweetcorn"
+      ],
+      "avoid": [
+         34,
+         72
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 67,
+      "name": "Turnip",
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 12,
+      "highTemp": 30,
+      "minSpacing": 12,
+      "maxSpacing": 20,
+      "harvestDayMin": 42,
+      "harvestDayMax": 63,
+      "compatableRaw": [
+         "peas",
+         "beans",
+         "chives",
+         "spinach",
+         "carrots",
+         "chicory"
+      ],
+      "avoidRaw": [
+         "potatoes",
+         "tomatoes"
+      ],
+      "compatable": [
+         3,
+         25,
+         35,
+         80,
+         1,
+         27,
+         28,
+         5,
+         42,
+         79,
+         19,
+         14
+      ],
+      "_missedCompatables": [],
+      "avoid": [
+         34,
+         72,
+         68
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 68,
+      "name": "Tomato",
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 16.11111111111111,
+      "highTemp": 35,
+      "minSpacing": 40.63999869952004,
+      "maxSpacing": 60.95999804928006,
+      "harvestDayMin": 56,
+      "harvestDayMax": 119,
+      "compatableRaw": [
+         "asparagus",
+         "chervil",
+         "carrot",
+         "celery",
+         "chives",
+         "parsley",
+         "marigold",
+         "basil"
+      ],
+      "avoidRaw": [
+         "rosemary",
+         "potatoes",
+         "fennel"
+      ],
+      "compatable": [
+         24,
+         25,
+         19,
+         13,
+         5,
+         37,
+         26
+      ],
+      "_missedCompatables": [
+         "chervil",
+         "marigold"
+      ],
+      "avoid": [
+         90,
+         34,
+         72,
+         58
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 69,
+      "name": "Tomatillo",
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 21.11111111111111,
+      "highTemp": 27.222222222222225,
+      "minSpacing": 71.11999772416007,
+      "maxSpacing": 71.11999772416007,
+      "harvestDayMin": 70,
+      "harvestDayMax": 98,
+      "compatableRaw": [
+         "will happily grow in a flower border"
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "will happily grow in a flower border"
+      ]
+   },
+   {
+      "index": 70,
+      "name": "Thyme ",
+      "otherNames": [
+         "common thyme"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 15,
+      "highTemp": 25,
+      "minSpacing": 25.399999187200024,
+      "maxSpacing": 30.47999902464003,
+      "harvestDayMin": 294,
+      "harvestDayMax": 364,
+      "compatableRaw": [
+         "dry-environment herbs oregano",
+         "sage",
+         "eggplant",
+         "cabbage"
+      ],
+      "compatable": [
+         93,
+         56,
+         10,
+         12
+      ],
+      "_missedCompatables": [
+         "dry-environment herbs oregano"
+      ]
+   },
+   {
+      "index": 71,
+      "name": "Taro ",
+      "otherNames": [
+         "dasheen",
+         "cocoyam"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 20,
+      "highTemp": 35,
+      "minSpacing": 78.73999748032007,
+      "maxSpacing": 78.73999748032007,
+      "harvestDayMin": 196,
+      "harvestDayMax": 196,
+      "compatableRaw": [
+         "best in separate bed"
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "best in separate bed"
+      ]
+   },
+   {
+      "index": 72,
+      "name": "Sweet Potato ",
+      "otherNames": [
+         "kumara"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 17.22222222222222,
+      "highTemp": 35,
+      "minSpacing": 40.63999869952004,
+      "maxSpacing": 60.95999804928006,
+      "harvestDayMin": 105,
+      "harvestDayMax": 119,
+      "compatableRaw": [
+         "best in separate bed"
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "best in separate bed"
+      ]
+   },
+   {
+      "index": 73,
+      "name": "Sweet Marjoram ",
+      "otherNames": [
+         "knotted marjoram"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 10,
+      "highTemp": 25,
+      "minSpacing": 20.31999934976002,
+      "maxSpacing": 20.31999934976002,
+      "harvestDayMin": 56,
+      "harvestDayMax": 70,
+      "compatableRaw": [
+         "peppers capsicums",
+         "chilis",
+         "sage",
+         ""
+      ],
+      "compatable": [
+         93,
+         0,
+         1,
+         2,
+         3,
+         4,
+         5,
+         6,
+         7,
+         8,
+         9,
+         10,
+         11,
+         12,
+         13,
+         14,
+         15,
+         16,
+         17,
+         18,
+         19,
+         20,
+         21,
+         22,
+         23,
+         24,
+         25,
+         26,
+         27,
+         28,
+         29,
+         30,
+         31,
+         32,
+         33,
+         34,
+         35,
+         36,
+         37,
+         38,
+         39,
+         40,
+         41,
+         42,
+         43,
+         44,
+         45,
+         46,
+         47,
+         48,
+         49,
+         50,
+         51,
+         52,
+         53,
+         54,
+         55,
+         56,
+         57,
+         58,
+         59,
+         60,
+         61,
+         62,
+         63,
+         64,
+         65,
+         66,
+         67,
+         68,
+         69,
+         70,
+         71,
+         72,
+         73,
+         74,
+         75,
+         76,
+         77,
+         78,
+         79,
+         80,
+         81,
+         82,
+         83,
+         84,
+         85,
+         86,
+         87,
+         88,
+         89,
+         90,
+         91,
+         92,
+         93
+      ],
+      "_missedCompatables": [
+         "peppers capsicums",
+         "chilis"
+      ]
+   },
+   {
+      "index": 74,
+      "name": "Sunflower",
+      "sewInGarden": true,
+      "growDifficulty": "medium",
+      "lowTemp": 10,
+      "highTemp": 30,
+      "minSpacing": 20.31999934976002,
+      "maxSpacing": 30.47999902464003,
+      "harvestDayMin": 70,
+      "harvestDayMax": 77,
+      "compatableRaw": [
+         "cucumbers",
+         "melons",
+         "sweetcorn",
+         "squash"
+      ],
+      "avoidRaw": [
+         "potatoes"
+      ],
+      "compatable": [
+         23,
+         66,
+         88,
+         77
+      ],
+      "_missedCompatables": [
+         "sweetcorn"
+      ],
+      "avoid": [
+         34,
+         72
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 75,
+      "name": "Strawberry Plants",
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 20,
+      "minSpacing": 30.47999902464003,
+      "maxSpacing": 99.0599968300801,
+      "harvestDayMin": 77,
+      "harvestDayMax": 77,
+      "compatableRaw": [
+         "better in a bed on their own to allow good sun",
+         "air circulation"
+      ],
+      "avoidRaw": [
+         "if you are using rotation beds",
+         "avoid putting strawberries where you have grown tomatoes",
+         "potatoes",
+         "peppers or eggplant"
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "better in a bed on their own to allow good sun",
+         "air circulation"
+      ],
+      "avoid": [
+         34,
+         72
+      ],
+      "_missedAvoids": [
+         "if you are using rotation beds",
+         "avoid putting strawberries where you have grown tomatoes",
+         "peppers or eggplant"
+      ]
+   },
+   {
+      "index": 76,
+      "name": "Strawberries (from seeds)",
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 10,
+      "highTemp": 20,
+      "minSpacing": 30.47999902464003,
+      "maxSpacing": 99.0599968300801,
+      "harvestDayMin": 365,
+      "harvestDayMax": 365,
+      "compatableRaw": [
+         "better in a bed on their own to allow good sun",
+         "air circulation"
+      ],
+      "avoidRaw": [
+         "if you are using rotation beds",
+         "avoid putting strawberries where you have grown tomatoes",
+         "potatoes",
+         "peppers or eggplant"
+      ],
+      "compatable": [],
+      "_missedCompatables": [
+         "better in a bed on their own to allow good sun",
+         "air circulation"
+      ],
+      "avoid": [
+         34,
+         72
+      ],
+      "_missedAvoids": [
+         "if you are using rotation beds",
+         "avoid putting strawberries where you have grown tomatoes",
+         "peppers or eggplant"
+      ]
+   },
+   {
+      "index": 77,
+      "name": "Squash ",
+      "otherNames": [
+         "crookneck",
+         "pattypan",
+         "summer squash"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 21.11111111111111,
+      "highTemp": 35,
+      "minSpacing": 60.95999804928006,
+      "maxSpacing": 78.73999748032007,
+      "harvestDayMin": 49,
+      "harvestDayMax": 56,
+      "compatableRaw": [
+         "sweet corn"
+      ],
+      "compatable": [
+         2
+      ],
+      "_missedCompatables": []
+   },
+   {
+      "index": 78,
+      "name": "Spring onions ",
+      "otherNames": [
+         "scallions",
+         "bunching onions",
+         "welsh onion"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 20,
+      "minSpacing": 2,
+      "maxSpacing": 5,
+      "harvestDayMin": 56,
+      "harvestDayMax": 84,
+      "compatableRaw": [
+         "lemon balm",
+         "borage",
+         "carrots",
+         "beets",
+         "silverbeet",
+         "lettuce",
+         "amaranth"
+      ],
+      "avoidRaw": [
+         "peas",
+         "beans"
+      ],
+      "compatable": [
+         49,
+         30,
+         19,
+         29,
+         81,
+         81,
+         48,
+         0
+      ],
+      "_missedCompatables": [],
+      "avoid": [
+         3,
+         25,
+         35,
+         80,
+         1,
+         27,
+         28
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 79,
+      "name": "Spinach ",
+      "otherNames": [
+         "english spinach"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 25,
+      "minSpacing": 20.31999934976002,
+      "maxSpacing": 30.47999902464003,
+      "harvestDayMin": 35,
+      "harvestDayMax": 77,
+      "compatableRaw": [
+         "broad beans fava",
+         "cabbage",
+         "cauliflower",
+         "celery",
+         "eggplant aubergine",
+         "onion",
+         "peas",
+         "strawberry",
+         "santolina"
+      ],
+      "compatable": [
+         27,
+         10,
+         12,
+         15,
+         13,
+         40,
+         78,
+         3,
+         25,
+         35,
+         80,
+         75
+      ],
+      "_missedCompatables": [
+         "eggplant aubergine",
+         "santolina"
+      ]
+   },
+   {
+      "index": 80,
+      "name": "Snow Peas ",
+      "otherNames": [
+         "sugar peas",
+         "mangetout",
+         "chinese peas"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 7.777777777777779,
+      "highTemp": 20,
+      "minSpacing": 7.6199997561600075,
+      "maxSpacing": 10.15999967488001,
+      "harvestDayMin": 84,
+      "harvestDayMax": 98,
+      "compatableRaw": [
+         "carrots",
+         "endive",
+         "florence fennel",
+         "winter lettuce",
+         "brassicas."
+      ],
+      "avoidRaw": [
+         "chives",
+         "alliums",
+         "tomatoes"
+      ],
+      "compatable": [
+         19,
+         57
+      ],
+      "_missedCompatables": [
+         "florence fennel",
+         "winter lettuce",
+         "brassicas."
+      ],
+      "avoid": [
+         5,
+         68
+      ],
+      "_missedAvoids": [
+         "alliums"
+      ]
+   },
+   {
+      "index": 81,
+      "name": "Silverbeet ",
+      "otherNames": [
+         "swiss chard or mangold"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 30,
+      "minSpacing": 15.239999512320015,
+      "maxSpacing": 30.47999902464003,
+      "harvestDayMin": 49,
+      "harvestDayMax": 84,
+      "compatableRaw": [
+         "beans",
+         "brassica sp. cabbage",
+         "cauliflower",
+         "etc",
+         "tomato",
+         "allium sp. onion",
+         "garlic",
+         "chives",
+         "lavender",
+         "parsnip"
+      ],
+      "avoidRaw": [
+         "corn",
+         "melon",
+         "cucurbit cucumbers",
+         "squash",
+         "melons",
+         "gourds",
+         "most herbs",
+         "potato."
+      ],
+      "compatable": [
+         1,
+         27,
+         28,
+         15,
+         68,
+         60,
+         5,
+         36
+      ],
+      "_missedCompatables": [
+         "brassica sp. cabbage",
+         "etc",
+         "allium sp. onion",
+         "lavender"
+      ],
+      "avoid": [
+         2,
+         4,
+         66,
+         88,
+         77,
+         66,
+         88
+      ],
+      "_missedAvoids": [
+         "cucurbit cucumbers",
+         "gourds",
+         "most herbs",
+         "potato."
+      ]
+   },
+   {
+      "index": 82,
+      "name": "Shallots ",
+      "otherNames": [
+         "eschalots"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 7.777777777777779,
+      "highTemp": 30,
+      "minSpacing": 15.239999512320015,
+      "maxSpacing": 20.31999934976002,
+      "harvestDayMin": 84,
+      "harvestDayMax": 105,
+      "compatableRaw": [
+         "lemon balm",
+         "borage",
+         "carrots",
+         "beets",
+         "silverbeet",
+         "lettuce",
+         "amaranth"
+      ],
+      "avoidRaw": [
+         "peas",
+         "beans"
+      ],
+      "compatable": [
+         49,
+         30,
+         19,
+         29,
+         81,
+         81,
+         48,
+         0
+      ],
+      "_missedCompatables": [],
+      "avoid": [
+         3,
+         25,
+         35,
+         80,
+         1,
+         27,
+         28
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 83,
+      "name": "Savory - winter savory ",
+      "otherNames": [
+         "savory"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 17.77777777777778,
+      "highTemp": 30,
+      "minSpacing": 30.47999902464003,
+      "maxSpacing": 40.63999869952004,
+      "harvestDayMin": 42,
+      "harvestDayMax": 70,
+      "compatableRaw": [
+         "beans"
+      ],
+      "compatable": [
+         1,
+         27,
+         28
+      ],
+      "_missedCompatables": []
+   },
+   {
+      "index": 84,
+      "name": "Savory - summer savory ",
+      "otherNames": [
+         "'bean herb'"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 17.77777777777778,
+      "highTemp": 30,
+      "minSpacing": 25.399999187200024,
+      "maxSpacing": 25.399999187200024,
+      "harvestDayMin": 42,
+      "harvestDayMax": 70,
+      "compatableRaw": [
+         "beans",
+         "onions"
+      ],
+      "compatable": [
+         1,
+         27,
+         28,
+         40,
+         78
+      ],
+      "_missedCompatables": []
+   },
+   {
+      "index": 85,
+      "name": "Radish",
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 7.777777777777779,
+      "highTemp": 30,
+      "minSpacing": 2.5399999187200026,
+      "maxSpacing": 5.079999837440005,
+      "harvestDayMin": 35,
+      "harvestDayMax": 49,
+      "compatableRaw": [
+         "chervil",
+         "cress",
+         "lettuce",
+         "leeks",
+         "spinach",
+         "strawberries",
+         "tomatoes"
+      ],
+      "avoidRaw": [
+         "hyssop",
+         "gherkins"
+      ],
+      "compatable": [
+         48,
+         52,
+         42,
+         79,
+         76,
+         68
+      ],
+      "_missedCompatables": [
+         "chervil",
+         "cress"
+      ],
+      "avoid": [],
+      "_missedAvoids": [
+         "hyssop",
+         "gherkins"
+      ]
+   },
+   {
+      "index": 86,
+      "name": "Rhubarb",
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 5,
+      "highTemp": 20,
+      "minSpacing": 88.89999715520008,
+      "maxSpacing": 88.89999715520008,
+      "harvestDayMin": 365,
+      "harvestDayMax": 365,
+      "compatableRaw": [
+         "brassicas cabbage",
+         "broccoli",
+         "cauliflower",
+         "etc"
+      ],
+      "compatable": [
+         31,
+         15
+      ],
+      "_missedCompatables": [
+         "brassicas cabbage",
+         "etc"
+      ]
+   },
+   {
+      "index": 87,
+      "name": "Rocket ",
+      "otherNames": [
+         "arugula/rucola"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 25,
+      "minSpacing": 15.239999512320015,
+      "maxSpacing": 20.31999934976002,
+      "harvestDayMin": 21,
+      "harvestDayMax": 35,
+      "compatableRaw": [
+         "lettuce"
+      ],
+      "compatable": [
+         48
+      ],
+      "_missedCompatables": []
+   },
+   {
+      "index": 88,
+      "name": "Rockmelon ",
+      "otherNames": [
+         "canteloupe"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 20,
+      "highTemp": 32.22222222222222,
+      "minSpacing": 40.63999869952004,
+      "maxSpacing": 60.95999804928006,
+      "harvestDayMin": 70,
+      "harvestDayMax": 112,
+      "compatableRaw": [
+         "sweetcorn",
+         "sunflowers"
+      ],
+      "avoidRaw": [
+         "potatoes"
+      ],
+      "compatable": [
+         74
+      ],
+      "_missedCompatables": [
+         "sweetcorn"
+      ],
+      "avoid": [
+         34,
+         72
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 89,
+      "name": "Rosella ",
+      "otherNames": [
+         "queensland jam plant",
+         "roselle"
+      ],
+      "sewInGarden": false,
+      "growDifficulty": "medium",
+      "lowTemp": 20,
+      "highTemp": 35,
+      "minSpacing": 140,
+      "maxSpacing": 140,
+      "harvestDayMin": 147,
+      "harvestDayMax": 175,
+      "compatableRaw": [
+         "feverfew",
+         "coriander",
+         "nasturtium",
+         "hyssop"
+      ],
+      "compatable": [
+         6
+      ],
+      "_missedCompatables": [
+         "feverfew",
+         "nasturtium",
+         "hyssop"
+      ]
+   },
+   {
+      "index": 90,
+      "name": "Rosemary",
+      "sewInGarden": false,
+      "growDifficulty": "easy",
+      "lowTemp": 15,
+      "highTemp": 20,
+      "minSpacing": 99.0599968300801,
+      "maxSpacing": 149.85999520448013,
+      "harvestDayMin": 365,
+      "harvestDayMax": 365,
+      "compatableRaw": [
+         "beans",
+         "carrots",
+         "cabbages",
+         "sage"
+      ],
+      "avoidRaw": [
+         "potatoes"
+      ],
+      "compatable": [
+         1,
+         27,
+         28,
+         19,
+         10,
+         12,
+         93
+      ],
+      "_missedCompatables": [],
+      "avoid": [
+         34,
+         72
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 91,
+      "name": "Rutabaga ",
+      "otherNames": [
+         "swedes"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 7.222222222222222,
+      "highTemp": 25,
+      "minSpacing": 10.15999967488001,
+      "maxSpacing": 20.31999934976002,
+      "harvestDayMin": 70,
+      "harvestDayMax": 98,
+      "compatableRaw": [
+         "peas",
+         "beans",
+         "chives"
+      ],
+      "avoidRaw": [
+         "potatoes"
+      ],
+      "compatable": [
+         3,
+         25,
+         35,
+         80,
+         1,
+         27,
+         28,
+         5
+      ],
+      "_missedCompatables": [],
+      "avoid": [
+         34,
+         72
+      ],
+      "_missedAvoids": []
+   },
+   {
+      "index": 92,
+      "name": "Salsify ",
+      "otherNames": [
+         "vegetable oyster"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "easy",
+      "lowTemp": 10,
+      "highTemp": 30,
+      "minSpacing": 15.239999512320015,
+      "maxSpacing": 20.31999934976002,
+      "harvestDayMin": 98,
+      "harvestDayMax": 147,
+      "compatableRaw": [
+         "beans",
+         "brassicas",
+         "carrots",
+         "celeriac",
+         "endive",
+         "kohl-rabi",
+         "leeks",
+         "lettuce",
+         "alliums",
+         "spinach"
+      ],
+      "compatable": [
+         1,
+         27,
+         28,
+         19,
+         16,
+         57,
+         52,
+         48,
+         42,
+         79
+      ],
+      "_missedCompatables": [
+         "brassicas",
+         "kohl-rabi",
+         "alliums"
+      ]
+   },
+   {
+      "index": 93,
+      "name": "Sage ",
+      "otherNames": [
+         "common sage"
+      ],
+      "sewInGarden": true,
+      "growDifficulty": "medium",
+      "lowTemp": 10,
+      "highTemp": 25,
+      "minSpacing": 50.79999837440005,
+      "maxSpacing": 50.79999837440005,
+      "harvestDayMin": 540,
+      "harvestDayMax": 540,
+      "compatableRaw": [
+         "broccoli",
+         "cauliflower",
+         "rosemary",
+         "cabbage",
+         "carrots"
+      ],
+      "compatable": [
+         31,
+         15,
+         90,
+         10,
+         12,
+         19
+      ],
+      "_missedCompatables": []
+   }
+]
