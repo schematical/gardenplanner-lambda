@@ -1,6 +1,6 @@
 import { AWS } from '@serverless/typescript';
 
-import hello from '@functions/hello';
+import gql from '@functions/gql';
 
 const serverlessConfiguration: AWS = {
   service: 'gardenplanner-lambda',
@@ -22,7 +22,7 @@ const serverlessConfiguration: AWS = {
     },
   },
   // import the function via paths
-  functions: { hello },
+  functions: { gql },
   package: { individually: true },
   custom: {
     esbuild: {

@@ -10,6 +10,8 @@ describe('UserResolver', () => {
         expect(resolver).toBeTruthy();
     });
     describe('UserResolver.users', () => {
+
+
         it('should list users', async () => {
             const response = await resolver.users();
             expect(response).toBeTruthy();

@@ -1,2 +1,2 @@
 import 'reflect-metadata';
-export { default as hello } from './hello';
+export { default as gql } from './gql';
