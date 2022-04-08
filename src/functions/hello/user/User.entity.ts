@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import {Field, ObjectType} from "type-graphql";
 import {BaseEntity} from "../../../libs/Base.entity";
 import { getModelForClass, prop } from '@typegoose/typegoose';

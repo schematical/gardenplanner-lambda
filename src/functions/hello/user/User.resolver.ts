@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import {Query, Resolver} from "type-graphql";
+import {Mutation, Query, Resolver} from "type-graphql";
 
 import { Service} from "typedi";
 import {AuthService} from "./Auth.service";
@@ -29,6 +29,19 @@ export class UserResolver {
         ];*/
 
         return this.authService.find();
+    }
+    @Mutation(() => {
+        return User;
+    })
+    createUser() {
+        /*const user = new User();
+        user.firstName = "Hell0";
+        user.lastName = "World";
+        return [
+            user
+        ];*/
+
+        return this.authService.create();
     }
 /*
     @Mutation()

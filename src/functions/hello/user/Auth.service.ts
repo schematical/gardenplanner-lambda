@@ -1,5 +1,6 @@
 import 'reflect-metadata';
 import { Inject, Service} from "typedi";
+import {User} from "./User.entity";
 
 @Service()
 export class AuthService {
@@ -21,5 +22,13 @@ export class AuthService {
             "hello": "world"
         }
     }
+
+    async create() {
+        const user = new User();
+        user.lastName = 'Shabado';
+        user.firstName = 'Joey';
+        const response = await this.userModel.create(user);
+        console.log("RESPONSE: ", response);
+        return response;
+    }
 }
-console.log("AuthService", AuthService);

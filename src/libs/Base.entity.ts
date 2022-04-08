@@ -1,12 +1,13 @@
-
 import 'reflect-metadata';
-import {prop} from "@typegoose/typegoose";
-import {Field, ID} from "type-graphql";
+// import {prop } from "@typegoose/typegoose";
+import {Field, ID, ObjectType} from "type-graphql";
 import {Schema } from 'mongoose';
-class BaseEntity  {
-    @prop({ type: () => Schema.Types.ObjectId })
-    @Field(() => ID)
-    id: Schema.Types.ObjectId;
+
+@ObjectType({ isAbstract: true })
+class BaseEntity {
+
+    @Field(() => ID, { nullable: true})
+    _id: Schema.Types.ObjectId;
 }
 export {
     BaseEntity
