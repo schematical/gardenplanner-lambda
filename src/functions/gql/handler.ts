@@ -6,6 +6,8 @@ import {buildSchema} from "type-graphql";
 import { UserResolver } from './user/User.resolver';
 import { connect } from 'mongoose';
 import { APIGatewayProxyEvent, APIGatewayProxyHandler, Context} from "aws-lambda";
+import {CropSpeciesResolver} from "./crop-species/CropSpecies.resolver";
+import * as config from 'config';
 
 let handeler = null;
 export const main = async (
@@ -14,12 +16,14 @@ export const main = async (
     // callback: APIGatewayProxyCallback
 ): Promise<APIGatewayProxyHandler> => {
   if (!handeler) {
+    const url = config.get<string>('db.host');
+    console.log(url);
     await connect(
-        'mongodb://localhost:27017/test',
+        url,
         { }
     );
     const schema = await buildSchema({
-      resolvers: [UserResolver],
+      resolvers: [UserResolver, CropSpeciesResolver],
       container: Container,
     });
     const server = new ApolloServer({
