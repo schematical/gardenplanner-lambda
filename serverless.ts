@@ -6,7 +6,7 @@ const serverlessConfiguration: AWS = {
   service: 'gardenplanner-lambda',
   frameworkVersion: '3',
   plugins: [
-      'serverless-esbuild',
+      'serverless-webpack',
       'serverless-offline'
   ],
   provider: {

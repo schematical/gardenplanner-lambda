@@ -1,5 +1,5 @@
 import {Field, ObjectType} from "type-graphql";
-import {BaseEntity} from "@libs/Base.entity";
+import {BaseEntity} from "../../../libs/Base.entity";
 import { getModelForClass, prop } from '@typegoose/typegoose';
 import {Container} from "typedi";
 // 1. Create an interface representing a document in MongoDB.

@@ -1,17 +1,19 @@
 import 'reflect-metadata';
 import { Inject, Service} from "typedi";
 
-@Service('AuthService')
+@Service()
 export class AuthService {
-    @Inject('UserModel')
-    private userModel;
-    constructor(
 
+    constructor(
+        @Inject('UserModel')
+        private userModel
     ) {
 
     }
-    find() {
-        return this.userModel.find();
+    async find() {
+        const response = await this.userModel.find();
+        console.log("RESPONSE: ", response);
+        return response;
     }
 
     test() {
@@ -20,3 +22,4 @@ export class AuthService {
         }
     }
 }
+console.log("AuthService", AuthService);

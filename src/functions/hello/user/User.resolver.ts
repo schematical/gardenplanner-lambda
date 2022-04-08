@@ -1,16 +1,17 @@
 import 'reflect-metadata';
 import {Query, Resolver} from "type-graphql";
-import {User} from "./User.entity";
-import {Inject, Service} from "typedi";
+
+import { Service} from "typedi";
 import {AuthService} from "./Auth.service";
+import {User} from "./User.entity";
 @Resolver(() => User)
 @Service()
 export class UserResolver {
     // dependency injection
-    @Inject('AuthService')
-    private authService: AuthService
-    constructor(
 
+    constructor(
+        // @Inject('AuthService')
+        private authService: AuthService
     ) {
         console.log('constructor: ', this.authService);
     }
@@ -26,8 +27,8 @@ export class UserResolver {
         return [
             user
         ];*/
-        console.log('resolver.users', this.authService);
-        return this.authService.test();
+
+        return this.authService.find();
     }
 /*
     @Mutation()
