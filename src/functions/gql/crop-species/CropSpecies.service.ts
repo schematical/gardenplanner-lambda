@@ -58,6 +58,18 @@ export class CropSpeciesService {
 
             }
 
+            if (cropData.avoid) {
+                const realAvoid = [];
+                cropData.avoid.forEach((avoidIndex) => {
+                    const foundCropSpecies = cropSpeciesColl.find((c) => ('v0.1:' + avoidIndex) === c.importId);
+                    if (!foundCropSpecies) {
+                        throw new Error("Could not find a cropSpecies with importId matching: " + avoidIndex);
+                    }
+                    realAvoid.push(foundCropSpecies._id);
+                });
+                cropSpecies.avoidCropSpecieIds = realAvoid;
+            }
+
         }
         await this.cropSpeciesModel.bulkSave(cropSpeciesColl);
         return cropSpeciesColl;

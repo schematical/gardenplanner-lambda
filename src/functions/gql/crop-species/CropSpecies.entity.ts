@@ -55,6 +55,10 @@ export class CropSpecies extends BaseEntity {
     @prop({ ref: () => CropSpecies })
     public compatibleCropSpecieIds?: Ref<CropSpecies>[];
 
+    @Field(() => [CropSpecies], { nullable: true })
+    @prop({ ref: () => CropSpecies })
+    public avoidCropSpecieIds?: Ref<CropSpecies>[];
+
 }
 
 // 3. Create a Model.

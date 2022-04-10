@@ -57,21 +57,40 @@ export class CropSpeciesResolver {
         @Root() cropSpecies: HydratedDocument<CropSpecies>,
         @Ctx() ctx
     ): Promise<CropSpecies[]> {
-        console.log("YYYYY:", cropSpecies.name, cropSpecies.compatibleCropSpecieIds);
+
         if (!cropSpecies.compatibleCropSpecieIds) {
             return Promise.resolve([]);
         }
         const dataLoaderNamespace = 'CropSpecies:compatibleCropSpecies';
+        const dataLoader = this.initManyToManyDataLoader(ctx, dataLoaderNamespace);
+        const compatibleCropSpecies = await dataLoader.load(cropSpecies.compatibleCropSpecieIds);
+        return compatibleCropSpecies;
+    }
+    @FieldResolver(() => [CropSpecies])
+    async avoidCropSpecies(
+        @Root() cropSpecies: HydratedDocument<CropSpecies>,
+        @Ctx() ctx
+    ): Promise<CropSpecies[]> {
+
+        if (!cropSpecies.compatibleCropSpecieIds) {
+            return Promise.resolve([]);
+        }
+        const dataLoaderNamespace = 'CropSpecies:compatibleCropSpecies';
+        const dataLoader = this.initManyToManyDataLoader(ctx, dataLoaderNamespace);
+        const avoidCropSpecies = await dataLoader.load(cropSpecies.avoidCropSpecieIds);
+        return avoidCropSpecies;
+    }
+    initManyToManyDataLoader(ctx, dataLoaderNamespace) {
         ctx.dataLoaders = ctx.dataLoaders || [];
         ctx.dataLoaders[dataLoaderNamespace] = ctx.dataLoaders[dataLoaderNamespace] || new DataLoader(async (cropSpeciesIds) => {
             const queryCropSpeciesIds = _.flatten(cropSpeciesIds);
-            console.log("SEARCH: ", cropSpeciesIds);
+
             const compatibleCropSpecies = await this.cropSpeciesService.find({
                 _id: {
                     $in: queryCropSpeciesIds
                 }
             });
-            console.log("compatibleCropSpecies", compatibleCropSpecies);
+
             return cropSpeciesIds.map((ids:any) => {
                 return ids.map((id) => {
                     const foundCropSpecies = compatibleCropSpecies.find((c: CropSpecies) => {
@@ -80,15 +99,12 @@ export class CropSpeciesResolver {
                     if (!foundCropSpecies) {
                         throw new Error("Could not find a species for: " + id);
                     }
-                    console.log('foundCropSpecies: ' , foundCropSpecies);
                     return foundCropSpecies;
                 });
 
             });
         });
-        const compatibleCropSpecies = await ctx.dataLoaders[dataLoaderNamespace].load(cropSpecies.compatibleCropSpecieIds);
-        console.log("FOUND: ", compatibleCropSpecies);
-        return compatibleCropSpecies;
+        return ctx.dataLoaders[dataLoaderNamespace];
     }
 /*
     @Mutation()
