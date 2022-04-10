@@ -3,14 +3,15 @@
   "compilerOptions": {
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es2017"],
+    "lib": ["es6"],
     "moduleResolution": "node",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "removeComments": true,
     "sourceMap": true,
-    "target": "es2017",
-    "outDir": "lib"
+    "target": "ES6",
+    "outDir": "lib",
+    "importHelpers": true
   },
   "include": ["src/**/**.ts", "serverless.ts"],
   "exclude": [

@@ -2,15 +2,16 @@ import 'reflect-metadata';
 import { Inject, Service} from "typedi";
 import {CropSpecies, CropSpeciesSewMethods} from "./CropSpecies.entity";
 import * as fs from "fs";
+import {BaseService} from "../../../libs/Base.service";
 
 @Service()
-export class CropSpeciesService {
+export class CropSpeciesService extends BaseService(CropSpecies){
 
     constructor(
         @Inject('CropSpeciesModel')
         private cropSpeciesModel
     ) {
-
+        super();
     }
     async find(query?: any) {
         const response = await this.cropSpeciesModel.find(query);

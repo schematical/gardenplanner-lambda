@@ -6,33 +6,19 @@ import {CropSpeciesService} from "./CropSpecies.service";
 import {CropSpecies} from "./CropSpecies.entity";
 import * as DataLoader from "dataloader";
 import { HydratedDocument } from 'mongoose';
+import {BaseResolver} from "../../../libs/Base.resolver";
 @Service()
 @Resolver(() => CropSpecies)
-export class CropSpeciesResolver {
+export class CropSpeciesResolver extends BaseResolver(CropSpecies, CropSpeciesService){
 
     constructor(
         private cropSpeciesService: CropSpeciesService
     ) {
+        super();
     }
 
 
-    @Query(
-        () => {
-            return [CropSpecies];
-        },
-        {
-            name: 'cropSpecies'
-        })
-    cropSpecies() {
-        /*const user = new User();
-        user.firstName = "Hell0";
-        user.lastName = "World";
-        return [
-            user
-        ];*/
 
-        return this.cropSpeciesService.find();
-    }
     @Mutation(() => {
         return CropSpecies;
     })

@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import {Field, ObjectType} from "type-graphql";
+import {Field, InputType, ObjectType} from "type-graphql";
 import {BaseEntity} from "../../../libs/Base.entity";
 import {getModelForClass, prop, Ref} from '@typegoose/typegoose';
 import {Container} from "typedi";
@@ -67,4 +67,8 @@ Container.set('CropSpeciesModel', CropSpeciesModel);
 
 export const enum CropSpeciesSewMethods {
     IN_GARDEN = 'in_garden'
+}
+@InputType()
+export class CropSpeciesInput implements Partial<CropSpecies> {
+
 }
