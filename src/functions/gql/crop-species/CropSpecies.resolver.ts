@@ -1,13 +1,14 @@
 import 'reflect-metadata';
-import {Mutation, Query, Resolver} from "type-graphql";
-
+import {Ctx, FieldResolver, Mutation, Query, Resolver, Root} from "type-graphql";
+import _ from 'underscore';
 import { Service} from "typedi";
 import {CropSpeciesService} from "./CropSpecies.service";
 import {CropSpecies} from "./CropSpecies.entity";
-@Resolver(() => CropSpecies)
+import * as DataLoader from "dataloader";
+import { HydratedDocument } from 'mongoose';
 @Service()
+@Resolver(() => CropSpecies)
 export class CropSpeciesResolver {
-    // dependency injection
 
     constructor(
         private cropSpeciesService: CropSpeciesService
@@ -15,9 +16,13 @@ export class CropSpeciesResolver {
     }
 
 
-    @Query(() => {
-        return [CropSpecies];
-    })
+    @Query(
+        () => {
+            return [CropSpecies];
+        },
+        {
+            name: 'cropSpecies'
+        })
     cropSpecies() {
         /*const user = new User();
         user.firstName = "Hell0";
@@ -46,6 +51,44 @@ export class CropSpeciesResolver {
     })
     importTest() {
         return this.cropSpeciesService.importTest();
+    }
+    @FieldResolver(() => [CropSpecies])
+    async compatibleCropSpecies(
+        @Root() cropSpecies: HydratedDocument<CropSpecies>,
+        @Ctx() ctx
+    ): Promise<CropSpecies[]> {
+        console.log("YYYYY:", cropSpecies.name, cropSpecies.compatibleCropSpecieIds);
+        if (!cropSpecies.compatibleCropSpecieIds) {
+            return Promise.resolve([]);
+        }
+        const dataLoaderNamespace = 'CropSpecies:compatibleCropSpecies';
+        ctx.dataLoaders = ctx.dataLoaders || [];
+        ctx.dataLoaders[dataLoaderNamespace] = ctx.dataLoaders[dataLoaderNamespace] || new DataLoader(async (cropSpeciesIds) => {
+            const queryCropSpeciesIds = _.flatten(cropSpeciesIds);
+            console.log("SEARCH: ", cropSpeciesIds);
+            const compatibleCropSpecies = await this.cropSpeciesService.find({
+                _id: {
+                    $in: queryCropSpeciesIds
+                }
+            });
+            console.log("compatibleCropSpecies", compatibleCropSpecies);
+            return cropSpeciesIds.map((ids:any) => {
+                return ids.map((id) => {
+                    const foundCropSpecies = compatibleCropSpecies.find((c: CropSpecies) => {
+                        return id.equals(c._id);
+                    });
+                    if (!foundCropSpecies) {
+                        throw new Error("Could not find a species for: " + id);
+                    }
+                    console.log('foundCropSpecies: ' , foundCropSpecies);
+                    return foundCropSpecies;
+                });
+
+            });
+        });
+        const compatibleCropSpecies = await ctx.dataLoaders[dataLoaderNamespace].load(cropSpecies.compatibleCropSpecieIds);
+        console.log("FOUND: ", compatibleCropSpecies);
+        return compatibleCropSpecies;
     }
 /*
     @Mutation()

@@ -17,12 +17,14 @@
     "@types/config": "^0.0.41",
     "apollo-server-lambda": "^2.25.3",
     "config": "^3.3.7",
+    "dataloader": "^2.0.0",
     "graphql": "^15.8.0",
     "graphql-type-json": "^0.3.2",
     "jest": "^27.5.1",
     "ts-jest": "^27.1.4",
     "type-graphql": "^1.1.1",
     "typedi": "^0.8.0",
+    "underscore": "^1.13.2",
     "webpack-node-externals": "^3.0.0"
   },
   "devDependencies": {

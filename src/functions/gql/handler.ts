@@ -17,7 +17,6 @@ export const main = async (
 ): Promise<APIGatewayProxyHandler> => {
   if (!handeler) {
     const url = config.get<string>('db.host');
-    console.log(url);
     await connect(
         url,
         { }

@@ -6,6 +6,12 @@ module.exports = {
     optimization: {
         minimize: false
     },
+    watchOptions: {
+        ignored: [
+            '**/node_modules',
+            '**/node_modules/**'
+        ]
+    },
     // mode: slsw.lib.webpack.isLocal ? 'development' : 'production',
     entry: slsw.lib.entries,
     devtool: slsw.lib.webpack.isLocal ? 'inline-cheap-module-source-map' : 'source-map',

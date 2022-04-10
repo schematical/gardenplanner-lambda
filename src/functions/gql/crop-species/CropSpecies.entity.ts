@@ -53,7 +53,7 @@ export class CropSpecies extends BaseEntity {
 
     @Field(() => [CropSpecies], { nullable: true })
     @prop({ ref: () => CropSpecies })
-    public compatibleCropSpecies?: Ref<CropSpecies>[];
+    public compatibleCropSpecieIds?: Ref<CropSpecies>[];
 
 }
 

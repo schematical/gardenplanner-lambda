@@ -12,15 +12,15 @@ export class CropSpeciesService {
     ) {
 
     }
-    async find() {
-        const response = await this.cropSpeciesModel.find();
-        console.log("RESPONSE: ", response);
+    async find(query?: any) {
+        const response = await this.cropSpeciesModel.find(query);
         return response;
     }
 
     async importTest() {
+        await this.cropSpeciesModel.remove({});
         const cropDatas = JSON.parse(fs.readFileSync('/home/user1a/WebstormProjects/gardenplanner-lambda/data/crops/crops.json').toString());
-        const cropSpeciesColl: CropSpecies[] = [];
+        let cropSpeciesColl: CropSpecies[] = [];
         cropDatas.forEach((cropData) => {
             const cropSpecies = new CropSpecies();
             cropSpecies.name = cropData.name;
@@ -39,7 +39,27 @@ export class CropSpeciesService {
             cropSpeciesColl.push(cropSpecies);
 
         });
-        await this.cropSpeciesModel.create(cropSpeciesColl);
+        cropSpeciesColl = await this.cropSpeciesModel.create(cropSpeciesColl);
+        for (const cropSpecies of cropSpeciesColl) {
+            const cropData = cropDatas.find((c) => ('v0.1:' + c.index) === cropSpecies.importId);
+            if (!cropData) {
+                throw new Error("Could not find a cropData with importId matching: " + cropSpecies.importId);
+            }
+            const realCompatable = [];
+            if (cropData.compatable) {
+                cropData.compatable.forEach((compatableIndex) => {
+                    const foundCropSpecies = cropSpeciesColl.find((c) => ('v0.1:' + compatableIndex) === c.importId);
+                    if (!foundCropSpecies) {
+                        throw new Error("Could not find a cropSpecies with importId matching: " + compatableIndex);
+                    }
+                    realCompatable.push(foundCropSpecies._id);
+                });
+                cropSpecies.compatibleCropSpecieIds = realCompatable;
+
+            }
+
+        }
+        await this.cropSpeciesModel.bulkSave(cropSpeciesColl);
         return cropSpeciesColl;
     }
 
