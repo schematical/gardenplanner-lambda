@@ -21,19 +21,7 @@ export class CropSpeciesResolver extends BaseResolver(CropSpecies, CropSpeciesSe
 
 
 
-    @Mutation(() => {
-        return CropSpecies;
-    })
-    createCropSpecies() {
-        /*const user = new User();
-        user.firstName = "Hell0";
-        user.lastName = "World";
-        return [
-            user
-        ];*/
 
-        return this.cropSpeciesService.create();
-    }
     @Query(() => {
         return [CropSpecies];
     })

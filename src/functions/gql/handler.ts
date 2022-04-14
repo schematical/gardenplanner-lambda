@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { ApolloServer } from 'apollo-server-lambda';
 import { APIGatewayProxyEvent, APIGatewayProxyHandler, Context} from "aws-lambda";
-import {getApolloConfig} from "@functions/gql/apollo";
+import {getApolloConfig} from "./apollo";
 
 let handeler = null;
 export const main = async (

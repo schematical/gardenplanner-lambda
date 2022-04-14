@@ -1,8 +1,8 @@
 import config from "config";
 import {connect} from "mongoose";
 import {buildSchema} from "type-graphql";
-import {UserResolver} from "@functions/gql/user/User.resolver";
-import {CropSpeciesResolver} from "@functions/gql/crop-species/CropSpecies.resolver";
+import {UserResolver} from "./user/User.resolver";
+import {CropSpeciesResolver} from "./crop-species/CropSpecies.resolver";
 import {Container} from "typedi";
 
 export const getApolloConfig = async () => {

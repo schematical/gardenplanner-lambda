@@ -1,13 +1,19 @@
 import {BaseEntity} from "@libs/Base.entity";
 import {BaseService, iBaseService} from "@libs/Base.service";
 import {Inject, Service} from "typedi";
-import {Query, Resolver} from "type-graphql";
+import {Arg, Ctx, Mutation, Query, Resolver} from "type-graphql";
 import {CropSpecies} from "@functions/gql/crop-species/CropSpecies.entity";
 import {Type} from "./util";
 import {FilterQuery} from "mongoose";
 
 export interface iBaseResolver<EntityT extends BaseEntity, ServiceT extends iBaseService<EntityT>> {
-    list();
+    list(
+        ctx: any
+    );
+    createOne(
+        ctx: any,
+        input: Partial<EntityT>
+    ): Promise<EntityT>
 }
 
 export function BaseResolver<EntityT extends BaseEntity, ServiceT extends iBaseService<EntityT>>(
@@ -29,8 +35,25 @@ export function BaseResolver<EntityT extends BaseEntity, ServiceT extends iBaseS
                 name: 'list' + E.name
             }
         )
-        list() {
+        list(
+            @Ctx() ctx
+        ) {
             return this.service.find({});
+        }
+
+        @Mutation(
+            () => {
+                return E;
+            },
+            {
+                name: 'create' + E.name
+            }
+        )
+        createOne(
+            @Ctx() ctx,
+            @Arg("input") input: Partial<EntityT>
+        ) {
+            return this.service.createOne(input);
         }
    }
    return BaseResolverClass;
