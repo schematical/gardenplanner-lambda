@@ -4,7 +4,7 @@ import _ from 'underscore';
 import { Service} from "typedi";
 import {CropSpeciesService} from "./CropSpecies.service";
 import {CropSpecies} from "./CropSpecies.entity";
-import * as DataLoader from "dataloader";
+import DataLoader from "dataloader";
 import { HydratedDocument } from 'mongoose';
 import {BaseResolver} from "../../../libs/Base.resolver";
 @Service()

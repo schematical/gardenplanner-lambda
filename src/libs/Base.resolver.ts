@@ -3,14 +3,17 @@ import {BaseService, iBaseService} from "@libs/Base.service";
 import {Inject, Service} from "typedi";
 import {Query, Resolver} from "type-graphql";
 import {CropSpecies} from "@functions/gql/crop-species/CropSpecies.entity";
+import {Type} from "./util";
+import {FilterQuery} from "mongoose";
 
-export interface Type<T> extends Function {
-    new (...args: any[]): T;
+export interface iBaseResolver<EntityT extends BaseEntity, ServiceT extends iBaseService<EntityT>> {
+    list();
 }
+
 export function BaseResolver<EntityT extends BaseEntity, ServiceT extends iBaseService<EntityT>>(
     E: Type<EntityT>,
     S: Type<ServiceT>,
-) {
+): Type<iBaseResolver<EntityT, ServiceT>>  {
     @Service()
     @Resolver(() => E)
    class BaseResolverClass {

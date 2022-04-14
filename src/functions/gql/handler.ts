@@ -7,7 +7,7 @@ import { UserResolver } from './user/User.resolver';
 import { connect } from 'mongoose';
 import { APIGatewayProxyEvent, APIGatewayProxyHandler, Context} from "aws-lambda";
 import {CropSpeciesResolver} from "./crop-species/CropSpecies.resolver";
-import * as config from 'config';
+import config from 'config';
 
 let handeler = null;
 export const main = async (

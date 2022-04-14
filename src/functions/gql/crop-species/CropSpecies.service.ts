@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { Inject, Service} from "typedi";
+import {Container, Inject, Service} from "typedi";
 import {CropSpecies, CropSpeciesSewMethods} from "./CropSpecies.entity";
 import * as fs from "fs";
 import {BaseService} from "../../../libs/Base.service";
@@ -84,3 +84,4 @@ export class CropSpeciesService extends BaseService(CropSpecies){
         return response;
     }
 }
+// Container.set('CropSpeciesService', new CropSpeciesService(Container.get('CropSpeciesModel')));

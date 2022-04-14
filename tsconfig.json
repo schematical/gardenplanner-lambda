@@ -1,17 +1,21 @@
 {
   "extends": "./tsconfig.paths.json",
   "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "incremental": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es6"],
+    "esModuleInterop": true,
     "moduleResolution": "node",
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "removeComments": true,
     "sourceMap": true,
-    "target": "ES6",
+    "target": "es2022",
     "outDir": "lib",
-    "importHelpers": true
+    "importHelpers": true,
+    "skipLibCheck": true
   },
   "include": ["src/**/**.ts", "serverless.ts"],
   "exclude": [

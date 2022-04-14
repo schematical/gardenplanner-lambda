@@ -1,8 +1,9 @@
 import {BaseEntity} from "./Base.entity";
-import {Type} from "./Base.resolver";
+
 import {Inject} from "typedi";
 import {AnyParamConstructor, BeAnObject, ReturnModelType} from "@typegoose/typegoose/lib/types";
 import {FilterQuery} from "mongoose";
+import {Type} from "@libs/util";
 export interface iBaseService<EntityT extends BaseEntity> {
     find(query: FilterQuery<EntityT>);
     createOne(input: Partial<EntityT>): Promise<EntityT>;
