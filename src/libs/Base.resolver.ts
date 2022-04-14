@@ -18,7 +18,7 @@ export function BaseResolver<EntityT extends BaseEntity, ServiceT extends iBaseS
     @Resolver(() => E)
    class BaseResolverClass {
 
-        @Inject(S)
+        @Inject(S.name)
         public readonly service: ServiceT;
 
         @Query(
@@ -30,7 +30,7 @@ export function BaseResolver<EntityT extends BaseEntity, ServiceT extends iBaseS
             }
         )
         list() {
-
+            return this.service.find({});
         }
    }
    return BaseResolverClass;

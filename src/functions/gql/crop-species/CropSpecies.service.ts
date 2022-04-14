@@ -84,4 +84,4 @@ export class CropSpeciesService extends BaseService(CropSpecies){
         return response;
     }
 }
-// Container.set('CropSpeciesService', new CropSpeciesService(Container.get('CropSpeciesModel')));
+Container.set('CropSpeciesService', new CropSpeciesService(Container.get('CropSpeciesModel')));

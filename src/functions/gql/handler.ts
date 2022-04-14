@@ -1,13 +1,7 @@
 import 'reflect-metadata';
-import { Container } from 'typedi';
 import { ApolloServer } from 'apollo-server-lambda';
-// import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core';
-import {buildSchema} from "type-graphql";
-import { UserResolver } from './user/User.resolver';
-import { connect } from 'mongoose';
 import { APIGatewayProxyEvent, APIGatewayProxyHandler, Context} from "aws-lambda";
-import {CropSpeciesResolver} from "./crop-species/CropSpecies.resolver";
-import config from 'config';
+import {getApolloConfig} from "@functions/gql/apollo";
 
 let handeler = null;
 export const main = async (
@@ -16,25 +10,9 @@ export const main = async (
     // callback: APIGatewayProxyCallback
 ): Promise<APIGatewayProxyHandler> => {
   if (!handeler) {
-    const url = config.get<string>('db.host');
-    await connect(
-        url,
-        { }
-    );
-    const schema = await buildSchema({
-      resolvers: [UserResolver, CropSpeciesResolver],
-      container: Container,
-    });
-    const server = new ApolloServer({
-      schema,
-      introspection: true,
-      playground:  {
-        endpoint: '/dev/graphql',
-      },
-      debug: true,
-      // plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
-    });
 
+    const apolloConfig = await getApolloConfig();
+    const server = new ApolloServer(apolloConfig);
     handeler = server.createHandler();
   }
   event.path = '/graphql';
