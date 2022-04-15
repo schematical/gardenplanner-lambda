@@ -1,8 +1,9 @@
 import 'reflect-metadata';
-import {Field, InputType, ObjectType} from "type-graphql";
+import {Field, ID, InputType, ObjectType} from "type-graphql";
 import {BaseEntity} from "../../../libs/Base.entity";
 import {getModelForClass, prop, Ref} from '@typegoose/typegoose';
 import {Container} from "typedi";
+import {Schema} from "mongoose";
 // 1. Create an interface representing a document in MongoDB.
 @ObjectType()
 export class CropSpecies extends BaseEntity {
@@ -69,6 +70,12 @@ export const enum CropSpeciesSewMethods {
     IN_GARDEN = 'in_garden'
 }
 @InputType()
-export class CropSpeciesInput implements Partial<CropSpecies> {
-
+export class CropSpeciesCreateInput implements Partial<CropSpecies>{
+    @Field(() => String)
+    name: string;
+}
+@InputType()
+export class CropSpeciesUpdateInput extends CropSpeciesCreateInput implements Partial<CropSpecies>{
+    @Field(() => ID, { nullable: true})
+    _id: Schema.Types.ObjectId;
 }

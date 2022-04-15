@@ -4,18 +4,15 @@ import {CropSpecies, CropSpeciesSewMethods} from "./CropSpecies.entity";
 import * as fs from "fs";
 import {BaseService} from "../../../libs/Base.service";
 
-@Service()
+@Service('CropSpeciesService')
 export class CropSpeciesService extends BaseService(CropSpecies){
+    @Inject('CropSpeciesModel')
+    private cropSpeciesModel;
 
     constructor(
-        @Inject('CropSpeciesModel')
-        private cropSpeciesModel
+
     ) {
         super();
-    }
-    async find(query?: any) {
-        const response = await this.cropSpeciesModel.find(query);
-        return response;
     }
 
     async importTest() {
@@ -84,4 +81,4 @@ export class CropSpeciesService extends BaseService(CropSpecies){
         return response;
     }
 }
-Container.set('CropSpeciesService', new CropSpeciesService(Container.get('CropSpeciesModel')));
+// Container.set('CropSpeciesService', new CropSpeciesService(Container.get('CropSpeciesModel')));

@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import {Ctx, FieldResolver, Mutation, Query, Resolver, Root} from "type-graphql";
 import _ from 'underscore';
 import {Inject, Service} from "typedi";
-import {CropSpecies} from "./CropSpecies.entity";
+import {CropSpecies, CropSpeciesCreateInput, CropSpeciesUpdateInput} from "./CropSpecies.entity";
 import {CropSpeciesService} from "./CropSpecies.service";
 
 import DataLoader from "dataloader";
@@ -10,7 +10,12 @@ import { HydratedDocument } from 'mongoose';
 import {BaseResolver} from "../../../libs/Base.resolver";
 @Service()
 @Resolver(() => CropSpecies)
-export class CropSpeciesResolver extends BaseResolver(CropSpecies, CropSpeciesService){
+export class CropSpeciesResolver extends BaseResolver(
+    CropSpecies,
+    CropSpeciesService,
+    CropSpeciesCreateInput,
+    CropSpeciesUpdateInput
+){
     @Inject('CropSpeciesService')
     private cropSpeciesService;
     constructor(
