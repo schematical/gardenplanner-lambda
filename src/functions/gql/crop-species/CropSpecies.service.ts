@@ -73,12 +73,4 @@ export class CropSpeciesService extends BaseService(CropSpecies){
         return cropSpeciesColl;
     }
 
-    async create() {
-        const cropSpecies = new CropSpecies();
-        cropSpecies.name = 'Shabado';
-        const response = await this.cropSpeciesModel.create(cropSpecies);
-        console.log("RESPONSE: ", response);
-        return response;
-    }
 }
-// Container.set('CropSpeciesService', new CropSpeciesService(Container.get('CropSpeciesModel')));

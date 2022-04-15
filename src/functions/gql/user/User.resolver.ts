@@ -1,48 +1,33 @@
 import 'reflect-metadata';
 import {Mutation, Query, Resolver} from "type-graphql";
 
-import { Service} from "typedi";
-import {AuthService} from "./Auth.service";
-import {User} from "./User.entity";
+import {Inject, Service} from "typedi";
+import {UserService} from "./User.service";
+import {User, UserCreateInput, UserFilterInput, UserUpdateInput} from "./User.entity";
+import {BaseResolver} from "../../../libs/Base.resolver";
+
+
 @Resolver(() => User)
 @Service()
-export class UserResolver {
+export class UserResolver  extends BaseResolver(
+    User,
+    UserService,
+    UserFilterInput,
+    UserCreateInput,
+    UserUpdateInput
+){
+    @Inject('UserService')
+    private userService: UserService;
     // dependency injection
 
     constructor(
-        // @Inject('AuthService')
-        private authService: AuthService
+
     ) {
-        console.log('constructor: ', this.authService);
+      super();
     }
 
 
-    @Query(() => {
-        return [User];
-    })
-    users() {
-        /*const user = new User();
-        user.firstName = "Hell0";
-        user.lastName = "World";
-        return [
-            user
-        ];*/
 
-        return this.authService.find();
-    }
-    @Mutation(() => {
-        return User;
-    })
-    createUser() {
-        /*const user = new User();
-        user.firstName = "Hell0";
-        user.lastName = "World";
-        return [
-            user
-        ];*/
-
-        return this.authService.create();
-    }
 /*
     @Mutation()
     @Authorized(Roles.Admin) // auth guard

@@ -3,7 +3,7 @@ import {Field, ID, InputType, ObjectType} from "type-graphql";
 import {BaseEntity} from "../../../libs/Base.entity";
 import {getModelForClass, prop, Ref} from '@typegoose/typegoose';
 import {Container} from "typedi";
-import {Schema} from "mongoose";
+import {FilterQuery, Schema} from "mongoose";
 // 1. Create an interface representing a document in MongoDB.
 @ObjectType()
 export class CropSpecies extends BaseEntity {
@@ -78,4 +78,9 @@ export class CropSpeciesCreateInput implements Partial<CropSpecies>{
 export class CropSpeciesUpdateInput extends CropSpeciesCreateInput implements Partial<CropSpecies>{
     @Field(() => ID, { nullable: true})
     _id: Schema.Types.ObjectId;
+}
+@InputType()
+export class CropSpeciesFilterInput implements FilterQuery<CropSpecies>{
+    @Field(() => String)
+    name?: string;
 }

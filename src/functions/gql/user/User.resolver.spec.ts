@@ -13,7 +13,7 @@ describe('UserResolver', () => {
 
 
         it('should list users', async () => {
-            const response = await resolver.users();
+            const response = await resolver.list(null, {} as any);
             expect(response).toBeTruthy();
         });
 

@@ -7,17 +7,27 @@ import {FilterQuery} from "mongoose";
 
 export interface iBaseResolver<EntityT extends BaseEntity, ServiceT extends iBaseService<EntityT>> {
     list(
-        ctx: any
+        ctx: any,
+        input: Type<FilterQuery<EntityT>>
     );
     createOne(
         ctx: any,
         input: Type<Partial<EntityT>>
     ): Promise<EntityT>
+    updateOne(
+        ctx: any,
+        input: Type<Partial<EntityT>>
+    ): Promise<EntityT>
+    deleteOne(
+        ctx: any,
+        input: string
+    ): Promise<DeleteResponse>
 }
 
 export function BaseResolver<EntityT extends BaseEntity, ServiceT extends iBaseService<EntityT>>(
     E: Type<EntityT>,
     S: Type<ServiceT>,
+    FilterInput: Type<FilterQuery<EntityT>>,
     CreateInput: Type<Partial<EntityT>>,
     UpdateInput: Type<Partial<EntityT>>
 ): Type<iBaseResolver<EntityT, ServiceT>>  {
@@ -37,9 +47,12 @@ export function BaseResolver<EntityT extends BaseEntity, ServiceT extends iBaseS
             }
         )
         list(
-            @Ctx() ctx
+            @Ctx() ctx,
+            @Arg("input", () => {
+                return FilterInput;
+            }, { nullable: true}) input
         ) {
-            return this.service.find({});
+            return this.service.find(input);
         }
 
         @Mutation(

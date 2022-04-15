@@ -1,8 +1,10 @@
 import 'reflect-metadata';
-import {Field, ObjectType} from "type-graphql";
+import {Field, ID, InputType, ObjectType} from "type-graphql";
 import {BaseEntity} from "../../../libs/Base.entity";
 import { getModelForClass, prop } from '@typegoose/typegoose';
 import {Container} from "typedi";
+import {FilterQuery, Schema} from "mongoose";
+import {CropSpecies} from "@functions/gql/crop-species/CropSpecies.entity";
 // 1. Create an interface representing a document in MongoDB.
 @ObjectType()
 export class User extends BaseEntity {
@@ -19,3 +21,25 @@ export class User extends BaseEntity {
 // 3. Create a Model.
 export const UserModel = getModelForClass(User);
 Container.set('UserModel', UserModel);
+
+@InputType()
+export class UserCreateInput implements Partial<User>{
+    @Field(() => String)
+    firstName: string;
+
+    @Field(() => String)
+    lastName: string;
+}
+@InputType()
+export class UserUpdateInput extends UserCreateInput implements Partial<User>{
+    @Field(() => ID, { nullable: true})
+    _id: Schema.Types.ObjectId;
+}
+@InputType()
+export class UserFilterInput implements  FilterQuery<User>{
+    @Field(() => String)
+    firstName?: string;
+
+    @Field(() => String)
+    lastName?: string;
+}
