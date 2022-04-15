@@ -67,7 +67,7 @@ export class CropSpeciesResolver extends BaseResolver(
         const avoidCropSpecies = await dataLoader.load(cropSpecies.avoidCropSpecieIds);
         return avoidCropSpecies;
     }
-    initManyToManyDataLoader(ctx, dataLoaderNamespace) {
+    /*initManyToManyDataLoader(ctx, dataLoaderNamespace) {
         ctx.dataLoaders = ctx.dataLoaders || [];
         ctx.dataLoaders[dataLoaderNamespace] = ctx.dataLoaders[dataLoaderNamespace] || new DataLoader(async (cropSpeciesIds) => {
             const queryCropSpeciesIds = _.flatten(cropSpeciesIds);
@@ -92,7 +92,7 @@ export class CropSpeciesResolver extends BaseResolver(
             });
         });
         return ctx.dataLoaders[dataLoaderNamespace];
-    }
+    }*/
 /*
     @Mutation()
     @Authorized(Roles.Admin) // auth guard
