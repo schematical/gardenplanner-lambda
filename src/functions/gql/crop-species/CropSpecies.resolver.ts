@@ -49,7 +49,7 @@ export class CropSpeciesResolver extends BaseResolver(
             return Promise.resolve([]);
         }
         const dataLoaderNamespace = 'CropSpecies:compatibleCropSpecies';
-        const dataLoader = this.initManyToManyDataLoader(ctx, dataLoaderNamespace);
+        const dataLoader = this.cropSpeciesService.initManyToManyDataLoader(ctx, dataLoaderNamespace);
         const compatibleCropSpecies = await dataLoader.load(cropSpecies.compatibleCropSpecieIds);
         return compatibleCropSpecies;
     }
@@ -63,7 +63,7 @@ export class CropSpeciesResolver extends BaseResolver(
             return Promise.resolve([]);
         }
         const dataLoaderNamespace = 'CropSpecies:compatibleCropSpecies';
-        const dataLoader = this.initManyToManyDataLoader(ctx, dataLoaderNamespace);
+        const dataLoader = this.cropSpeciesService.initManyToManyDataLoader(ctx, dataLoaderNamespace);
         const avoidCropSpecies = await dataLoader.load(cropSpecies.avoidCropSpecieIds);
         return avoidCropSpecies;
     }

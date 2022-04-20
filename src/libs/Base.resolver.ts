@@ -25,7 +25,6 @@ export interface iBaseResolver<EntityT extends BaseEntity, ServiceT extends iBas
         ctx: any,
         input: string
     ): Promise<DeleteResponse>
-    initManyToManyDataLoader(ctx, dataLoaderNamespace?: string);
 }
 
 export function BaseResolver<EntityT extends BaseEntity, ServiceT extends iBaseService<EntityT>>(
@@ -109,36 +108,7 @@ export function BaseResolver<EntityT extends BaseEntity, ServiceT extends iBaseS
         }
 
 
-        /*
-        HELPERS
-         */
-        initManyToManyDataLoader(ctx, dataLoaderNamespace?: string) {
-            dataLoaderNamespace = dataLoaderNamespace || E.name + ':ManyToManyDataLoader';
-            ctx.dataLoaders = ctx.dataLoaders || [];
-            ctx.dataLoaders[dataLoaderNamespace] = ctx.dataLoaders[dataLoaderNamespace] || new DataLoader(async (ids) => {
-                const flatIds = _.flatten(ids);
 
-                const entities = await this.service.find({
-                    _id: {
-                        $in: flatIds
-                    }
-                });
-
-                return ids.map((ids:any) => {
-                    return ids.map((id) => {
-                        const foundEntity = entities.find((c: CropSpecies) => {
-                            return id.equals(c._id);
-                        });
-                        if (!foundEntity) {
-                            throw new Error("Could not find a species for: " + id);
-                        }
-                        return foundEntity;
-                    });
-
-                });
-            });
-            return ctx.dataLoaders[dataLoaderNamespace];
-        }
    }
    return BaseResolverClass;
 }
