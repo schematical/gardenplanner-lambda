@@ -1,11 +1,12 @@
 import 'reflect-metadata';
 import {Field, ID, InputType, ObjectType} from "type-graphql";
 import {BaseEntity} from "../../../libs/Base.entity";
-import {getModelForClass, prop, Ref} from '@typegoose/typegoose';
+import {getModelForClass, index, prop, Ref} from '@typegoose/typegoose';
 import {Container} from "typedi";
 import {FilterQuery, Schema} from "mongoose";
 // 1. Create an interface representing a document in MongoDB.
 @ObjectType()
+
 export class CropSpecies extends BaseEntity {
 
     @prop({ type: () => String })

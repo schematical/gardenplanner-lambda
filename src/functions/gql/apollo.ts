@@ -4,6 +4,7 @@ import {buildSchema} from "type-graphql";
 import {UserResolver} from "./user/User.resolver";
 import {CropSpeciesResolver} from "./crop-species/CropSpecies.resolver";
 import {Container} from "typedi";
+import {GeoLocationResolver} from "./geo-location/GeoLocation.resolver";
 
 export const getApolloConfig = async () => {
     const url = config.get<string>('db.host');
@@ -12,7 +13,7 @@ export const getApolloConfig = async () => {
         {}
     );
     const schema = await buildSchema({
-        resolvers: [UserResolver, CropSpeciesResolver],
+        resolvers: [UserResolver, CropSpeciesResolver, GeoLocationResolver],
         container: Container,
     });
     const apolloConfig = {

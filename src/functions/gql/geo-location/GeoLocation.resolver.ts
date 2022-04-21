@@ -1,52 +1,43 @@
 import 'reflect-metadata';
 import {Mutation, Query, Resolver} from "type-graphql";
 
-import { Service} from "typedi";
+import {Inject, Service} from "typedi";
 import {GeoLocationService} from "./GeoLocation.service";
-import {GeoLocation} from "./GeoLocation.entity";
+import {BaseResolver} from "../../../libs/Base.resolver";
+import {
+    GeoLocation,
+    GeoLocationCreateInput,
+    GeoLocationFilterInput, GeoLocationUpdateInput
+} from "./GeoLocation.entity";
+import {CropSpecies} from "@functions/gql/crop-species/CropSpecies.entity";
 @Resolver(() => GeoLocation)
 @Service()
-export class GeoLocationResolver {
-    // dependency injection
-
+export class GeoLocationResolver extends BaseResolver(
+    GeoLocation,
+    GeoLocationService,
+    GeoLocationFilterInput,
+    GeoLocationCreateInput,
+    GeoLocationUpdateInput,
+){
+    @Inject('GeoLocationService')
+    private geoLocationService: GeoLocationService;
     constructor(
-        private geoLocationService: GeoLocationService
+
     ) {
+        super();
     }
-
-
-    @Query(() => {
-        return [GeoLocation];
-    })
-    GeoLocation() {
-        /*const user = new User();
-        user.firstName = "Hell0";
-        user.lastName = "World";
-        return [
-            user
-        ];*/
-
-        return this.geoLocationService.find();
-    }
-    @Mutation(() => {
-        return GeoLocation;
-    })
-    createGeoLocation() {
-        /*const user = new User();
-        user.firstName = "Hell0";
-        user.lastName = "World";
-        return [
-            user
-        ];*/
-
-        return this.geoLocationService.create();
-    }
-    @Query(() => {
-        return [GeoLocation];
-    })
+    @Query(
+        () => {
+            return [GeoLocation];
+        },
+        {
+            name: 'geoLocationImportTest'
+        }
+    )
     importTest() {
         return this.geoLocationService.importTest();
     }
+    
 /*
     @Mutation()
     @Authorized(Roles.Admin) // auth guard
