@@ -14,6 +14,7 @@ export interface iBaseService<EntityT extends BaseEntity> {
     createOne(input: Partial<EntityT>): Promise<EntityT>;
     updateOne(input: Partial<EntityT>): Promise<EntityT>;
     deleteOne(input: string): Promise<DeleteResponse>;
+    initDataLoader(ctx, dataLoaderNamespace?: string);
     initManyToManyDataLoader(ctx, dataLoaderNamespace?: string);
 }
 export function BaseService<EntityT extends BaseEntity>(
@@ -65,6 +66,32 @@ export function BaseService<EntityT extends BaseEntity>(
         /*
         HELPERS
          */
+        initDataLoader(ctx, dataLoaderNamespace?: string) {
+            dataLoaderNamespace = dataLoaderNamespace || Entity.name + ':DataLoader';
+            ctx.dataLoaders = ctx.dataLoaders || [];
+            ctx.dataLoaders[dataLoaderNamespace] = ctx.dataLoaders[dataLoaderNamespace] || new DataLoader(async (ids) => {
+
+
+                const entities = await this.find({
+                    _id: {
+                        $in: ids
+                    }
+                });
+
+                return ids.map((id:any) => {
+
+                    const foundEntity = entities.find((c) => {
+                        return id.equals(c._id);
+                    });
+                    if (!foundEntity) {
+                        throw new Error("Could not find a species for: " + id);
+                    }
+                    return foundEntity;
+
+                });
+            });
+            return ctx.dataLoaders[dataLoaderNamespace];
+        }
         initManyToManyDataLoader(ctx, dataLoaderNamespace?: string) {
             dataLoaderNamespace = dataLoaderNamespace || Entity.name + ':ManyToManyDataLoader';
             ctx.dataLoaders = ctx.dataLoaders || [];

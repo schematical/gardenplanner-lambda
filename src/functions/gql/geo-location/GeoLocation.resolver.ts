@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import {Mutation, Query, Resolver} from "type-graphql";
+import {Ctx, FieldResolver, Mutation, Query, Resolver, Root} from "type-graphql";
 
 import {Inject, Service} from "typedi";
 import {GeoLocationService} from "./GeoLocation.service";
@@ -10,6 +10,7 @@ import {
     GeoLocationFilterInput, GeoLocationUpdateInput
 } from "./GeoLocation.entity";
 import {CropSpecies} from "@functions/gql/crop-species/CropSpecies.entity";
+import {HydratedDocument} from "mongoose";
 @Resolver(() => GeoLocation)
 @Service()
 export class GeoLocationResolver extends BaseResolver(
@@ -37,16 +38,18 @@ export class GeoLocationResolver extends BaseResolver(
     importTest() {
         return this.geoLocationService.importTest();
     }
-    
-/*
-    @Mutation()
-    @Authorized(Roles.Admin) // auth guard
-    removeRecipe(@Arg("id") id: string): boolean {
-        return this.recipeService.removeById(id);
-    }
+    @FieldResolver(() => GeoLocation, {nullable: true})
+    async nearestMatch(
+        @Ctx() ctx,
+        @Root() geoLocation: HydratedDocument<GeoLocation>
+    ): Promise<GeoLocation> {
 
-    @FieldResolver()
-    averageRating(@Root() recipe: Recipe) {
-        return recipe.ratings.reduce((a, b) => a + b, 0) / recipe.ratings.length;
-    }*/
+        if (!geoLocation.nearestMatchGeoLocationId) {
+            return Promise.resolve(null);
+        }
+
+        const dataLoader = this.geoLocationService.initDataLoader(ctx);
+        const avoidCropSpecies = await dataLoader.load(geoLocation.nearestMatchGeoLocationId);
+        return avoidCropSpecies;
+    }
 }

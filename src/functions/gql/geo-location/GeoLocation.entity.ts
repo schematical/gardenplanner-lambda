@@ -30,7 +30,7 @@ export class GeoLocation extends BaseEntity {
     @Field(() => Number, { nullable: true })
     nearestMatchDist?: number;
 
-    @Field(() => GeoLocation, { nullable: true })
+    @Field(() => ID, { nullable: true })
     @prop({ ref: () => GeoLocation })
     nearestMatchGeoLocationId?: Ref<GeoLocation>
 
