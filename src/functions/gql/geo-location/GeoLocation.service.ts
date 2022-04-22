@@ -18,8 +18,8 @@ export class GeoLocationService extends BaseService(GeoLocation){
 
     async importTest() {
         await this.geoLocationModel.deleteMany({});
-        const rawDatas = JSON.parse(fs.readFileSync('/home/user1a/WebstormProjects/gardenplanner-lambda/data/city/export.json').toString());
-        const datas = [];
+        const datas = JSON.parse(fs.readFileSync('/home/user1a/WebstormProjects/gardenplanner-lambda/data/city/export.json').toString());
+        /*const datas = [];
         const searchId = '1392685764';
         rawDatas.forEach((rawData) => {
             if (
@@ -29,7 +29,7 @@ export class GeoLocationService extends BaseService(GeoLocation){
                 datas.push(rawData);
             }
 
-        });
+        });*/
         let geoLocationColl: GeoLocation[] = [];
         const rawDataMap = {};
         const exactMatchMap = {};
@@ -45,16 +45,16 @@ export class GeoLocationService extends BaseService(GeoLocation){
 
             rawDataMap[geoLocation.importId] = cityData;
         });
-        // console.log("KEYS: ", Object.keys(rawDataMap));
         geoLocationColl = await this.geoLocationModel.create(geoLocationColl);
         geoLocationColl.forEach((geoLocation) => {
             if (geoLocation.exactMatch) {
                 exactMatchMap[geoLocation.importId] = geoLocation;
             }
         });
+        let saveBatch = [];
         for (const geoLocation of geoLocationColl) {
             const cityData = rawDataMap[geoLocation.importId]; // datas.find((c) => ('v0.1:' + c.id) === geoLocation.importId);
-            console.log(geoLocation.importId, cityData);
+
             if (!cityData) {
                 throw new Error("Could not find a cityData with importId matching: " + cityData.importId);
             }
@@ -63,12 +63,17 @@ export class GeoLocationService extends BaseService(GeoLocation){
                 if (!found) {
                     throw new Error("Could not find a nearestMatch with importId matching: " + cityData.nearestMatch.id);
                 }
-                console.log("FOUND: ", found);
+
                 geoLocation.nearestMatchGeoLocationId = found._id;
             }
+            saveBatch.push(geoLocation);
+            if (saveBatch.length > 100) {
+                await this.geoLocationModel.bulkSave(saveBatch);
+                saveBatch = [];
+            }
         }
-        await this.geoLocationModel.bulkSave(geoLocationColl);
 
+        await this.geoLocationModel.bulkSave(saveBatch);
         return geoLocationColl;
     }
 
