@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import {Ctx, FieldResolver, Mutation, Query, Resolver, Root} from "type-graphql";
+import {Arg, Ctx, FieldResolver, Mutation, Query, Resolver, Root} from "type-graphql";
 
 import {Inject, Service} from "typedi";
 import {GeoLocationService} from "./GeoLocation.service";
@@ -26,6 +26,28 @@ export class GeoLocationResolver extends BaseResolver(
 
     ) {
         super();
+    }
+
+    @Query(
+        () => {
+            return [GeoLocation];
+        },
+        {
+            name: 'list' + GeoLocation.name
+        }
+    )
+    list(
+        @Ctx() ctx,
+        @Arg("input", () => {
+            return GeoLocationFilterInput;
+        }, { nullable: true}) input
+    ) {
+        let query: any = input || {};
+        if (query.city) {
+            query.city = {$regex: new RegExp(`^${query.city}`) };
+        }
+        console.log(query);
+        return this.geoLocationService.find(query);
     }
     @Query(
         () => {

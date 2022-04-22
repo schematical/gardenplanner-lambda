@@ -63,5 +63,5 @@ export class GeoLocationUpdateInput extends GeoLocationCreateInput implements Pa
 @InputType()
 export class GeoLocationFilterInput implements FilterQuery<GeoLocation>{
     @Field(() => String)
-    name?: string;
+    city?: string;
 }
