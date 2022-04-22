@@ -6,12 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "offline:start": "sls offline start",
-    "start": "ts-node ./src/functions/gql/server.ts"
+    "start": "ts-node ./src/functions/gql/server.ts",
+    "generate": "apollo schema:download --endpoint=http://localhost:3000/dev/graphql schema.json && graphql-codegen"
   },
   "engines": {
     "node": ">=14.15.0"
   },
   "dependencies": {
+    "@graphql-codegen/cli": "^2.6.2",
+    "@graphql-codegen/typescript": "^2.4.8",
+    "@graphql-codegen/typescript-operations": "^2.3.5",
+    "@graphql-codegen/typescript-react-query": "^3.5.9",
     "@middy/core": "^2.5.3",
     "@middy/http-json-body-parser": "^2.5.3",
     "@typegoose/typegoose": "^9.7.1",
