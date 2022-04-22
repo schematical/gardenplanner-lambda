@@ -1,16 +1,18 @@
 import 'reflect-metadata';
-import {Arg, Ctx, FieldResolver, Mutation, Query, Resolver, Root} from "type-graphql";
+import {Arg, Ctx, FieldResolver, ID, Mutation, Query, Resolver, Root} from "type-graphql";
 
 import {Inject, Service} from "typedi";
 import {GeoLocationService} from "./GeoLocation.service";
 import {BaseResolver} from "../../../libs/Base.resolver";
 import {
+    CropSpecieDataByGeoLocationResponseEntry,
     GeoLocation,
     GeoLocationCreateInput,
     GeoLocationFilterInput, GeoLocationUpdateInput
 } from "./GeoLocation.entity";
 import {CropSpecies} from "@functions/gql/crop-species/CropSpecies.entity";
 import {HydratedDocument} from "mongoose";
+import * as mongoose from "mongoose";
 @Resolver(() => GeoLocation)
 @Service()
 export class GeoLocationResolver extends BaseResolver(
@@ -49,6 +51,26 @@ export class GeoLocationResolver extends BaseResolver(
         console.log(query);
         return this.geoLocationService.find(query);
     }
+
+    @Query(
+        () => {
+            return [CropSpecieDataByGeoLocationResponseEntry];
+        },
+        {
+            name: 'getCropSpecieDataByGeoLocation'
+        }
+    )
+    getCropSpecieDataByGeoLocation(
+        @Ctx() ctx,
+        @Arg("geoLocationId", () => {
+            return ID;
+        }, { nullable: true}) geoLocationId: mongoose.Schema.Types.ObjectId
+    ) {
+        return this.geoLocationService.getCropSpecieDataByGeoLocation(ctx, geoLocationId);
+    }
+
+
+
     @Query(
         () => {
             return [GeoLocation];

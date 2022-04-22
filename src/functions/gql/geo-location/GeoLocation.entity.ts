@@ -5,6 +5,7 @@ import {getModelForClass, index, prop, Ref} from '@typegoose/typegoose';
 import {Container} from "typedi";
 import {FilterQuery, Schema} from "mongoose";
 import {GraphQLJSONObject} from "graphql-type-json";
+import {CropSpecies} from "../crop-species/CropSpecies.entity";
 // 1. Create an interface representing a document in MongoDB.
 @ObjectType()
 @index({ location: '2dsphere' })
@@ -64,4 +65,15 @@ export class GeoLocationUpdateInput extends GeoLocationCreateInput implements Pa
 export class GeoLocationFilterInput implements FilterQuery<GeoLocation>{
     @Field(() => String)
     city?: string;
+}
+@ObjectType()
+export class CropSpecieDataByGeoLocationResponseEntry {
+    @Field(() => CropSpecies)
+    cropSpecies: CropSpecies;
+
+    @Field(() => Number)
+    earlyStartMonth: number;
+
+    @Field(() => Number)
+    lateStartMonth: number;
 }
