@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "offline:start": "sls offline start",
     "start": "ts-node ./src/functions/gql/server.ts",
-    "generate": "apollo schema:download --endpoint=http://localhost:3000/dev/graphql schema.json && graphql-codegen"
+    "generate": "graphql-codegen"
   },
   "engines": {
     "node": ">=14.15.0"

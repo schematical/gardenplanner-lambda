@@ -1,10 +1,11 @@
 schema: http://localhost:3000/dev/graphql
-documents: './src/**/*.ts'
+documents: './*.gql'
 generates:
-  ./graphql/generated.ts:
+  ./www/src/services/graphql/generated.ts:
     plugins:
       - typescript
       - typescript-operations
       - typescript-react-query
     config:
-      fetcher: fetch
+      withHooks: false
+      #fetcher: fetch

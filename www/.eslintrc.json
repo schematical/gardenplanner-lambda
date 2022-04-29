@@ -15,7 +15,7 @@
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "prettier/prettier": [
-      "error",
+      "warn",
       {
         "endOfLine": "auto"
       }
@@ -31,7 +31,11 @@
       { "ts": "never", "tsx": "never", "js": "never" }
     ],
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "arrow-body-style": "off",
+    "no-underscore-dangle": "off",
+    "react/no-unused-state": "warn",
+    "class-methods-use-this": "off"
   },
   "settings": {
     "import/resolver": {
