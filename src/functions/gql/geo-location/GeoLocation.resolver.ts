@@ -5,6 +5,7 @@ import {Inject, Service} from "typedi";
 import {GeoLocationService} from "./GeoLocation.service";
 import {BaseResolver} from "../../../libs/Base.resolver";
 import {
+    CropSpecieDataByGeoLocationInput,
     CropSpecieDataByGeoLocationResponseEntry,
     GeoLocation,
     GeoLocationCreateInput,
@@ -46,7 +47,7 @@ export class GeoLocationResolver extends BaseResolver(
     ) {
         let query: any = input || {};
         if (query.city) {
-            query.city = {$regex: new RegExp(`^${query.city}`) };
+            query.city = {$regex:  new RegExp(`^${query.city}`, "i") };
         }
         console.log(query);
         return this.geoLocationService.find(query);
@@ -62,11 +63,11 @@ export class GeoLocationResolver extends BaseResolver(
     )
     getCropSpecieDataByGeoLocation(
         @Ctx() ctx,
-        @Arg("geoLocationId", () => {
-            return ID;
-        }, { nullable: true}) geoLocationId: mongoose.Schema.Types.ObjectId
+        @Arg("input", () => {
+            return CropSpecieDataByGeoLocationInput;
+        }, { nullable: true}) input: CropSpecieDataByGeoLocationInput
     ) {
-        return this.geoLocationService.getCropSpecieDataByGeoLocation(ctx, geoLocationId);
+        return this.geoLocationService.getCropSpecieDataByGeoLocation(ctx, input);
     }
 
 

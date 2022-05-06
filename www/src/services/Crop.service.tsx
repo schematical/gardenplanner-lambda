@@ -18,12 +18,12 @@ export class CropService {
       });
   }
 
-  public static getCropSpecieDataByGeoLocation(geoLocationId: any) {
+  public static getCropSpecieDataByGeoLocation(input: any) {
     return client
       .query({
         query: gql(getCropSpecieDataByGeoLocation),
         variables: {
-            geoLocationId,
+            input,
         },
       })
       .then((response) => {

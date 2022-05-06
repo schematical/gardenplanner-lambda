@@ -89,12 +89,19 @@ class Location extends Component<LocationProps, LocationState> {
         const rowKey = `row-${key}`;
 
         // Object.entries(geoLocation).map(([cellTitle, cellContent]: any) => {
+        let label = `${geoLocation.city}, ${geoLocation.state}   ${geoLocation.country}`;
+        if (
+            geoLocation.city === geoLocation.state ||
+            geoLocation.city === geoLocation.country
+        ) {
+          label = `${geoLocation.city},  ${geoLocation.country}`;
+        }
         tableRows.push(
           <TableCell align="left" width="30%">
             <MDBox display="flex" alignItems="center" width="max-content">
               <MDBox display="flex" flexDirection="column" ml={3}>
                 <MDTypography variant="button" fontWeight="regular" textTransform="capitalize">
-                  {geoLocation.city}, {geoLocation.country}
+                  {label}
                 </MDTypography>
               </MDBox>
             </MDBox>

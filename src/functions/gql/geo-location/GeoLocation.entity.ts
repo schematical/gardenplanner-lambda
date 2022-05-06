@@ -6,6 +6,7 @@ import {Container} from "typedi";
 import {FilterQuery, Schema} from "mongoose";
 import {GraphQLJSONObject} from "graphql-type-json";
 import {CropSpecies} from "../crop-species/CropSpecies.entity";
+import mongoose from "mongoose";
 // 1. Create an interface representing a document in MongoDB.
 @ObjectType()
 @index({ location: '2dsphere' })
@@ -18,6 +19,10 @@ export class GeoLocation extends BaseEntity {
     @prop({ type: () => String })
     @Field(() => String)
     city: string;
+
+    @prop({ type: () => String })
+    @Field(() => String)
+    state: string;
 
     @prop({ type: () => String })
     @Field(() => String)
@@ -76,4 +81,12 @@ export class CropSpecieDataByGeoLocationResponseEntry {
 
     @Field(() => Number)
     lateStartMonth: number;
+}
+@InputType()
+export class CropSpecieDataByGeoLocationInput{
+    @Field(() => ID)
+    geoLocationId: mongoose.Schema.Types.ObjectId;
+
+    @Field(() => [ID])
+    cropSpeciesIds: mongoose.Schema.Types.ObjectId[];
 }

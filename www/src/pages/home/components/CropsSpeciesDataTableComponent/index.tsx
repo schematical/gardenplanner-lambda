@@ -25,15 +25,17 @@ import { worldMerc } from "@react-jvectormap/world";
 import FormField from "layouts/applications/wizard/components/FormField";
 // Images
 
-import Timeline from "react-calendar-timeline";
+import Timeline, { TimelineHeaders, SidebarHeader, DateHeader } from "react-calendar-timeline";
 // make sure you include the timeline stylesheet or the timeline will not be styled
 import "react-calendar-timeline/lib/Timeline.css";
 import moment from "moment";
 import { Component, useMemo } from "react";
 import TableRow from "@mui/material/TableRow";
+import Switch from "@mui/material/Switch";
 import MDButton from "../../../../components/MDButton";
 import HomeWizard from "../../index";
 import { CropService } from "../../../../services/Crop.service";
+
 
 export interface CropsSpeciesDataTableComponentProps {
   wizardComponent: HomeWizard;
@@ -51,6 +53,7 @@ class CropsSpeciesDataTableComponent extends Component<
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.selectCrop = this.selectCrop.bind(this);
+    this.onCanvasClick = this.onCanvasClick.bind(this);
     this.wizardComponent = props.wizardComponent;
     this.state = {
       cropSpeciesDatas: []
@@ -62,54 +65,43 @@ class CropsSpeciesDataTableComponent extends Component<
     console.log(e);
   }
 
+  async onCanvasClick(groupId, time, e){
+    console.log("groupId, time, e", groupId, time, e);
+  }
+
   async getData() {
+    console.log("SELECTED CROPS: ", this.wizardComponent.state.crops);
     if (!this.wizardComponent.state.geoLocation) {
       this.wizardComponent.handleBack();
       return;
     }
-    const cropSpeciesDatas: any[] = await CropService.getCropSpecieDataByGeoLocation(
-        this.wizardComponent.state.geoLocation._id
-    );
+    const cropSpeciesDatas: any[] = await CropService.getCropSpecieDataByGeoLocation({
+      geoLocationId: this.wizardComponent.state.geoLocation._id,
+      cropSpeciesIds: this.wizardComponent.state.crops.map((c) => c._id)
+    });
     this.setState({
       cropSpeciesDatas
     });
   }
 
-  // @ts-ignore
+
   async selectCrop(geoLocation) {
     console.log("SELECTED GEO: ", geoLocation);
     // this.wizardComponent.handleNext();
   }
 
+  groupRenderer({ group }) {
+    return (
+        <div className="custom-group">
+          {group.title}
+        </div>
+    )
+  }
+
   render() {
 
-    const groups = [
-      /* { id: 1, title: "group 1" },
-      { id: 2, title: "group 2" }, */
-    ];
-    const items = [
-      /* {
-        id: 1,
-        group: 1,
-        title: "item 1",
-        start_time: moment(),
-        end_time: moment().add(1, "month"),
-      },
-      {
-        id: 2,
-        group: 2,
-        title: "item 2",
-        start_time: moment().add(-0.5, "month"),
-        end_time: moment().add(0.5, "month"),
-      },
-      {
-        id: 3,
-        group: 1,
-        title: "item 3",
-        start_time: moment().add(2, "month"),
-        end_time: moment().add(3, "month"),
-      }, */
-    ];
+    const groups = [];
+    const items = [];
     this.state.cropSpeciesDatas.forEach((cropSpeciesData, i) => {
       // x
       groups.push({
@@ -145,15 +137,28 @@ class CropsSpeciesDataTableComponent extends Component<
           </MDTypography>
         </MDBox>
         <MDBox mt={2}>
-          {/* <Grid container spacing={3}> */}
-          <Timeline
-            groups={groups}
-            items={items}
-            defaultTimeStart={moment().add(-3, "month")}// visibleTimeStart={moment().add(-3, "month").toDate().getTime()}
-            defaultTimeEnd={moment().add(9, "month")}
-            // visibleTimeEnd={moment().add(9, "month").toDate().getTime()}
-          />
-          {/* </Grid> */}
+          {
+            this.state.cropSpeciesDatas.length > 0 &&
+            <Timeline
+              groups={groups}
+              items={items}
+              defaultTimeStart={moment().add(-3, "month")}// visibleTimeStart={moment().add(-3, "month").toDate().getTime()}
+              defaultTimeEnd={moment().add(9, "month")}
+              // visibleTimeEnd={moment().add(9, "month").toDate().getTime()}
+              onCanvasClick={this.onCanvasClick}
+              groupRenderer={this.groupRenderer}
+            >
+              <TimelineHeaders className="sticky">
+                {/* <SidebarHeader>
+                  {({ getRootProps }) => {
+                    return <div {...getRootProps()}>Left</div>;
+                  }}
+                </SidebarHeader> */}
+                <DateHeader unit="primaryHeader" />
+                <DateHeader />
+              </TimelineHeaders>
+            </Timeline>
+          }
         </MDBox>
       </MDBox>
     );

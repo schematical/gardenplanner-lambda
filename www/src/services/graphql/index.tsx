@@ -20,6 +20,7 @@ query listGeoLocation($input: GeoLocationFilterInput!){
   listGeoLocation(input:$input) {
     _id
     city
+    state
     country
     location
     nearestMatch{
@@ -29,8 +30,8 @@ query listGeoLocation($input: GeoLocationFilterInput!){
 }
 }`;
 const getCropSpecieDataByGeoLocation = `
-query ($geoLocationId:ID) {
-  getCropSpecieDataByGeoLocation(geoLocationId: $geoLocationId) {
+query ($input: CropSpecieDataByGeoLocationInput) {
+  getCropSpecieDataByGeoLocation(input: $input) {
     cropSpecies {
       _id
       name

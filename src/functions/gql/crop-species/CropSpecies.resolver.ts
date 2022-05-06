@@ -61,7 +61,9 @@ export class CropSpeciesResolver extends BaseResolver(
   ) {
     let query: any = input || {};
     if (query.name) {
-      query.name = { $regex: new RegExp(`^${query.name}`) };
+      query.name = { $regex: new RegExp(`^${query.name}`, "i") };
+    } else {
+      delete(query.name);
     }
     console.log(query);
     return this.cropSpeciesService.find(query);

@@ -82,6 +82,6 @@ export class CropSpeciesUpdateInput extends CropSpeciesCreateInput implements Pa
 }
 @InputType()
 export class CropSpeciesFilterInput implements FilterQuery<CropSpecies>{
-    @Field(() => String)
+    @Field(() => String, { nullable: true})
     name?: string;
 }

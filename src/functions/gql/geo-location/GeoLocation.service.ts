@@ -1,6 +1,10 @@
 import 'reflect-metadata';
 import {Container, Inject, Service} from "typedi";
-import {CropSpecieDataByGeoLocationResponseEntry, GeoLocation} from "./GeoLocation.entity";
+import {
+    CropSpecieDataByGeoLocationInput,
+    CropSpecieDataByGeoLocationResponseEntry,
+    GeoLocation
+} from "./GeoLocation.entity";
 import * as fs from "fs";
 import {BaseService} from "../../../libs/Base.service";
 import {CropSpecies, CropSpeciesSewMethods} from "@functions/gql/crop-species/CropSpecies.entity";
@@ -41,7 +45,8 @@ export class GeoLocationService extends BaseService(GeoLocation){
 
             geoLocation.importId = 'v0.1:' + cityData.id;
             geoLocation.city = cityData.city;
-            geoLocation.country = cityData.country
+            geoLocation.state = cityData.admin_name;
+            geoLocation.country = cityData.country;
             geoLocation.location = [ parseFloat(cityData.lng), parseFloat(cityData.lat) ]; // { type: "Point", coordinates: [[ cityData.lat, cityData.lng]]}
             geoLocation.exactMatch = cityData.exactMatch;
             geoLocationColl.push(geoLocation);
@@ -80,8 +85,8 @@ export class GeoLocationService extends BaseService(GeoLocation){
         return geoLocationColl;
     }
 
-    async getCropSpecieDataByGeoLocation(ctx, geoLocationId: mongoose.Schema.Types.ObjectId) {
-        const baseGeoLocation = await this.geoLocationModel.findOne({_id: geoLocationId});
+    async getCropSpecieDataByGeoLocation(ctx, input: CropSpecieDataByGeoLocationInput) {
+        const baseGeoLocation = await this.geoLocationModel.findOne({_id: input.geoLocationId});
         if (!baseGeoLocation) {
             return null;
         }
@@ -96,7 +101,11 @@ export class GeoLocationService extends BaseService(GeoLocation){
             }
         }
         // TODO: This is sloppy fix
-        const crops = await this.cropSpeciesModel.find({});
+        const crops = await this.cropSpeciesModel.find({
+            _id: {
+                $in: input.cropSpeciesIds
+            }
+        });
         return this.parseCrops(geoLocation, crops);
 
     }

@@ -25,6 +25,7 @@ import { worldMerc } from "@react-jvectormap/world";
 import FormField from "layouts/applications/wizard/components/FormField";
 // Images
 import { GeoLocationService } from "services/GeoLocation.service";
+import Switch from "@mui/material/Switch";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import { Component, useMemo } from "react";
@@ -33,6 +34,7 @@ import TableRow from "@mui/material/TableRow";
 import MDButton from "../../../../components/MDButton";
 import HomeWizard from "../../index";
 import { CropService } from "../../../../services/Crop.service";
+
 
 export interface CropWizardComponentProps {
   wizardComponent: HomeWizard;
@@ -57,7 +59,8 @@ class CropWizardComponent extends Component<CropWizardComponentProps, CropWizard
       count: -1,
       search: null,
     };
-    setInterval(() => {
+    this.getData();
+   /* setInterval(() => {
       if (this.state.count < 0) {
         return;
       }
@@ -68,7 +71,7 @@ class CropWizardComponent extends Component<CropWizardComponentProps, CropWizard
       this.setState((prevState) => ({
         count: prevState.count - 1,
       }));
-    }, 2000);
+    }, 2000); */
   }
 
   async handleChange(e: any) {
@@ -79,51 +82,10 @@ class CropWizardComponent extends Component<CropWizardComponentProps, CropWizard
   }
 
   async getData() {
-    const crops = await CropService.listCropSpecies({
-      // eslint-disable-next-line react/no-access-state-in-setstate
-      name: this.state.search,
-    });
+    const crops = await CropService.listCropSpecies({ });
 
-    const renderedRows = crops.map((crop: any, key: any) => {
-      const tableRows: any = [];
-      const rowKey = `row-${key}`;
-
-      // Object.entries(geoLocation).map(([cellTitle, cellContent]: any) => {
-      tableRows.push(
-        <TableCell align="left" width="30%">
-          <MDBox display="flex" alignItems="center" width="max-content">
-            <MDBox display="flex" flexDirection="column" ml={3}>
-              <MDTypography variant="button" fontWeight="regular" textTransform="capitalize">
-                {crop.name}
-              </MDTypography>
-            </MDBox>
-          </MDBox>
-        </TableCell>
-      );
-      tableRows.push(
-        <TableCell align="left" width="30%">
-          <MDBox display="flex" alignItems="center" width="max-content">
-            <MDBox display="flex" flexDirection="column" ml={3}>
-              <MDButton
-                variant="outlined"
-                size="small"
-                color="primary"
-                onClick={(e) => this.selectCrop(crop)}
-              >
-                Select
-              </MDButton>
-            </MDBox>
-          </MDBox>
-        </TableCell>
-      );
-
-      // });
-
-      return <TableRow key={rowKey}>{tableRows}</TableRow>;
-    });
     this.setState({
-      crops,
-      renderedRows,
+      crops
     });
   }
 
@@ -134,8 +96,56 @@ class CropWizardComponent extends Component<CropWizardComponentProps, CropWizard
   }
 
   render() {
-    // @ts-ignore
-    const { renderedRows, geoLocations } = this.state;
+    const {  crops } = this.state;
+    const renderedRows = crops
+        .filter((crop) => {
+          if (
+              !this.state.search ||
+              this.state.search.length === 0
+          ) {
+            return true;
+          }
+          return crop.name.indexOf(this.state.search) !== -1;
+        })
+        .map((crop: any, key: any) => {
+      const tableRows: any = [];
+      const rowKey = `row-${key}`;
+
+      // Object.entries(geoLocation).map(([cellTitle, cellContent]: any) => {
+      tableRows.push(
+          <TableCell align="left" width="30%">
+            <MDBox display="flex" alignItems="center" width="max-content">
+              <MDBox display="flex" flexDirection="column" ml={3}>
+                <MDTypography variant="button" fontWeight="regular" textTransform="capitalize">
+                  {crop.name}
+                </MDTypography>
+              </MDBox>
+            </MDBox>
+          </TableCell>
+      );
+      tableRows.push(
+          <TableCell align="left" width="30%">
+            <MDBox display="flex" alignItems="center" width="max-content">
+              <MDBox display="flex" flexDirection="column" ml={3}>
+                <Switch onChange={((event) => {
+                  const selectedCrops = this.wizardComponent.state.crops.filter((c) => crop._id !== c._id );
+                  if (event.target.checked) {
+                    selectedCrops.push(crop);
+                  }
+                  console.log("selectedCrops: ", selectedCrops);
+                  this.wizardComponent.setState({
+                    crops: selectedCrops
+                  })
+                })}/>
+              </MDBox>
+            </MDBox>
+          </TableCell>
+      );
+
+      // });
+
+      return <TableRow key={rowKey}>{tableRows}</TableRow>;
+    });
     return (
       <MDBox>
         <MDBox width="82%" textAlign="center" mx="auto" my={4}>

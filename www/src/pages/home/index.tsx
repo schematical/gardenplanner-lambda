@@ -47,6 +47,7 @@ export interface HomeWizardState {
   activeStep: number;
   steps: string[];
   geoLocation?: any;
+  crops?: any[]
 }
 class HomeWizard extends Component<HomeWizardProps, HomeWizardState> {
   constructor(props) {
@@ -56,13 +57,14 @@ class HomeWizard extends Component<HomeWizardProps, HomeWizardState> {
     this.state = {
       activeStep: 0,
       steps: getSteps(),
+      crops: []
     };
   }
 
   handleBack() {
     const { activeStep } = this.state as any;
     this.setState({
-      activeStep: activeStep + 1,
+      activeStep: activeStep - 1,
     });
   }
 
