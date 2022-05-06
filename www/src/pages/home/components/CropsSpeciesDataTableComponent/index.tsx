@@ -129,12 +129,12 @@ class CropsSpeciesDataTableComponent extends Component<
         <MDBox width="82%" textAlign="center" mx="auto" my={4}>
           <MDBox mb={1}>
             <MDTypography variant="h5" fontWeight="regular">
-              Let&apos;s start with the basic information
+              Here are the optimal plant and harvest times for the crops you selected
             </MDTypography>
           </MDBox>
-          <MDTypography variant="body2" color="text">
+          {/* <MDTypography variant="body2" color="text">
             What do you want to grow?
-          </MDTypography>
+          </MDTypography> */}
         </MDBox>
         <MDBox mt={2}>
           {
@@ -142,9 +142,10 @@ class CropsSpeciesDataTableComponent extends Component<
             <Timeline
               groups={groups}
               items={items}
-              defaultTimeStart={moment().add(-3, "month")}// visibleTimeStart={moment().add(-3, "month").toDate().getTime()}
+              defaultTimeStart={moment().add(-3, "month")}
+              visibleTimeStart={moment().add(-3, "month").toDate().getTime()}
               defaultTimeEnd={moment().add(9, "month")}
-              // visibleTimeEnd={moment().add(9, "month").toDate().getTime()}
+              visibleTimeEnd={moment().add(9, "month").toDate().getTime()}
               onCanvasClick={this.onCanvasClick}
               groupRenderer={this.groupRenderer}
             >
@@ -159,6 +160,30 @@ class CropsSpeciesDataTableComponent extends Component<
               </TimelineHeaders>
             </Timeline>
           }
+        </MDBox>
+        <MDBox width="82%" textAlign="center" mx="auto" my={4}>
+          {/* <MDBox mb={1}>
+            <MDTypography variant="h5" fontWeight="regular">
+              Would you like reminder emails when its time to plant and harvest these crops?
+            </MDTypography>
+          </MDBox> */}
+          <MDTypography variant="body2" color="text">
+            Would you like reminder emails when its time to plant and harvest these crops?
+          </MDTypography>
+        </MDBox>
+        <MDBox width="82%" textAlign="center" mx="auto" my={4}>
+          <MDBox textAlign="center">
+            <FormField type="email" label="Email"  InputLabelProps={{ shrink: true }} />
+          </MDBox>
+        </MDBox>
+        <MDBox width="82%" textAlign="center" mx="auto" my={4}>
+          <MDBox textAlign="center">
+            <MDButton
+                color="info"
+            >
+              Get Reminders
+            </MDButton>
+          </MDBox>
         </MDBox>
       </MDBox>
     );
