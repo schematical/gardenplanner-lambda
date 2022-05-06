@@ -28,4 +28,17 @@ query listGeoLocation($input: GeoLocationFilterInput!){
     }
 }
 }`;
-export { listGeoLocations, listCropSpecies };
+const getCropSpecieDataByGeoLocation = `
+query ($geoLocationId:ID) {
+  getCropSpecieDataByGeoLocation(geoLocationId: $geoLocationId) {
+    cropSpecies {
+      _id
+      name
+      harvestDayMin
+      harvestDayMax
+    },
+    earlyStartMonth,
+    lateStartMonth
+  }
+}`;
+export { listGeoLocations, listCropSpecies, getCropSpecieDataByGeoLocation };

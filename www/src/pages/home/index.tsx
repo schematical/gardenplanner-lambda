@@ -46,6 +46,7 @@ export interface HomeWizardProps {}
 export interface HomeWizardState {
   activeStep: number;
   steps: string[];
+  geoLocation?: any;
 }
 class HomeWizard extends Component<HomeWizardProps, HomeWizardState> {
   constructor(props) {

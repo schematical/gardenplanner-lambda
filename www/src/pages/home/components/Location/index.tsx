@@ -67,7 +67,7 @@ class Location extends Component<LocationProps, LocationState> {
       this.setState((prevState) => ({
         count: prevState.count - 1,
       }));
-    }, 2000);
+    }, 1000);
   }
 
   async handleChange(e: any) {
@@ -130,7 +130,7 @@ class Location extends Component<LocationProps, LocationState> {
 
   // @ts-ignore
   async selectGeoLocation(geoLocation) {
-    console.log("SELECTED GEO: ", geoLocation);
+    this.wizardComponent.setState({ geoLocation });
     this.wizardComponent.handleNext();
   }
 

@@ -39,10 +39,7 @@ export interface CropsSpeciesDataTableComponentProps {
   wizardComponent: HomeWizard;
 }
 export interface CropsSpeciesDataTableComponentState {
-  crops: any[];
-  renderedRows: any[];
-  count: number;
-  search: string;
+  cropSpeciesDatas?: any[]
 }
 class CropsSpeciesDataTableComponent extends Component<
   CropsSpeciesDataTableComponentProps,
@@ -56,95 +53,42 @@ class CropsSpeciesDataTableComponent extends Component<
     this.selectCrop = this.selectCrop.bind(this);
     this.wizardComponent = props.wizardComponent;
     this.state = {
-      crops: [],
-      renderedRows: [],
-      count: -1,
-      search: null,
+      cropSpeciesDatas: []
     };
-    setInterval(() => {
-      if (this.state.count < 0) {
-        return;
-      }
-      if (this.state.count === 0) {
-        this.getData();
-      }
-      // eslint-disable-next-line react/no-access-state-in-setstate
-      this.setState((prevState) => ({
-        count: prevState.count - 1,
-      }));
-    }, 2000);
+    this.getData();
   }
 
   async handleChange(e: any) {
-    this.setState({
-      search: e.target.value,
-      count: 1,
-    });
+    console.log(e);
   }
 
   async getData() {
-    const crops = await CropService.listCropSpecies({
-      // eslint-disable-next-line react/no-access-state-in-setstate
-      name: this.state.search,
-    });
-
-    const renderedRows = crops.map((crop: any, key: any) => {
-      const tableRows: any = [];
-      const rowKey = `row-${key}`;
-
-      // Object.entries(geoLocation).map(([cellTitle, cellContent]: any) => {
-      tableRows.push(
-        <TableCell align="left" width="30%">
-          <MDBox display="flex" alignItems="center" width="max-content">
-            <MDBox display="flex" flexDirection="column" ml={3}>
-              <MDTypography variant="button" fontWeight="regular" textTransform="capitalize">
-                {crop.name}
-              </MDTypography>
-            </MDBox>
-          </MDBox>
-        </TableCell>
-      );
-      tableRows.push(
-        <TableCell align="left" width="30%">
-          <MDBox display="flex" alignItems="center" width="max-content">
-            <MDBox display="flex" flexDirection="column" ml={3}>
-              <MDButton
-                variant="outlined"
-                size="small"
-                color="primary"
-                onClick={(e) => this.selectCrop(crop)}
-              >
-                Select
-              </MDButton>
-            </MDBox>
-          </MDBox>
-        </TableCell>
-      );
-
-      // });
-
-      return <TableRow key={rowKey}>{tableRows}</TableRow>;
-    });
+    if (!this.wizardComponent.state.geoLocation) {
+      this.wizardComponent.handleBack();
+      return;
+    }
+    const cropSpeciesDatas: any[] = await CropService.getCropSpecieDataByGeoLocation(
+        this.wizardComponent.state.geoLocation._id
+    );
     this.setState({
-      crops,
-      renderedRows,
+      cropSpeciesDatas
     });
   }
 
   // @ts-ignore
   async selectCrop(geoLocation) {
     console.log("SELECTED GEO: ", geoLocation);
-    this.wizardComponent.handleNext();
+    // this.wizardComponent.handleNext();
   }
 
   render() {
-    const groups = [
-      { id: 1, title: "group 1" },
-      { id: 2, title: "group 2" },
-    ];
 
+    const groups = [
+      /* { id: 1, title: "group 1" },
+      { id: 2, title: "group 2" }, */
+    ];
     const items = [
-      {
+      /* {
         id: 1,
         group: 1,
         title: "item 1",
@@ -164,8 +108,30 @@ class CropsSpeciesDataTableComponent extends Component<
         title: "item 3",
         start_time: moment().add(2, "month"),
         end_time: moment().add(3, "month"),
-      },
+      }, */
     ];
+    this.state.cropSpeciesDatas.forEach((cropSpeciesData, i) => {
+      // x
+      groups.push({
+        id: cropSpeciesData.cropSpecies._id,
+        title: cropSpeciesData.cropSpecies.name,
+      });
+      items.push({
+        id: `${cropSpeciesData.cropSpecies._id  }_plant`,
+        group: cropSpeciesData.cropSpecies._id,
+        title: "Plant",
+        start_time: moment().month(cropSpeciesData.earlyStartMonth),
+        end_time: moment().month(cropSpeciesData.lateStartMonth) // .add(0.5, "month"),
+      });
+      items.push({
+        id: `${cropSpeciesData.cropSpecies._id  }_harvest`,
+        group: cropSpeciesData.cropSpecies._id,
+        title: "Harvest",
+        start_time: moment().month(cropSpeciesData.lateStartMonth).add(cropSpeciesData.cropSpecies.harvestDayMin, 'day'),
+        end_time: moment().month(cropSpeciesData.lateStartMonth).add(cropSpeciesData.cropSpecies.harvestDayMax, 'day'),
+      });
+    });
+
     return (
       <MDBox>
         <MDBox width="82%" textAlign="center" mx="auto" my={4}>
@@ -183,8 +149,9 @@ class CropsSpeciesDataTableComponent extends Component<
           <Timeline
             groups={groups}
             items={items}
-            defaultTimeStart={moment().add(-3, "month")}
+            defaultTimeStart={moment().add(-3, "month")}// visibleTimeStart={moment().add(-3, "month").toDate().getTime()}
             defaultTimeEnd={moment().add(9, "month")}
+            // visibleTimeEnd={moment().add(9, "month").toDate().getTime()}
           />
           {/* </Grid> */}
         </MDBox>

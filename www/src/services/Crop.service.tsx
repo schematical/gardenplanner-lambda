@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 import client from "./Apollo";
 
-import { listCropSpecies } from "./graphql";
+import { listCropSpecies, getCropSpecieDataByGeoLocation } from "./graphql";
 
 // eslint-disable-next-line import/prefer-default-export
 export class CropService {
@@ -15,6 +15,19 @@ export class CropService {
       })
       .then((response) => {
         return response?.data?.listCropSpecies;
+      });
+  }
+
+  public static getCropSpecieDataByGeoLocation(geoLocationId: any) {
+    return client
+      .query({
+        query: gql(getCropSpecieDataByGeoLocation),
+        variables: {
+            geoLocationId,
+        },
+      })
+      .then((response) => {
+        return response?.data?.getCropSpecieDataByGeoLocation;
       });
   }
 }
