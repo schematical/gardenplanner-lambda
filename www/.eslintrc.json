@@ -25,6 +25,7 @@
     "no-unused-vars": "off",
     "react/jsx-props-no-spreading": "off",
     "react/react-in-jsx-scope": "off",
+    "react/destructuring-assignment": "off",
     "import/extensions": [
       "error",
       "ignorePackages",

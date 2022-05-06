@@ -1,7 +1,6 @@
-
-const listCropSpeciesDocument = `
-    query listCropSpecies {
-  listCropSpecies {
+const listCropSpecies = `
+    query listCropSpecies($input: CropSpeciesFilterInput!){
+  listCropSpecies(input:$input) {
     _id
     importId
     name
@@ -28,5 +27,5 @@ query listGeoLocation($input: GeoLocationFilterInput!){
       city
     }
 }
-}`
-export { listGeoLocations, listCropSpeciesDocument }
+}`;
+export { listGeoLocations, listCropSpecies };

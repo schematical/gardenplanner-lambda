@@ -49,7 +49,7 @@ const profileListData: Types = [
   {
     image: ivana,
     name: "Ivanna",
-    description: "About files I can..",
+    description: "Location files I can..",
     action: {
       type: "internal",
       route: "/pages/profile/profile-overview",

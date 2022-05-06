@@ -31,21 +31,56 @@ import { Component, useMemo } from "react";
 import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import MDButton from "../../../../components/MDButton";
+import HomeWizard from "../../index";
 
-class About extends Component {
-  constructor(props) {
+export interface LocationProps {
+  wizardComponent: HomeWizard;
+}
+export interface LocationState {
+  geoLocations: any[];
+  renderedRows: any[];
+  count: number;
+  search: string;
+}
+class Location extends Component<LocationProps, LocationState> {
+  wizardComponent: HomeWizard;
+
+  constructor(props: any) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.selectGeoLocation = this.selectGeoLocation.bind(this);
+    this.wizardComponent = props.wizardComponent;
     this.state = {
       geoLocations: [],
       renderedRows: [],
+      count: -1,
+      search: null,
     };
+    setInterval(() => {
+      if (this.state.count < 0) {
+        return;
+      }
+      if (this.state.count === 0) {
+        this.getData();
+      }
+      // eslint-disable-next-line react/no-access-state-in-setstate
+      this.setState((prevState) => ({
+        count: prevState.count - 1,
+      }));
+    }, 2000);
   }
 
   async handleChange(e: any) {
+    this.setState({
+      search: e.target.value,
+      count: 1,
+    });
+  }
+
+  async getData() {
     const geoLocations = await GeoLocationService.listGeoLocations({
-      city: e.target.value,
+      // eslint-disable-next-line react/no-access-state-in-setstate
+      city: this.state.search,
     });
 
     const renderedRows = geoLocations.map(
@@ -96,6 +131,7 @@ class About extends Component {
   // @ts-ignore
   async selectGeoLocation(geoLocation) {
     console.log("SELECTED GEO: ", geoLocation);
+    this.wizardComponent.handleNext();
   }
 
   render() {
@@ -221,4 +257,4 @@ class About extends Component {
   }
 }
 
-export default About;
+export default Location;
