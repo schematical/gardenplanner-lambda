@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import {Field, ID, InputType, ObjectType} from "type-graphql";
 import {BaseEntity} from "../../../libs/Base.entity";
-import { getModelForClass, prop } from '@typegoose/typegoose';
+import {getModelForClass, prop, Ref} from '@typegoose/typegoose';
 import {Container} from "typedi";
 import {FilterQuery, Schema} from "mongoose";
 import {CropSpecies} from "@functions/gql/crop-species/CropSpecies.entity";
@@ -10,11 +10,19 @@ import {CropSpecies} from "@functions/gql/crop-species/CropSpecies.entity";
 export class User extends BaseEntity {
     @prop({ type: () => String })
     @Field(() => String)
+    email: string;
+
+    @prop({ type: () => String })
+    @Field(() => String)
     firstName: string;
 
     @prop({ type: () => String })
     @Field(() => String)
     lastName: string;
+
+    @prop({ type: () => Geolocation })
+    @Field(() => Geolocation)
+    defaultGeoLocation: Ref<Geolocation>;
 
 }
 
@@ -42,4 +50,9 @@ export class UserFilterInput implements  FilterQuery<User>{
 
     @Field(() => String)
     lastName?: string;
+}
+@InputType()
+export class UserSignupPartialInput implements  Partial<User>{
+    @Field(() => String)
+    email?: string;
 }

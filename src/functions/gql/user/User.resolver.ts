@@ -1,10 +1,11 @@
 import 'reflect-metadata';
-import {Mutation, Query, Resolver} from "type-graphql";
+import {Arg, Ctx, Mutation, Query, Resolver} from "type-graphql";
 
 import {Inject, Service} from "typedi";
 import {UserService} from "./User.service";
-import {User, UserCreateInput, UserFilterInput, UserUpdateInput} from "./User.entity";
+import {User, UserCreateInput, UserFilterInput, UserSignupPartialInput, UserUpdateInput} from "./User.entity";
 import {BaseResolver} from "../../../libs/Base.resolver";
+import {CropSpecies, CropSpeciesFilterInput} from "@functions/gql/crop-species/CropSpecies.entity";
 
 
 @Resolver(() => User)
@@ -25,7 +26,22 @@ export class UserResolver  extends BaseResolver(
     ) {
       super();
     }
-
+    @Mutation(() => {
+        return Boolean;
+    })
+    signUpPartial(
+        @Ctx() ctx,
+        @Arg(
+            "input",
+            () => {
+                return UserSignupPartialInput;
+            },
+            { nullable: false }
+        )
+        input
+    ) {
+        return this.userService.signUpPartial(input);
+    }
 
 
 /*
