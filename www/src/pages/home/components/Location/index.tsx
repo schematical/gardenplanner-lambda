@@ -32,6 +32,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import MDButton from "../../../../components/MDButton";
 import HomeWizard from "../../index";
+import MDProgress from "../../../../components/MDProgress";
 
 export interface LocationProps {
   wizardComponent: HomeWizard;
@@ -41,11 +42,16 @@ export interface LocationState {
   renderedRows: any[];
   count: number;
   search: string;
+  hoveredGeoLocation?: any;
+
+  loadingProgress: number;
 }
 class Location extends Component<LocationProps, LocationState> {
   wizardComponent: HomeWizard;
 
-  constructor(props: any) {
+  $loadingTimeout: any;
+
+  constructor(props: LocationProps) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.selectGeoLocation = this.selectGeoLocation.bind(this);
@@ -55,6 +61,8 @@ class Location extends Component<LocationProps, LocationState> {
       renderedRows: [],
       count: -1,
       search: null,
+
+      loadingProgress: -1,
     };
     setInterval(() => {
       if (this.state.count < 0) {
@@ -64,13 +72,39 @@ class Location extends Component<LocationProps, LocationState> {
         this.getData();
       }
       // eslint-disable-next-line react/no-access-state-in-setstate
-      this.setState((prevState) => ({
-        count: prevState.count - 1,
-      }));
+      this.setState((prevState) => {
+        return {
+          count: prevState.count - 1,
+        };
+      });
     }, 1000);
   }
 
+  startLoading() {
+    this.setState({ loadingProgress: 100 });
+    this.$loadingTimeout = setInterval(() => {
+      if (this.state.loadingProgress > 0) {
+        this.setState((prevState) => {
+          let { loadingProgress } = prevState;
+          loadingProgress *= 0.99;
+          return {
+            loadingProgress,
+          };
+        });
+      }
+    }, 100);
+  }
+
+  endLoading() {
+    clearInterval(this.$loadingTimeout);
+    this.$loadingTimeout = null;
+    this.setState({
+      loadingProgress: -1,
+    });
+  }
+
   async handleChange(e: any) {
+    this.startLoading();
     this.setState({
       search: e.target.value,
       count: 1,
@@ -90,10 +124,7 @@ class Location extends Component<LocationProps, LocationState> {
 
         // Object.entries(geoLocation).map(([cellTitle, cellContent]: any) => {
         let label = `${geoLocation.city}, ${geoLocation.state}   ${geoLocation.country}`;
-        if (
-            geoLocation.city === geoLocation.state ||
-            geoLocation.city === geoLocation.country
-        ) {
+        if (geoLocation.city === geoLocation.state || geoLocation.city === geoLocation.country) {
           label = `${geoLocation.city},  ${geoLocation.country}`;
         }
         tableRows.push(
@@ -129,15 +160,17 @@ class Location extends Component<LocationProps, LocationState> {
         return <TableRow key={rowKey}>{tableRows}</TableRow>;
       }
     );
+
     this.setState({
       geoLocations,
       renderedRows,
     });
+    this.endLoading();
   }
 
   // @ts-ignore
   async selectGeoLocation(geoLocation) {
-    this.wizardComponent.setState({ geoLocation });
+    this.wizardComponent.setGeoLocation(geoLocation);
     this.wizardComponent.handleNext();
   }
 
@@ -156,30 +189,24 @@ class Location extends Component<LocationProps, LocationState> {
             Roughly where in the world are you?
           </MDTypography>
         </MDBox>
-        <MDBox mt={2}>
+
+        <MDBox>
           <Grid container spacing={3}>
-            {/* <Grid item xs={12} sm={4} container justifyContent="center">
-              <MDBox position="relative" height="max-content" mx="auto">
-                <MDAvatar src={team2} alt="profile picture" size="xxl" variant="rounded" />
-                <MDBox alt="spotify logo" position="absolute" right={0} bottom={0} mr={-1} mb={-1}>
-                  <Tooltip title="Edit" placement="top">
-                    <MDButton variant="gradient" color="info" size="small" iconOnly>
-                      <Icon>edit</Icon>
-                    </MDButton>
-                  </Tooltip>
-                </MDBox>
-              </MDBox>
-            </Grid> */}
-            <Grid item xs={12} sm={8}>
-              <MDBox mb={2}>
+            <Grid item xs={12}>
+              <MDBox>
                 <FormField type="text" label="City" onChange={this.handleChange} />
               </MDBox>
+              {this.state.loadingProgress > 0 && (
+                <MDBox>
+                  <MDProgress value={100 - this.state.loadingProgress} />
+                </MDBox>
+              )}
             </Grid>
           </Grid>
         </MDBox>
-        <MDBox p={2}>
+        <MDBox>
           <Grid container>
-            <Grid item xs={12} md={7} lg={6}>
+            <Grid item xs={12}>
               <TableContainer sx={{ height: "100%", boxShadow: "none" }}>
                 <Table>
                   <TableBody>
@@ -190,73 +217,6 @@ class Location extends Component<LocationProps, LocationState> {
                 </Table>
               </TableContainer>
             </Grid>
-            {/* <Grid item xs={12} md={5} lg={6} sx={{ mt: { xs: 5, lg: 0 } }}>
-              <VectorMap
-                map={worldMerc}
-                zoomOnScroll={false}
-                zoomButtons={false}
-                markersSelectable
-                backgroundColor="transparent"
-                selectedMarkers={["1", "3"]}
-                markers={[
-                  {
-                    name: "USA",
-                    latLng: [40.71296415909766, -74.00437720027804],
-                  },
-                  {
-                    name: "Germany",
-                    latLng: [51.17661451970939, 10.97947735117339],
-                  },
-                  {
-                    name: "Brazil",
-                    latLng: [-7.596735421549542, -54.781694323779185],
-                  },
-                  {
-                    name: "Russia",
-                    latLng: [62.318222797104276, 89.81564777631716],
-                  },
-                  {
-                    name: "China",
-                    latLng: [22.320178999475512, 114.17161225541399],
-                  },
-                ]}
-                regionStyle={{
-                  initial: {
-                    fill: "#dee2e7",
-                    "fill-opacity": 1,
-                    stroke: "none",
-                    "stroke-width": 0,
-                    "stroke-opacity": 0,
-                  },
-                }}
-                markerStyle={{
-                  initial: {
-                    fill: "#e91e63",
-                    stroke: "#ffffff",
-                    "stroke-width": 5,
-                    "stroke-opacity": 0.5,
-                    r: 7,
-                  },
-                  hover: {
-                    fill: "E91E63",
-                    stroke: "#ffffff",
-                    "stroke-width": 5,
-                    "stroke-opacity": 0.5,
-                  },
-                  selected: {
-                    fill: "E91E63",
-                    stroke: "#ffffff",
-                    "stroke-width": 5,
-                    "stroke-opacity": 0.5,
-                  },
-                }}
-                style={{
-                  marginTop: "-1.5rem",
-                }}
-                onRegionTipShow={() => false}
-                onMarkerTipShow={() => false}
-              />
-            </Grid> */}
           </Grid>
         </MDBox>
       </MDBox>

@@ -21,7 +21,8 @@ import Card from "@mui/material/Card";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-
+import { VectorMap } from "@react-jvectormap/core";
+import { worldMerc } from "@react-jvectormap/world";
 // Material Dashboard 2 PRO React TS components
 import MDBox from "components/MDBox";
 import MDTypography from "components/MDTypography";
@@ -47,7 +48,9 @@ export interface HomeWizardState {
   activeStep: number;
   steps: string[];
   geoLocation?: any;
-  crops?: any[]
+  crops?: any[];
+  markers: any[];
+  hideMarkers: boolean;
 }
 class HomeWizard extends Component<HomeWizardProps, HomeWizardState> {
   constructor(props) {
@@ -57,7 +60,9 @@ class HomeWizard extends Component<HomeWizardProps, HomeWizardState> {
     this.state = {
       activeStep: 0,
       steps: getSteps(),
-      crops: []
+      crops: [],
+      markers: [],
+      hideMarkers: false,
     };
   }
 
@@ -86,6 +91,36 @@ class HomeWizard extends Component<HomeWizardProps, HomeWizardState> {
       default:
         return null;
     }
+  }
+
+  getMarkers() {
+    const markers = [
+      /* {
+        name: "USA",
+        latLng: [40.71296415909766, -74.00437720027804],
+      },*/
+    ];
+    if (this.state.geoLocation) {
+      markers.push({
+        name: this.state.geoLocation.city,
+        latLng: [this.state.geoLocation.location[1], this.state.geoLocation.location[0]],
+      });
+    }
+    return markers;
+  }
+
+  async setGeoLocation(geoLocation: any) {
+    this.setState({
+      geoLocation,
+      hideMarkers: true,
+      markers: [],
+    });
+    setTimeout(() => {
+      this.setState({
+        markers: this.getMarkers(),
+        hideMarkers: false,
+      });
+    }, 1);
   }
 
   render() {
@@ -117,10 +152,64 @@ class HomeWizard extends Component<HomeWizardProps, HomeWizardState> {
                     ))}
                   </Stepper>
                 </MDBox>
+                <MDBox height="400Px">
+                  {/*     <Grid container spacing={3}>
+            <Grid item xs={12} sm={8}>
+              <MDBox mb={2}>*/}
+                  {!this.state.hideMarkers && (
+                    <VectorMap
+                      map={worldMerc}
+                      zoomOnScroll={false}
+                      zoomButtons={false}
+                      markersSelectable
+                      backgroundColor="transparent"
+                      selectedMarkers={[]}
+                      markers={this.getMarkers()}
+                      regionStyle={{
+                        initial: {
+                          fill: "#dee2e7",
+                          "fill-opacity": 1,
+                          stroke: "none",
+                          "stroke-width": 0,
+                          "stroke-opacity": 0,
+                        },
+                      }}
+                      markerStyle={{
+                        initial: {
+                          fill: "#e91e63",
+                          stroke: "#ffffff",
+                          "stroke-width": 5,
+                          "stroke-opacity": 0.5,
+                          r: 7,
+                        },
+                        hover: {
+                          fill: "E91E63",
+                          stroke: "#ffffff",
+                          "stroke-width": 5,
+                          "stroke-opacity": 0.5,
+                        },
+                        selected: {
+                          fill: "E91E63",
+                          stroke: "#ffffff",
+                          "stroke-width": 5,
+                          "stroke-opacity": 0.5,
+                        },
+                      }}
+                      style={{
+                        marginTop: "-1.5rem",
+                      }}
+                      onRegionTipShow={() => false}
+                      onMarkerTipShow={() => false}
+                    />
+                  )}
+                  {/* </MDBox>
+            </Grid>
+          </Grid>*/}
+                </MDBox>
                 <MDBox p={2}>
                   <MDBox>
                     {this.getStepContent()}
-                    <MDBox mt={3} width="100%" display="flex" justifyContent="space-between">
+                    {/*<MDBox mt={3} width="100%" display="flex" justifyContent="space-between">
                       {activeStep === 0 ? (
                         <MDBox />
                       ) : (
@@ -135,7 +224,7 @@ class HomeWizard extends Component<HomeWizardProps, HomeWizardState> {
                       >
                         {isLastStep ? "send" : "next"}
                       </MDButton>
-                    </MDBox>
+                    </MDBox>*/}
                   </MDBox>
                 </MDBox>
               </Card>

@@ -35,7 +35,6 @@ import MDButton from "../../../../components/MDButton";
 import HomeWizard from "../../index";
 import { CropService } from "../../../../services/Crop.service";
 
-
 export interface CropWizardComponentProps {
   wizardComponent: HomeWizard;
 }
@@ -60,7 +59,7 @@ class CropWizardComponent extends Component<CropWizardComponentProps, CropWizard
       search: null,
     };
     this.getData();
-   /* setInterval(() => {
+    /* setInterval(() => {
       if (this.state.count < 0) {
         return;
       }
@@ -82,37 +81,33 @@ class CropWizardComponent extends Component<CropWizardComponentProps, CropWizard
   }
 
   async getData() {
-    const crops = await CropService.listCropSpecies({ });
+    const crops = await CropService.listCropSpecies({});
 
     this.setState({
-      crops
+      crops,
     });
   }
 
   // @ts-ignore
   async selectCrop(geoLocation) {
-    console.log("SELECTED GEO: ", geoLocation);
     this.wizardComponent.handleNext();
   }
 
   render() {
-    const {  crops } = this.state;
+    const { crops } = this.state;
     const renderedRows = crops
-        .filter((crop) => {
-          if (
-              !this.state.search ||
-              this.state.search.length === 0
-          ) {
-            return true;
-          }
-          return crop.name.indexOf(this.state.search) !== -1;
-        })
-        .map((crop: any, key: any) => {
-      const tableRows: any = [];
-      const rowKey = `row-${key}`;
+      .filter((crop) => {
+        if (!this.state.search || this.state.search.length === 0) {
+          return true;
+        }
+        return crop.name.indexOf(this.state.search) !== -1;
+      })
+      .map((crop: any, key: any) => {
+        const tableRows: any = [];
+        const rowKey = `row-${key}`;
 
-      // Object.entries(geoLocation).map(([cellTitle, cellContent]: any) => {
-      tableRows.push(
+        // Object.entries(geoLocation).map(([cellTitle, cellContent]: any) => {
+        tableRows.push(
           <TableCell align="left" width="30%">
             <MDBox display="flex" alignItems="center" width="max-content">
               <MDBox display="flex" flexDirection="column" ml={3}>
@@ -122,30 +117,33 @@ class CropWizardComponent extends Component<CropWizardComponentProps, CropWizard
               </MDBox>
             </MDBox>
           </TableCell>
-      );
-      tableRows.push(
+        );
+        tableRows.push(
           <TableCell align="left" width="30%">
             <MDBox display="flex" alignItems="center" width="max-content">
               <MDBox display="flex" flexDirection="column" ml={3}>
-                <Switch onChange={((event) => {
-                  const selectedCrops = this.wizardComponent.state.crops.filter((c) => crop._id !== c._id );
-                  if (event.target.checked) {
-                    selectedCrops.push(crop);
-                  }
-                  console.log("selectedCrops: ", selectedCrops);
-                  this.wizardComponent.setState({
-                    crops: selectedCrops
-                  })
-                })}/>
+                <Switch
+                  onChange={(event) => {
+                    const selectedCrops = this.wizardComponent.state.crops.filter(
+                      (c) => crop._id !== c._id
+                    );
+                    if (event.target.checked) {
+                      selectedCrops.push(crop);
+                    }
+                    this.wizardComponent.setState({
+                      crops: selectedCrops,
+                    });
+                  }}
+                />
               </MDBox>
             </MDBox>
           </TableCell>
-      );
+        );
 
-      // });
+        // });
 
-      return <TableRow key={rowKey}>{tableRows}</TableRow>;
-    });
+        return <TableRow key={rowKey}>{tableRows}</TableRow>;
+      });
     return (
       <MDBox>
         <MDBox width="82%" textAlign="center" mx="auto" my={4}>
@@ -172,16 +170,16 @@ class CropWizardComponent extends Component<CropWizardComponentProps, CropWizard
                 </MDBox>
               </MDBox>
             </Grid> */}
-            <Grid item xs={12} sm={8}>
-              <MDBox mb={2}>
+            <Grid item xs={12}>
+              <MDBox>
                 <FormField type="text" label="Crops" onChange={this.handleChange} />
               </MDBox>
             </Grid>
           </Grid>
         </MDBox>
-        <MDBox p={2}>
+        <MDBox>
           <Grid container>
-            <Grid item xs={12} md={7} lg={6}>
+            <Grid item xs={12}>
               <TableContainer sx={{ height: "100%", boxShadow: "none" }}>
                 <Table>
                   <TableBody>
@@ -193,6 +191,30 @@ class CropWizardComponent extends Component<CropWizardComponentProps, CropWizard
               </TableContainer>
             </Grid>
           </Grid>
+        </MDBox>
+        <MDBox
+          color="dark"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          width="3.25rem"
+          height="3.25rem"
+          bgColor="white"
+          shadow="sm"
+          borderRadius="50%"
+          position="fixed"
+          right="2rem"
+          bottom="2rem"
+          zIndex={99}
+          sx={{ cursor: "pointer" }}
+        >
+          <MDButton
+            variant="gradient"
+            color="dark"
+            onClick={() => this.wizardComponent.handleNext()}
+          >
+            Next
+          </MDButton>
         </MDBox>
       </MDBox>
     );

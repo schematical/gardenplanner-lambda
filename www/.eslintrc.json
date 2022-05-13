@@ -36,7 +36,10 @@
     "arrow-body-style": "off",
     "no-underscore-dangle": "off",
     "react/no-unused-state": "warn",
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    "spaced-comment": "off",
+    "react/no-unused-class-component-methods": "off",
+    "react/sort-comp": "off"
   },
   "settings": {
     "import/resolver": {

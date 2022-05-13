@@ -28,6 +28,7 @@ import FormField from "layouts/applications/wizard/components/FormField";
 import Timeline, { TimelineHeaders, SidebarHeader, DateHeader } from "react-calendar-timeline";
 // make sure you include the timeline stylesheet or the timeline will not be styled
 import "react-calendar-timeline/lib/Timeline.css";
+import "./index.css";
 import moment from "moment";
 import { Component, useMemo } from "react";
 import TableRow from "@mui/material/TableRow";
@@ -36,12 +37,11 @@ import MDButton from "../../../../components/MDButton";
 import HomeWizard from "../../index";
 import { CropService } from "../../../../services/Crop.service";
 
-
 export interface CropsSpeciesDataTableComponentProps {
   wizardComponent: HomeWizard;
 }
 export interface CropsSpeciesDataTableComponentState {
-  cropSpeciesDatas?: any[]
+  cropSpeciesDatas?: any[];
 }
 class CropsSpeciesDataTableComponent extends Component<
   CropsSpeciesDataTableComponentProps,
@@ -56,7 +56,7 @@ class CropsSpeciesDataTableComponent extends Component<
     this.onCanvasClick = this.onCanvasClick.bind(this);
     this.wizardComponent = props.wizardComponent;
     this.state = {
-      cropSpeciesDatas: []
+      cropSpeciesDatas: [],
     };
     this.getData();
   }
@@ -65,7 +65,7 @@ class CropsSpeciesDataTableComponent extends Component<
     console.log(e);
   }
 
-  async onCanvasClick(groupId, time, e){
+  async onCanvasClick(groupId, time, e) {
     console.log("groupId, time, e", groupId, time, e);
   }
 
@@ -77,13 +77,12 @@ class CropsSpeciesDataTableComponent extends Component<
     }
     const cropSpeciesDatas: any[] = await CropService.getCropSpecieDataByGeoLocation({
       geoLocationId: this.wizardComponent.state.geoLocation._id,
-      cropSpeciesIds: this.wizardComponent.state.crops.map((c) => c._id)
+      cropSpeciesIds: this.wizardComponent.state.crops.map((c) => c._id),
     });
     this.setState({
-      cropSpeciesDatas
+      cropSpeciesDatas,
     });
   }
-
 
   async selectCrop(geoLocation) {
     console.log("SELECTED GEO: ", geoLocation);
@@ -91,15 +90,10 @@ class CropsSpeciesDataTableComponent extends Component<
   }
 
   groupRenderer({ group }) {
-    return (
-        <div className="custom-group">
-          {group.title}
-        </div>
-    )
+    return <div className="custom-group">{group.title}</div>;
   }
 
   render() {
-
     const groups = [];
     const items = [];
     this.state.cropSpeciesDatas.forEach((cropSpeciesData, i) => {
@@ -109,18 +103,22 @@ class CropsSpeciesDataTableComponent extends Component<
         title: cropSpeciesData.cropSpecies.name,
       });
       items.push({
-        id: `${cropSpeciesData.cropSpecies._id  }_plant`,
+        id: `${cropSpeciesData.cropSpecies._id}_plant`,
         group: cropSpeciesData.cropSpecies._id,
         title: "Plant",
         start_time: moment().month(cropSpeciesData.earlyStartMonth),
-        end_time: moment().month(cropSpeciesData.lateStartMonth) // .add(0.5, "month"),
+        end_time: moment().month(cropSpeciesData.lateStartMonth), // .add(0.5, "month"),
       });
       items.push({
-        id: `${cropSpeciesData.cropSpecies._id  }_harvest`,
+        id: `${cropSpeciesData.cropSpecies._id}_harvest`,
         group: cropSpeciesData.cropSpecies._id,
         title: "Harvest",
-        start_time: moment().month(cropSpeciesData.lateStartMonth).add(cropSpeciesData.cropSpecies.harvestDayMin, 'day'),
-        end_time: moment().month(cropSpeciesData.lateStartMonth).add(cropSpeciesData.cropSpecies.harvestDayMax, 'day'),
+        start_time: moment()
+          .month(cropSpeciesData.lateStartMonth)
+          .add(cropSpeciesData.cropSpecies.harvestDayMin, "day"),
+        end_time: moment()
+          .month(cropSpeciesData.lateStartMonth)
+          .add(cropSpeciesData.cropSpecies.harvestDayMax, "day"),
       });
     });
 
@@ -137,8 +135,7 @@ class CropsSpeciesDataTableComponent extends Component<
           </MDTypography> */}
         </MDBox>
         <MDBox mt={2}>
-          {
-            this.state.cropSpeciesDatas.length > 0 &&
+          {this.state.cropSpeciesDatas.length > 0 && (
             <Timeline
               groups={groups}
               items={items}
@@ -159,7 +156,7 @@ class CropsSpeciesDataTableComponent extends Component<
                 <DateHeader />
               </TimelineHeaders>
             </Timeline>
-          }
+          )}
         </MDBox>
         <MDBox width="82%" textAlign="center" mx="auto" my={4}>
           {/* <MDBox mb={1}>
@@ -173,16 +170,12 @@ class CropsSpeciesDataTableComponent extends Component<
         </MDBox>
         <MDBox width="82%" textAlign="center" mx="auto" my={4}>
           <MDBox textAlign="center">
-            <FormField type="email" label="Email"  InputLabelProps={{ shrink: true }} />
+            <FormField type="email" label="Email" InputLabelProps={{ shrink: true }} />
           </MDBox>
         </MDBox>
         <MDBox width="82%" textAlign="center" mx="auto" my={4}>
           <MDBox textAlign="center">
-            <MDButton
-                color="info"
-            >
-              Get Reminders
-            </MDButton>
+            <MDButton color="info">Get Reminders</MDButton>
           </MDBox>
         </MDBox>
       </MDBox>
