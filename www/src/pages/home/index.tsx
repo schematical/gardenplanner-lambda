@@ -32,7 +32,10 @@ import MDButton from "components/MDButton";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
+import CoverLayout from "layouts/authentication/components/CoverLayout";
 
+// Images
+import bgImage from "assets/images/sunflower.jpg";
 // Wizard page components
 import Location from "pages/home/components/Location";
 import Account from "layouts/applications/wizard/components/Account";
@@ -105,6 +108,15 @@ class HomeWizard extends Component<HomeWizardProps, HomeWizardState> {
         name: this.state.geoLocation.city,
         latLng: [this.state.geoLocation.location[1], this.state.geoLocation.location[0]],
       });
+      if (this.state.geoLocation.nearestMatchGeoLocation) {
+        markers.push({
+          name: this.state.geoLocation.city,
+          latLng: [
+            this.state.geoLocation.nearestMatchGeoLocation.location[1],
+            this.state.geoLocation.nearestMatchGeoLocationlocation[0],
+          ],
+        });
+      }
     }
     return markers;
   }
@@ -127,18 +139,18 @@ class HomeWizard extends Component<HomeWizardProps, HomeWizardState> {
     const { activeStep, steps } = this.state as any;
     const isLastStep: boolean = activeStep === steps.length - 1;
     return (
-      <DashboardLayout>
-        <DashboardNavbar />
+      <CoverLayout image={bgImage}>
+        {/*<DashboardNavbar />*/}
         <MDBox pt={3} pb={8}>
           <Grid container justifyContent="center" sx={{ my: 4 }}>
             <Grid item xs={12} lg={8}>
               <MDBox mt={6} mb={8} textAlign="center">
                 <MDBox mb={1}>
-                  <MDTypography variant="h3" fontWeight="bold">
+                  <MDTypography variant="h3" fontWeight="bold" color="white">
                     Build Your Profile
                   </MDTypography>
                 </MDBox>
-                <MDTypography variant="h5" fontWeight="regular" color="secondary">
+                <MDTypography variant="h5" fontWeight="regular" color="white">
                   This information will let us know more about you.
                 </MDTypography>
               </MDBox>
@@ -232,7 +244,7 @@ class HomeWizard extends Component<HomeWizardProps, HomeWizardState> {
           </Grid>
         </MDBox>
         <Footer />
-      </DashboardLayout>
+      </CoverLayout>
     );
   }
 }

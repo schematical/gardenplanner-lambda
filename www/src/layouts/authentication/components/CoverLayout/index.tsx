@@ -42,7 +42,7 @@ interface Props {
 function CoverLayout({ coverHeight, image, children }: Props): JSX.Element {
   return (
     <PageLayout>
-      <DefaultNavbar
+      {/*<DefaultNavbar
         routes={pageRoutes}
         action={{
           type: "external",
@@ -52,7 +52,7 @@ function CoverLayout({ coverHeight, image, children }: Props): JSX.Element {
         }}
         transparent
         light
-      />
+      />*/}
       <MDBox
         width="calc(100% - 2rem)"
         minHeight={coverHeight}
@@ -76,14 +76,14 @@ function CoverLayout({ coverHeight, image, children }: Props): JSX.Element {
           backgroundRepeat: "no-repeat",
         }}
       />
-      <MDBox mt={{ xs: -20, lg: -18 }} px={1} width="calc(100% - 2rem)" mx="auto">
+      <MDBox mt={{ xs: -34, lg: -30 }} px={1} mx="auto">
         <Grid container spacing={1} justifyContent="center">
-          <Grid item xs={11} sm={9} md={5} lg={4} xl={3}>
+          <Grid item xs={12} sm={8} md={8} lg={8} xl={8}>
             {children}
           </Grid>
         </Grid>
       </MDBox>
-      <Footer />
+      {/*   <Footer />*/}
     </PageLayout>
   );
 }

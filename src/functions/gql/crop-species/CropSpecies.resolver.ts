@@ -14,6 +14,7 @@ import {
   CropSpecies,
   CropSpeciesCreateInput,
   CropSpeciesFilterInput,
+  CropSpeciesImportKCalResponse,
   CropSpeciesUpdateInput,
 } from "./CropSpecies.entity";
 import { CropSpeciesService } from "./CropSpecies.service";
@@ -25,6 +26,7 @@ import {
   GeoLocation,
   GeoLocationFilterInput,
 } from "@functions/gql/geo-location/GeoLocation.entity";
+import { GraphQLJSONObject } from "graphql-type-json";
 @Service()
 @Resolver(() => CropSpecies)
 export class CropSpeciesResolver extends BaseResolver(
@@ -35,7 +37,7 @@ export class CropSpeciesResolver extends BaseResolver(
   CropSpeciesUpdateInput
 ) {
   @Inject("CropSpeciesService")
-  private cropSpeciesService;
+  private cropSpeciesService: CropSpeciesService;
   constructor() {
     super();
   }
@@ -63,7 +65,7 @@ export class CropSpeciesResolver extends BaseResolver(
     if (query.name) {
       query.name = { $regex: new RegExp(`^${query.name}`, "i") };
     } else {
-      delete(query.name);
+      delete query.name;
     }
     console.log(query);
     return this.cropSpeciesService.find(query);
@@ -74,6 +76,14 @@ export class CropSpeciesResolver extends BaseResolver(
   })
   importTest() {
     return this.cropSpeciesService.importTest();
+  }
+  @Query(() => [CropSpecies])
+  importCal() {
+    return this.cropSpeciesService.importCal();
+  }
+  @Query(() => CropSpeciesImportKCalResponse)
+  importOneKCal() {
+    return this.cropSpeciesService.importOneKCal();
   }
   @FieldResolver(() => [CropSpecies])
   async compatibleCropSpecies(
@@ -110,6 +120,18 @@ export class CropSpeciesResolver extends BaseResolver(
       cropSpecies.avoidCropSpecieIds
     );
     return avoidCropSpecies;
+  }
+
+  @FieldResolver(() => GraphQLJSONObject, { nullable: true })
+  async nutrition(
+    @Root() cropSpecies: HydratedDocument<CropSpecies>,
+    @Ctx() ctx
+  ): Promise<any> {
+    const dataLoader =
+      this.cropSpeciesService.testPopulateNutritionDataLoader(ctx);
+    const foodData = await dataLoader.load(cropSpecies);
+    console.log("{ foodData }", { foodData });
+    return { foodData };
   }
 
   /*

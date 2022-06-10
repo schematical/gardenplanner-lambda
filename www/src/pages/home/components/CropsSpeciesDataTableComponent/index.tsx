@@ -36,6 +36,8 @@ import Switch from "@mui/material/Switch";
 import MDButton from "../../../../components/MDButton";
 import HomeWizard from "../../index";
 import { CropService } from "../../../../services/Crop.service";
+import TimelineList from "../../../../examples/Timeline/TimelineList";
+import TimelineItem from "../../../../examples/Timeline/TimelineItem";
 
 export interface CropsSpeciesDataTableComponentProps {
   wizardComponent: HomeWizard;
@@ -158,6 +160,9 @@ class CropsSpeciesDataTableComponent extends Component<
             </Timeline>
           )}
         </MDBox>
+        <MDBox>
+          <TimelineList title="Coming up">{this.renderTimeline()}</TimelineList>
+        </MDBox>
         <MDBox width="82%" textAlign="center" mx="auto" my={4}>
           {/* <MDBox mb={1}>
             <MDTypography variant="h5" fontWeight="regular">
@@ -180,6 +185,46 @@ class CropsSpeciesDataTableComponent extends Component<
         </MDBox>
       </MDBox>
     );
+  }
+
+  renderTimeline() {
+    const tasks = [];
+    this.state.cropSpeciesDatas.forEach((cropSpeciesData, i) => {
+      const startMonth = moment().month(cropSpeciesData.earlyStartMonth);
+
+      const color = "success";
+      tasks.push(
+        <TimelineItem
+          key={cropSpeciesData.cropSpecies.id}
+          color={color}
+          icon="notifications"
+          title={cropSpeciesData.cropSpecies.name}
+          dateTime={startMonth.format("MMMM YYYY" /*"MMMM Do YYYY"*/)}
+          description={`Plant ${cropSpeciesData.cropSpecies.name}`}
+          lastItem={i === this.state.cropSpeciesDatas.length - 1}
+        />
+      );
+
+      const harvestStart = moment()
+        .month(cropSpeciesData.lateStartMonth)
+        .add(cropSpeciesData.cropSpecies.harvestDayMin, "day");
+      const harvestEnd = moment()
+        .month(cropSpeciesData.lateStartMonth)
+        .add(cropSpeciesData.cropSpecies.harvestDayMax, "day");
+
+      tasks.push(
+        <TimelineItem
+          key={cropSpeciesData.cropSpecies.id}
+          color="warning"
+          icon="notifications"
+          title={cropSpeciesData.cropSpecies.name}
+          dateTime={harvestStart.format("MMMM YYYY")}
+          description={`Harvest ${cropSpeciesData.cropSpecies.name}`}
+          lastItem={i === this.state.cropSpeciesDatas.length - 1}
+        />
+      );
+    });
+    return tasks;
   }
 }
 

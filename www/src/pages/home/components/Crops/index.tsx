@@ -177,6 +177,22 @@ class CropWizardComponent extends Component<CropWizardComponentProps, CropWizard
             </Grid>
           </Grid>
         </MDBox>
+        <MDBox mt={3} width="100%" display="flex" justifyContent="space-between">
+          <MDButton
+            variant="gradient"
+            color="dark"
+            onClick={() => this.wizardComponent.handleBack()}
+          >
+            Back
+          </MDButton>
+          <MDButton
+            variant="gradient"
+            color="dark"
+            onClick={() => this.wizardComponent.handleNext()}
+          >
+            Next
+          </MDButton>
+        </MDBox>
         <MDBox>
           <Grid container>
             <Grid item xs={12}>
@@ -191,6 +207,22 @@ class CropWizardComponent extends Component<CropWizardComponentProps, CropWizard
               </TableContainer>
             </Grid>
           </Grid>
+        </MDBox>
+        <MDBox mt={3} width="100%" display="flex" justifyContent="space-between">
+          <MDButton
+            variant="gradient"
+            color="dark"
+            onClick={() => this.wizardComponent.handleBack()}
+          >
+            Back
+          </MDButton>
+          <MDButton
+            variant="gradient"
+            color="dark"
+            onClick={() => this.wizardComponent.handleNext()}
+          >
+            Next
+          </MDButton>
         </MDBox>
         <MDBox
           color="dark"
